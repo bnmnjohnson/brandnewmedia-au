@@ -11,6 +11,13 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, content
             title: 'Home'
         })
 
+        .state('Case Story', {
+        url: '/case-story',
+        controller: 'ExampleCtrl as home',
+        templateUrl: 'case-story.html',
+        title: 'Case Story'
+    })
+
     .state('Company', {
         url: '/company',
         controller: 'ExampleCtrl as home',
