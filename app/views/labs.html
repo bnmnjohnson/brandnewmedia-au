@@ -1,0 +1,11 @@
+<div class="medium-8 columns">
+    <!-- use an Angular expression -->
+    <ul contentful-entries>
+        <li ng-repeat="entry in $contentfulEntries.items">
+            {{ entry.fields.name }}
+        </li>
+    </ul>
+    <pre contentful-entry="'6KntaYXaHSyIw8M6eo26OK'">
+  {{ $contentfulEntry | json }}
+</pre>
+</div>
