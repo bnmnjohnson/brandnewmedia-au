@@ -1,19 +1,75 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-      <base href="/">
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title ng-bind="pageTitle"></title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width">
 
-      <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title ng-bind="pageTitle"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/main.css">
+</head>
 
-      <div ui-view></div>
-      <script language="JavaScript" type="text/javascript" src="js/all.js"></script>
-      <script src="js/main.js"></script>
-  </body>
+<body>
+  <div class="main">
+  <!-- Nav -->
+    <!-- Logo -->
+    <!-- Menu -->
+    <div class="row">
+        <div class="small-12 columns no-pad">
+            <ul>
+                <li><a href="/"> Work </a> </li>
+                <li><a href="/company"> Company </a></li>
+                <li><a href="/people"> People </a></li>
+                <li><a href="/labs"> Labs </a></li>
+                <li><a href="/contact"> Contact </a></li>
+                <li><a href="/contact"> Search </a></li>
+            </ul>
+        </div>
+    </div>
+    <div ui-view></div>
+    <!-- Footer -->
+    <div class="row">
+        <div class="large-3 columns no-pad">
+            <ul>
+                <li class="hide-for-large"><a href="#"> Newsletter </a> </li>
+                <li class=""><a href="#"> Contact </a> </li>
+            </ul>
+        </div>
+        <div class="large-3 columns no-pad show-for-medium show-for-large">
+            <ul>
+                <li class=""><a href="#"> Sydney </a> </li>
+                <li class=""><a href="#"> Melbourne </a> </li>
+                <li class=""><a href="#"> Brisbane </a> </li>
+                <li class=""><a href="#"> Philipines </a> </li>
+            </ul>
+        </div>
+        <div class="large-3 columns no-pad show-for-medium show-for-large">
+            <ul>
+                <li class=""><a href="#"> Singapore </a> </li>
+                <li class=""><a href="#"> USA </a> </li>
+                <li class=""><a href="#"> Canada </a> </li>
+                <li class=""><a href="#"> Germany </a> </li>
+            </ul>
+        </div>
+        <div class="small-12 large-3 columns no-pad">
+            <ul>
+                <li><a href="/people"> Facebook </a></li>
+                <li><a href="/labs"> Twitter </a></li>
+                <li><a href="/contact"> Linkedin </a></li>
+                <li><a href="/contact"> Google+ </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row no-pad">
+      <div class=""> 
+        <small> © 2016 Brand New Media. All rights reserved. Privacy Policy. Terms and Conditions. </small>
+      </div>
+    </div>
+    <script language="JavaScript" type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/5fd4b51a-759b-4ed1-a4a1-003bba1f33e2.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
 </html>

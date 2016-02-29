@@ -1,4 +1,21 @@
+@import 'partials/reset';
 @import 'partials/foundation';
 @import 'partials/vars';
+@import 'partials/fonts';
 @import 'partials/typography';
+@import 'partials/grid';
 
+
+body {
+    background: $black;
+    color: $white;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $avenir-medium;
+}
+
+.gifs {
+    width: 100%;
+}
