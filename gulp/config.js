@@ -9,7 +9,7 @@ export default {
   buildDir: './build/',
 
   styles: {
-    src: 'app/styles/**/*.scss',
+    src: 'app/sass/**/*.scss',
     dest: 'build/css',
     prodSourcemap: false,
     sassIncludePaths: []
