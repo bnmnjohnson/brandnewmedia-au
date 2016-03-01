@@ -1,13 +1,13 @@
-function OnRun($rootScope, AppSettings) {
+function OnRun($rootScope, $route, AppSettings) {
   'ngInject';
 
-  // change page title based on state
-  $rootScope.$on('$stateChangeSuccess', (event, toState) => {
+  // change page title based on route
+  $rootScope.$on('$routeChangeSuccess', (event, currentRoute, toState) => {
     $rootScope.pageTitle = '';
 
-    if ( toState.title ) {
-      $rootScope.pageTitle += toState.title;
-      $rootScope.pageTitle += ' \u2014 ';
+    if ( $route.current.title ) {
+      $rootScope.pageTitle += $route.current.title;
+      $rootScope.pageTitle += ' \u007C ';
     }
 
     $rootScope.pageTitle += AppSettings.appTitle;
