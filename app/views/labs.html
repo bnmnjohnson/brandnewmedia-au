@@ -1,13 +1,15 @@
-
-<div class="medium-8 columns">
-    <h2> Labs page </h2>
-    <!-- use an Angular expression -->
-    <ul contentful-entries>
-        <li ng-repeat="entry in $contentfulEntries.items">
-            {{ entry.fields.name }}
-        </li>
-    </ul>
-    <pre contentful-entry="'6KntaYXaHSyIw8M6eo26OK'">
-  {{ $contentfulEntry | json }}
-</pre>
+<div class="row">
+    <div class="medium-6 columns">
+        <h2> Labs page </h2>
+        <!-- use an Angular expression -->
+        <div contentful-entries>
+            <a href="labs/{{ entry.fields.uniqueUrl }}" ng-repeat="entry in $contentfulEntries.items" ngClick="viewPost()">
+                <img ng-src="{{ entry.fields.featuredImage.fields.file.url }}" alt="" />
+                <h1> {{ entry.fields.title }}</h1>
+                <p> {{entry.sys.id}} </p>
+                <p> Lab Description: {{ entry.fields.slug }}</p>
+                <span ng-repeat="tag in entry.fields.tags"> #{{tag}} </span>
+            </a>
+        </div>
+    </div>
 </div>

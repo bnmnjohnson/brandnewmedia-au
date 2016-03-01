@@ -19,7 +19,7 @@ body {
 .wbody {
     background-color: $white;
     color: $black;
-    p {
+    p, li, a {
         color: $black;
     }
 }
@@ -29,6 +29,6 @@ body {
 }
 
 nav {
-    position: fixed;
+    // position: fixed;
 }
 

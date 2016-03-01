@@ -1,9 +1,13 @@
-function LabsCtrl($rootScope, WhiteBackground) {
+function LabsCtrl($rootScope, WhiteBackground, LabsService, contentful) {
+
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
+
+
+
 }
 
-LabsCtrl.$inject = ["$rootScope", "WhiteBackground"];
+LabsCtrl.$inject = ["$rootScope", "WhiteBackground", "contentful", "LabsService"];
 
 export default {
     name: 'LabsCtrl',

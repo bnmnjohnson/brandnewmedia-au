@@ -1,0 +1,14 @@
+<div contentful-entry="'sys.id=5b5cUzLQk8eGMmScSyyaOw'">
+    <div class="row">
+        <div class="medium-12 columns">
+            <img src="{{ $contentfulEntry.fields.featuredImage.fields.file.url }}" alt="" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns">
+            <h1> {{ $contentfulEntry.fields.title }}</h1>
+            <p> {{ $contentfulEntry.fields.body }}</p>
+            <span ng-repeat="tag in $contentfulEntry.fields.tags"> #{{tag}} </span>
+        </div>
+    </div>
+</div>

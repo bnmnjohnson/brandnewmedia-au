@@ -33,6 +33,12 @@ function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
         title: 'Labs'
     })
 
+    .when('/labs/:labId', {
+        templateUrl: 'lab-post.html',
+        controller: 'PostCtrl',
+        title: 'Labs'
+    })
+
     .when('/contact', {
         templateUrl: 'contact.html',
         controller: 'ContactCtrl',
@@ -44,8 +50,8 @@ function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
     });
 
     contentfulProvider.setOptions({
-        space: 'cfexampleapi',
-        accessToken: 'b4c0n73n7fu1'
+        accessToken: '37ea751bb3db1bc93d472306ef11cc1e648ef8d3992be8213b6691dc2a6aa067',
+        space: 'c3gv6lh5al82'
     });
 
 }
