@@ -1,58 +1,52 @@
-function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, contentfulProvider) {
+function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
     'ngInject';
 
     $locationProvider.html5Mode(true);
 
-    $stateProvider
-        .state('Work', {
-            url: '/',
-            controller: 'ExampleCtrl as home',
-            templateUrl: 'home.html',
-            title: 'Home'
-        })
-
-        .state('Case Story', {
-        url: '/case-story',
-        controller: 'ExampleCtrl as home',
-        templateUrl: 'case-story.html',
-        title: 'Case Story'
+    $routeProvider.when('/', {
+        templateUrl: 'home.html',
+        controller: 'HomeCtrl',
+        title: 'Home'
     })
 
-    .state('Company', {
-        url: '/company',
-        controller: 'ExampleCtrl as home',
+    .when('/company', {
         templateUrl: 'company.html',
+        controller: 'CompanyCtrl',
         title: 'Company'
     })
 
-    .state('People', {
-        url: '/people',
-        controller: 'ExampleCtrl as home',
+    .when('/case-story', {
+        templateUrl: 'case-story.html',
+        controller: 'CaseCtrl',
+        title: 'Case Story'
+    })
+
+    .when('/people', {
         templateUrl: 'people.html',
+        controller: 'PeopleCtrl',
         title: 'People'
     })
 
-    .state('Labs', {
-        url: '/labs',
-        controller: 'ExampleCtrl as home',
+    .when('/labs', {
         templateUrl: 'labs.html',
+        controller: 'LabsCtrl',
         title: 'Labs'
     })
 
-    .state('Contact', {
-        url: '/contact',
-        controller: 'ExampleCtrl as home',
+    .when('/contact', {
         templateUrl: 'contact.html',
+        controller: 'ContactCtrl',
         title: 'Contact'
     })
 
+    .otherwise({
+        redirectTo: '/'
+    });
 
-    $urlRouterProvider.otherwise('/');
-    
     contentfulProvider.setOptions({
         space: 'cfexampleapi',
         accessToken: 'b4c0n73n7fu1'
-      });
+    });
 
 }
 

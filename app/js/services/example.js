@@ -21,3 +21,5 @@ export default {
   name: 'ExampleService',
   fn: ExampleService
 };
+
+
