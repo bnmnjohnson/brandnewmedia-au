@@ -4,44 +4,44 @@ function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider.when('/', {
-        templateUrl: 'home.html',
-        controller: 'HomeCtrl as home',
+        templateUrl: 'home.tpl.html',
+        controller: 'HomeCtrl as vm',
         title: 'Home'
     })
 
     .when('/company', {
-        templateUrl: 'company.html',
-        controller: 'CompanyCtrl as company',
+        templateUrl: 'company.tpl.html',
+        controller: 'CompanyCtrl as vm',
         title: 'Company'
     })
 
     .when('/case-story', {
-        templateUrl: 'case-story.html',
-        controller: 'CaseCtrl as case',
+        templateUrl: 'case-story.tpl.html',
+        controller: 'CaseCtrl as vm',
         title: 'Case Story'
     })
 
     .when('/people', {
-        templateUrl: 'people.html',
-        controller: 'PeopleCtrl as people',
+        templateUrl: 'people.tpl.html',
+        controller: 'PeopleCtrl as vm',
         title: 'People'
     })
 
     .when('/labs', {
-        templateUrl: 'labs.html',
-        controller: 'LabsCtrl as labs',
+        templateUrl: 'labs.tpl.html',
+        controller: 'LabsCtrl as vm',
         title: 'Labs'
     })
 
-    .when('/labs/:labId', {
-        templateUrl: 'lab-post.html',
-        controller: 'PostCtrl as post',
+    .when('/labs/:id/:title', {
+        templateUrl: 'lab-post.tpl.html',
+        controller: 'PostCtrl as vm',
         title: 'Labs'
     })
 
     .when('/contact', {
-        templateUrl: 'contact.html',
-        controller: 'ContactCtrl as contact',
+        templateUrl: 'contact.tpl.html',
+        controller: 'ContactCtrl as vm',
         title: 'Contact'
     })
 
