@@ -2,7 +2,7 @@ function MetadataService() {
 
     var title,
         description,
-        defaultTitle = '%DEFAULT_TITLE%',
+        defaultTitle = '%%DEFAULT_TITLE%%',
         defaultDescription = '%DEFAULT_DESCRIPTION%';
 
     this.setMetadata = function(metadata) {

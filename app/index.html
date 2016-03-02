@@ -2,16 +2,39 @@
 <html class="no-js">
 
 <head>
-    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title ng-bind="pageTitle"></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <base href="/">
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+    <!-- metadata -->
+    <title ng-bind="meta.title">%DEFAULT_TITLE%</title>
+    <meta name="description" content="%DEFAULT_DESCRIPTION%" ng-if="false">
+    <meta name="description" content="{{ meta.description | stripHtmlTags }}">
+    <meta name="author" content="Brand New Media">
+    <!-- Twitter summary card metadata. One day this might be crawled... -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@BNM_Global" />
+    <meta property="twitter:title" content="{{ meta.title }}" />
+    <meta property="twitter:description" content="{{ meta.description | stripHtmlTags }}" />
+    <meta property="twitter:image" content="{{ meta.image }}" />
+    <meta property="twitter:url" content="{{ meta.url }}" />
+    <!-- open graph metadata. One day this might be crawled... -->
+    <meta property="og:title" content="{{ meta.title }}" />
+    <meta property="og:site_name " content="Brand New Media" />
+    <meta property="og:url " content="{{ meta.url }}" />
+    <meta property="og:description" content="{{ meta.description | stripHtmlTags }}" />
+    <meta property="og:image" content="{{ meta.image }}" />
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="{{bodyclass}}">
+<body class="{{bodyclass}}" ng-controller="AppCtrl as vm">
     <div class="main">
         <!-- Nav -->
         <!-- Logo -->
@@ -70,6 +93,9 @@
                 <small> © 2016 Brand New Media. All rights reserved. Privacy Policy. Terms and Conditions. </small>
             </div>
         </div>
+        <script> 
+            // Google Analytics code here
+        </script>
         <script language="JavaScript" type="text/javascript" src="js/all.js"></script>
         <script type="text/javascript" src="http://fast.fonts.net/jsapi/5fd4b51a-759b-4ed1-a4a1-003bba1f33e2.js"></script>
         <script src="js/main.js"></script>
