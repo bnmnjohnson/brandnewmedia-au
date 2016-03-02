@@ -1,14 +1,23 @@
-<div contentful-entry="'sys.id=5b5cUzLQk8eGMmScSyyaOw'">
+<div ng-repeat="entry in entries.items">
     <div class="row">
-        <div class="medium-12 columns">
-            <img src="{{ $contentfulEntry.fields.featuredImage.fields.file.url }}" alt="" />
+        <div class="medium-12 columns no-pad">
+            <img src="{{ entry.fields.featuredImage.fields.file.url }}" alt="" />
         </div>
     </div>
     <div class="row">
-        <div class="medium-12 columns">
-            <h1> {{ $contentfulEntry.fields.title }}</h1>
-            <p> {{ $contentfulEntry.fields.body }}</p>
-            <span ng-repeat="tag in $contentfulEntry.fields.tags"> #{{tag}} </span>
+        <div class="medium-12 columns no-pad">
+            <h1> {{entry.fields.title}} </h1>
+            <p> {{entry.sys.createdAt | date:'mediumDate'}} </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns no-pad">
+            <p> {{entry.fields.body}} </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns no-pad">
+            <span ng-repeat="tag in entry.fields.tags"> #{{tag}} </span>
         </div>
     </div>
 </div>

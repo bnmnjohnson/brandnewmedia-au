@@ -1,11 +1,12 @@
 <div class="row no-pad">
     <h2> People page </h2>
 </div>
-<input type="text" ng-model="peopleSearch" placeholder="search query" />
+<!-- <input type="text" ng-model="peopleSearch" placeholder="search query" /> -->
 
-<div ng-repeat="person in people | filter: peopleSearch">
+
+<div ng-repeat="person in people.team | filter: peopleSearch">
     <img src="{{person.image}}"/>
-    <p>{{person.firstname}} {{person.lastname}} {{person.title}}</p>
+    <p>{{person.name}} {{person.title}}</p>
 </div>
 
 <!-- <div class="row no-pad">

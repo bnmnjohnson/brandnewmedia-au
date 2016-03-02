@@ -1,16 +1,18 @@
 function PeopleCtrl($rootScope, $scope, WhiteBackground) {
 
+    const vm = this;
+
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
     // Our people data
-    $scope.people = [
-    {firstname: 'Tom', lastname:'Garton', title: 'Visual Designer', image: 'images/angular.png'}, 
-    {firstname: 'Natalie', lastname: 'Johnson', title: 'UX Designer',image: 'images/angular.png'}, 
-    {firstname: 'Scott', lastname: 'Bradley-Pearce', title: 'All-around superhero', image: 'images/angular.png'}
+    vm.team = [
+        { name: 'Tom Garton', title: 'Visual Designer', image: 'images/angular.png' },
+        { name: 'Natalie Johnson', title: 'UX Designer', image: 'images/angular.png' },
+        { name:'Scott Bradley-Pearce', title: 'All-around superhero', image: 'images/angular.png' }
     ];
 
     // Our search function
-    
+
 }
 
 PeopleCtrl.$inject = ["$rootScope", "$scope", "WhiteBackground"];

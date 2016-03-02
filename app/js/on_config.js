@@ -5,43 +5,43 @@ function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
 
     $routeProvider.when('/', {
         templateUrl: 'home.html',
-        controller: 'HomeCtrl',
+        controller: 'HomeCtrl as home',
         title: 'Home'
     })
 
     .when('/company', {
         templateUrl: 'company.html',
-        controller: 'CompanyCtrl',
+        controller: 'CompanyCtrl as company',
         title: 'Company'
     })
 
     .when('/case-story', {
         templateUrl: 'case-story.html',
-        controller: 'CaseCtrl',
+        controller: 'CaseCtrl as case',
         title: 'Case Story'
     })
 
     .when('/people', {
         templateUrl: 'people.html',
-        controller: 'PeopleCtrl',
+        controller: 'PeopleCtrl as people',
         title: 'People'
     })
 
     .when('/labs', {
         templateUrl: 'labs.html',
-        controller: 'LabsCtrl',
+        controller: 'LabsCtrl as labs',
         title: 'Labs'
     })
 
     .when('/labs/:labId', {
         templateUrl: 'lab-post.html',
-        controller: 'PostCtrl',
+        controller: 'PostCtrl as post',
         title: 'Labs'
     })
 
     .when('/contact', {
         templateUrl: 'contact.html',
-        controller: 'ContactCtrl',
+        controller: 'ContactCtrl as contact',
         title: 'Contact'
     })
 
