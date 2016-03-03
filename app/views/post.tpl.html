@@ -1,0 +1,23 @@
+<div class="row">
+    <img ng-src="{{vm.post.featured_image.guid}}" style="width: 100%;">
+</div>
+<div class="row">
+    <div class="medium-7 medium-push-1 columns">
+        <h1>{{ vm.post.title }}</h1>
+        <div class="pure-g page-content">
+            <div class="pure-u-1">
+                <div class="post-meta">
+                    <div class="date">
+                        {{ vm.post.date | date:'dd MMM yyyy' }}
+                    </div>
+                </div>
+                <div class="post-body" ng-bind-html="vm.post.content"></div>
+                <ul class="tags">
+                    <span ng-repeat="tag in vm.post.terms.post_tag">
+                            <a ui-sref="postsByTag({ tag: tag.slug })">#{{ tag.name }}</a>
+                        </span>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

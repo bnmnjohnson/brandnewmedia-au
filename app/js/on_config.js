@@ -28,14 +28,14 @@ function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
     })
 
     .when('/labs', {
-        templateUrl: 'labs.tpl.html',
-        controller: 'LabsCtrl as vm',
+        templateUrl: 'blog.tpl.html',
+        controller: 'BlogController as vm',
         title: 'Labs'
     })
 
     .when('/labs/:id/:title', {
-        templateUrl: 'lab-post.tpl.html',
-        controller: 'PostCtrl as vm',
+        templateUrl: 'post.tpl.html',
+        controller: 'PostController as vm',
         title: 'Labs'
     })
 
