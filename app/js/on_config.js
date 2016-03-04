@@ -51,6 +51,12 @@ function OnConfig($routeProvider, $locationProvider) {
         title: 'Labs'
     })
 
+    .when('/search/:searchTerm', {
+        templateUrl: 'blog.tpl.html',
+        controller: 'BlogController as vm',
+        title: 'Labs'
+    })
+
     .when('/contact', {
         templateUrl: 'contact.tpl.html',
         controller: 'ContactCtrl as vm',

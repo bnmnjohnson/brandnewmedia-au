@@ -1,4 +1,4 @@
-function BlogController($scope, $routeParams, $rootScope, WhiteBackground, BlogService, MetadataService) {
+function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackground, BlogService, MetadataService) {
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
@@ -12,7 +12,7 @@ function BlogController($scope, $routeParams, $rootScope, WhiteBackground, BlogS
     console.log($routeParams.tag);
     console.log($routeParams.author);
 
-    
+
     if (typeof $routeParams.tag !== 'undefined') {
         // If we are searching all posts by by tag
 
@@ -31,7 +31,7 @@ function BlogController($scope, $routeParams, $rootScope, WhiteBackground, BlogS
 
         vm.subtitle = 'tagged with "' + $routeParams.tag + '"';
 
-    } else if (typeof $routeParams.author !== 'undefined'){
+    } else if (typeof $routeParams.author !== 'undefined') {
         // If we are searching all tags by author
         BlogService.allPostsByAuthor(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.author).then(function(posts) {
             vm.posts = posts;
@@ -47,6 +47,23 @@ function BlogController($scope, $routeParams, $rootScope, WhiteBackground, BlogS
         };
 
         vm.subtitle = 'written by "' + $routeParams.author + '"';
+
+    } else if (typeof $routeParams.searchTerm !== 'undefined') {
+        // If we are searching
+        BlogService.allPostsBySearchTerm(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.searchTerm).then(function(posts) {
+            vm.posts = posts;
+        });
+
+        vm.loadMore = function() {
+            vm.currentPage++;
+            BlogService.allPostsBySearchTerm(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.searchTerm).then(function(posts) {
+                vm.newPosts = posts;
+                vm.posts = vm.posts.concat(vm.newPosts);
+            });
+
+        };
+
+        vm.subtitle = 'showing results for "' + $routeParams.searchTerm + '"';
 
     } else {
         BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
@@ -71,10 +88,14 @@ function BlogController($scope, $routeParams, $rootScope, WhiteBackground, BlogS
         return Math.ceil(vm.total / vm.postsPerPage);
     };
 
+    vm.search = function(term) {
+        $location.path('/search/' + vm.searchTerm);
+    };
+
 
 }
 
-BlogController.$inject = ["$scope", "$routeParams", "$rootScope", "WhiteBackground", "BlogService", "MetadataService"];
+BlogController.$inject = ["$scope", "$location", "$routeParams", "$rootScope", "WhiteBackground", "BlogService", "MetadataService"];
 
 export default {
     name: 'BlogController',

@@ -3,23 +3,29 @@
         <h1>Labs <small>{{ vm.subtitle }}</small></h1>
     </div>
 </div>
+<!-- Search form -->
+<div>
+<form ng-submit="vm.search(term)" name="searchForm">
+    <input type="text" ng-model="vm.searchTerm" ng-blur="searchInputBlur()">
+    <button type="submit" ng-submit="vm.search()" > Submit </button>
+    </form>
+</div>
 <div class="row no-pad">
     <ul class="no-bullet post-list">
         <li ng-repeat="post in vm.posts" class="medium-6 columns">
             <a ng-href="/labs/{{post.ID}}/{{post.slug}}" class="post-list-title">
                 <img ng-src="{{post.featured_image.guid}}">
             </a>
-                <span class="post-list-meta">
+            <span class="post-list-meta">
                     <div class="date">
                         {{ post.date | date:'dd MMM yyyy' }}&nbsp;
                         by&nbsp;<a ng-href="/author/{{post.author.name}}">{{post.author.name}}</a>
                     </div>
                 </span>
-                <div class="post-list-entry">
-                    <h1>{{ post.title | decodeHtmlCodes }} </h1>
-                    <div class="post-list-excerpt" ng-bind-html="post.excerpt">
-                    </div>
-                </div>
+            <div class="post-list-entry">
+                <h1>{{ post.title | decodeHtmlCodes }} </h1>
+                <div class="post-list-excerpt" ng-bind-html="post.excerpt"></div>
+            </div>
             <ul class="tags">
                 <span ng-repeat="tag in post.terms.post_tag">
                     <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>

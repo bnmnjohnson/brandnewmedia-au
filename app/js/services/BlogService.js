@@ -28,7 +28,7 @@ function BlogService($http, $sce) {
         return getData('posts?filter[category_name]=post&filter[posts_per_page]=' + limit + '&filter[author_name]=' + author + '&filter[offset]=' + offset);
     }
 
-    function allPostsBySearchTerm(searchTerm) {
+    function allPostsBySearchTerm(offset, limit, searchTerm) {
         return getData('posts?filter[category_name]=post&filter[s]=' + searchTerm);
     }
 
