@@ -1,5 +1,6 @@
 <div class="row">
     <img ng-src="{{vm.post.featured_image.guid}}" style="width: 100%;">
+    <!-- <div ng-bind-html="vm.post.video | linky"></div> -->
 </div>
 <div class="row">
     <div class="medium-7 medium-push-1 columns">
@@ -8,14 +9,13 @@
             <div class="pure-u-1">
                 <div class="post-meta">
                     <div class="date">
-                        {{ vm.post.date | date:'dd MMM yyyy' }}
-                    </div>
+                        {{ vm.post.date | date:'dd MMM yyyy' }}&nbsp;by&nbsp;{{vm.post.author.name}}</div>
                 </div>
                 <div class="post-body" ng-bind-html="vm.post.content"></div>
                 <ul class="tags">
                     <span ng-repeat="tag in vm.post.terms.post_tag">
-                            <a ui-sref="postsByTag({ tag: tag.slug })">#{{ tag.name }}</a>
-                        </span>
+                    <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>
+                    </span>
                 </ul>
             </div>
         </div>

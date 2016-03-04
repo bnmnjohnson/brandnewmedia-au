@@ -1,4 +1,4 @@
-function PostCtrl($scope, $rootScope,  $routeParams, WhiteBackground, contentful, LabsService, PostService, $location, $window) {
+function PostCtrl($scope, $rootScope,  $routeParams, WhiteBackground, LabsService, PostService, $location, $window) {
 
     // ViewModel
     const vm = this;
@@ -13,14 +13,14 @@ function PostCtrl($scope, $rootScope,  $routeParams, WhiteBackground, contentful
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
     // Get current URL
-    var routeId = $routeParams.labId;
+    // var routeId = $routeParams.labId;
 
     // Get post associated with URL
-    LabsService.getEntry(routeId);
+    // LabsService.getEntry(routeId);
 
 }
 
-PostCtrl.$inject = ["$scope", "$rootScope", "$routeParams", "WhiteBackground", "contentful", "LabsService", "PostService", "$location", "$window"];
+PostCtrl.$inject = ["$scope", "$rootScope", "$routeParams", "WhiteBackground", "LabsService", "PostService", "$location", "$window"];
 
 export default {
     name: 'PostCtrl',

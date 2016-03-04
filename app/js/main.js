@@ -6,18 +6,18 @@ import onConfig from './on_config';
 import onRun from './on_run';
 import 'foundation-sites';
 import 'angular-route';
+import 'angular-sanitize';
 import './templates';
 import './filters';
 import './controllers';
 import './services';
 import './directives';
-import 'angular-contentful';
 
 // create and bootstrap application
 const requires = [
     'ngRoute',
+    'ngSanitize',
     'templates',
-    'contentful',
     'app.filters',
     'app.controllers',
     'app.services',

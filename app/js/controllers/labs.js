@@ -1,4 +1,4 @@
-function LabsCtrl($scope, $rootScope, $location, $window, WhiteBackground, contentful, PostService, LabsService) {
+function LabsCtrl($scope, $rootScope, $location, $window, WhiteBackground, PostService, LabsService) {
 
     // ViewModel
     const vm = this;
@@ -6,7 +6,7 @@ function LabsCtrl($scope, $rootScope, $location, $window, WhiteBackground, conte
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
     vm.requestEntry = function(sysId) {
-        PostService.getEntry(sysId);
+        // PostService.getEntry(sysId);
         console.log(sysId);
     };
 
@@ -14,7 +14,7 @@ function LabsCtrl($scope, $rootScope, $location, $window, WhiteBackground, conte
 
 }
 
-LabsCtrl.$inject = ["$scope", "$rootScope", "$location", "$window", "WhiteBackground", "contentful", "PostService", "LabsService", "$routeParams"];
+LabsCtrl.$inject = ["$scope", "$rootScope", "$location", "$window", "WhiteBackground", "PostService", "LabsService", "$routeParams"];
 
 export default {
     name: 'LabsCtrl',

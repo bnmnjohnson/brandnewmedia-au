@@ -1,4 +1,4 @@
-function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
+function OnConfig($routeProvider, $locationProvider) {
     'ngInject';
 
     $locationProvider.html5Mode(true);
@@ -39,6 +39,18 @@ function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
         title: 'Labs'
     })
 
+    .when('/tag/:tag', {
+        templateUrl: 'blog.tpl.html',
+        controller: 'BlogController as vm',
+        title: 'Labs'
+    })
+
+    .when('/author/:author', {
+        templateUrl: 'blog.tpl.html',
+        controller: 'BlogController as vm',
+        title: 'Labs'
+    })
+
     .when('/contact', {
         templateUrl: 'contact.tpl.html',
         controller: 'ContactCtrl as vm',
@@ -49,10 +61,10 @@ function OnConfig(contentfulProvider, $routeProvider, $locationProvider) {
         redirectTo: '/'
     });
 
-    contentfulProvider.setOptions({
-        accessToken: '37ea751bb3db1bc93d472306ef11cc1e648ef8d3992be8213b6691dc2a6aa067',
-        space: 'c3gv6lh5al82'
-    });
+    // contentfulProvider.setOptions({
+    //     accessToken: '37ea751bb3db1bc93d472306ef11cc1e648ef8d3992be8213b6691dc2a6aa067',
+    //     space: 'c3gv6lh5al82'
+    // });
 
 }
 

@@ -17,11 +17,15 @@ function BlogService($http, $sce) {
 
 
     function allPosts(offset, limit) {
-        return getData('posts?filter[category_name]=post&filter[posts_per_page]='+limit+'&filter[offset]='+offset);
+        return getData('posts?filter[category_name]=post&filter[posts_per_page]=' + limit + '&filter[offset]=' + offset);
     }
 
-    function allPostsByTag(tag) {
-        return getData('posts?filter[category_name]=post&filter[tag]=' + tag);
+    function allPostsByTag(offset, limit, tag) {
+        return getData('posts?filter[category_name]=post&filter[posts_per_page]=' + limit + '&filter[tag]=' + tag + '&filter[offset]=' + offset);
+    }
+
+    function allPostsByAuthor(offset, limit, author) {
+        return getData('posts?filter[category_name]=post&filter[posts_per_page]=' + limit + '&filter[author_name]=' + author + '&filter[offset]=' + offset);
     }
 
     function allPostsBySearchTerm(searchTerm) {
@@ -42,8 +46,8 @@ function BlogService($http, $sce) {
             .then(function(response) {
                 if (response.data instanceof Array) {
                     var items = response.data.map(function(item) {
-                        console.log("getting item...")
-                        console.log(item)
+                        // console.log("getting item...")
+                        // console.log(item)
                         return decorateResult(item);
                     });
                     return items;
@@ -62,13 +66,17 @@ function BlogService($http, $sce) {
         result.excerpt = $sce.trustAsHtml(result.excerpt);
         result.date = Date.parse(result.date);
         result.content = $sce.trustAsHtml(result.content);
-        console.log(result);
+        result.video = (result.post_meta.featured_video._fvp_video);
+        // result.author = (result.author.name).toString();
+        // console.log("Author: " + result.author);
+        // console.log(result);
         return result;
     }
 
     return {
         allPosts: allPosts,
         allPostsByTag: allPostsByTag,
+        allPostsByAuthor: allPostsByAuthor,
         allPostsBySearchTerm: allPostsBySearchTerm,
         featuredPosts: featuredPosts,
         post: post

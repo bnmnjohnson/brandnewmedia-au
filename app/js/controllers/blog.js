@@ -1,25 +1,67 @@
-function BlogController($scope, $rootScope, WhiteBackground, BlogService, MetadataService) {
+function BlogController($scope, $routeParams, $rootScope, WhiteBackground, BlogService, MetadataService) {
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
     // Concat load more posts http://jsfiddle.net/api/post/library/pure/
     var vm = this;
-    vm.postsPerPage = 1;
+    vm.postsPerPage = 4;
     vm.currentPage = 0;
+    vm.posts = [];
     // vm.total = BlogService.total();
-    BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
-        vm.posts = posts;
-    });
 
-    vm.loadMore = function() {
-        vm.currentPage++;
-        BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
-            vm.newPosts = posts;
-            vm.posts = vm.posts.concat(vm.newPosts);
-            console.log("hallo")
+    console.log($routeParams.tag);
+    console.log($routeParams.author);
+
+    
+    if (typeof $routeParams.tag !== 'undefined') {
+        // If we are searching all posts by by tag
+
+        BlogService.allPostsByTag(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.tag).then(function(posts) {
+            vm.posts = posts;
         });
 
-    };
+        vm.loadMore = function() {
+            vm.currentPage++;
+            BlogService.allPostsByTag(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.tag).then(function(posts) {
+                vm.newPosts = posts;
+                vm.posts = vm.posts.concat(vm.newPosts);
+            });
+
+        };
+
+        vm.subtitle = 'tagged with "' + $routeParams.tag + '"';
+
+    } else if (typeof $routeParams.author !== 'undefined'){
+        // If we are searching all tags by author
+        BlogService.allPostsByAuthor(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.author).then(function(posts) {
+            vm.posts = posts;
+        });
+
+        vm.loadMore = function() {
+            vm.currentPage++;
+            BlogService.allPostsByAuthor(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.author).then(function(posts) {
+                vm.newPosts = posts;
+                vm.posts = vm.posts.concat(vm.newPosts);
+            });
+
+        };
+
+        vm.subtitle = 'written by "' + $routeParams.author + '"';
+
+    } else {
+        BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
+            vm.posts = posts;
+        });
+
+        vm.loadMore = function() {
+            vm.currentPage++;
+            BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
+                vm.newPosts = posts;
+                vm.posts = vm.posts.concat(vm.newPosts);
+            });
+
+        };
+    }
 
     vm.nextPageDisabledClass = function() {
         return vm.currentPage === vm.pageCount() - 1 ? "disabled" : "";
@@ -32,7 +74,7 @@ function BlogController($scope, $rootScope, WhiteBackground, BlogService, Metada
 
 }
 
-BlogController.$inject = ["$scope", "$rootScope", "WhiteBackground", "BlogService", "MetadataService"];
+BlogController.$inject = ["$scope", "$routeParams", "$rootScope", "WhiteBackground", "BlogService", "MetadataService"];
 
 export default {
     name: 'BlogController',
