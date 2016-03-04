@@ -2,24 +2,33 @@ function BlogController($scope, $rootScope, WhiteBackground, BlogService, Metada
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
+    // Concat load more posts http://jsfiddle.net/api/post/library/pure/
     var vm = this;
-    var apiCallFunction = BlogService.allPosts();
-
-    vm.posts = [];
-    vm.loaded = false;
-    vm.subtitle = 'Here is a subtitle';
-
-    MetadataService.setMetadata({
-        title: 'Labs',
-        description: 'A collection of articles on some topics.'
-    });
-
-
-    apiCallFunction.then(function(posts) {
+    vm.postsPerPage = 1;
+    vm.currentPage = 0;
+    // vm.total = BlogService.total();
+    BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
         vm.posts = posts;
-        console.log(posts);
-        vm.loaded = true;
     });
+
+    vm.loadMore = function() {
+        vm.currentPage++;
+        BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
+            vm.newPosts = posts;
+            vm.posts = vm.posts.concat(vm.newPosts);
+            console.log("hallo")
+        });
+
+    };
+
+    vm.nextPageDisabledClass = function() {
+        return vm.currentPage === vm.pageCount() - 1 ? "disabled" : "";
+    };
+
+    vm.pageCount = function() {
+        return Math.ceil(vm.total / vm.postsPerPage);
+    };
+
 
 }
 

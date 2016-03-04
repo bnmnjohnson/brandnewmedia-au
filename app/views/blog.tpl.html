@@ -9,7 +9,7 @@
             <img ng-src="{{post.featured_image.guid}}">
             <span class="post-list-meta">
                     <div class="date">
-                        {{ post.date | date:'dd MMM yyyy' }}
+                        {{ post.date | date:'dd MMM yyyy' }}&nbsp;By&nbsp;{{post.author.first_name}}&nbsp;{{post.author.last_name}}
                     </div>
                 </span>
             <div class="post-list-entry">
@@ -26,6 +26,6 @@
                 </a>
             </div>
 </div>
-</li>
-</ul>
+<div class="row">
+ <button class="btn" href="#" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">Load More</button>
 </div>

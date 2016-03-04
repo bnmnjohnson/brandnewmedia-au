@@ -15,8 +15,9 @@ function BlogService($http, $sce) {
         'API_URL': 'http://localhost:8888/wp-json/'
     };
 
-    function allPosts() {
-        return getData('posts?filter[category_name]=post');
+
+    function allPosts(offset, limit) {
+        return getData('posts?filter[category_name]=post&filter[posts_per_page]='+limit+'&filter[offset]='+offset);
     }
 
     function allPostsByTag(tag) {
