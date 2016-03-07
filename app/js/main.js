@@ -5,6 +5,7 @@ import constants from './constants';
 import onConfig from './on_config';
 import onRun from './on_run';
 import 'foundation-sites';
+import 'foundation-sites/js/foundation.offcanvas';
 import 'angular-route';
 import 'angular-sanitize';
 import './templates';

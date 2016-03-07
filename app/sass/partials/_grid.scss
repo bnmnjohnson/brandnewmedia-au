@@ -19,22 +19,30 @@
     padding-right: 0;
 }
 
-.main {
-    max-width: 100%;
+.main,
+.wider-main {
     width: calc(100% - 20px);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     position: relative;
 }
 
+.wider-main {
+    width: calc(100% - 40px);
+}
 
+// @media screen and (min-width: 64em) {
+//     .main {
+//         width: calc(100% - 20px);
+//     }
+// }
 @media screen and (min-width: 64em) {
-    .main {
+    .main,
+    .wider-main {
         width: calc(100% - 116px);
     }
 }
-
-
 
 // @media screen and (min-width: 39.750em) {
 //     .main {

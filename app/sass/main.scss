@@ -4,7 +4,9 @@
 @import 'partials/fonts';
 @import 'partials/typography';
 @import 'partials/grid';
-
+@import 'partials/base';
+@import 'partials/off-canvas';
+@import 'partials/menu';
 
 body {
     background: $black;
@@ -26,9 +28,13 @@ body {
 
 .gifs {
     width: 100%;
+    margin-bottom: 8px;
 }
 
-nav {
-    // position: fixed;
-}
+// .noScroll {
+//     overflow: hidden;
+// }
 
+.underlined {
+    border-bottom: 1px solid $white;
+}
