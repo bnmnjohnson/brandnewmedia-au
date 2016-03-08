@@ -5,8 +5,7 @@
 @import 'partials/typography';
 @import 'partials/grid';
 @import 'partials/base';
-@import 'partials/off-canvas';
-@import 'partials/menu';
+@import 'partials/header';
 
 body {
     background: $black;
@@ -16,6 +15,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: $avenir-medium;
+    padding-top: 53px;
 }
 
 .wbody {
@@ -31,9 +31,9 @@ body {
     margin-bottom: 8px;
 }
 
-// .noScroll {
-//     overflow: hidden;
-// }
+.noScroll {
+    overflow: hidden;
+}
 
 .underlined {
     border-bottom: 1px solid $white;

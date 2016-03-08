@@ -1,0 +1,206 @@
+/*
+ *******************************************************
+ * Header
+ *******************************************************
+ */
+
+.header-main {
+    width: 100%;
+    position: fixed;
+    height: 53px;
+    margin-bottom: 9px;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    transition: top 0.6s;
+    background: $black;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.header-inner {
+    width: calc(100% - 30px);
+    max-width: 100%;
+    margin-left: 20px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.header-main.off-canvas {
+    top: -53px;
+}
+
+.header-main.fixed {
+    top: 0;
+}
+
+.header-main.absolute {
+    position: absolute;
+}
+
+
+
+/*
+ *******************************************************
+ * Logo
+ *******************************************************
+ */
+
+.logo-mobile {
+    font-family: $avenir-heavy;
+    font-size: 15px;
+    line-height: 59px;
+}
+
+
+/*
+ *******************************************************
+ * Hamburger
+ *******************************************************
+ */
+
+// #menu-trigger {
+//     display: inline-block;
+//     position: relative;
+//     z-index: 99999;
+//     text-align: right;
+//     float: right;
+//     cursor: pointer;
+// }
+// #menu-trigger:hover {
+//     cursor: pointer;
+// }
+.hamburger {
+    position: absolute;
+    z-index: 99999;
+    right: 0;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    line-height: 1;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.hamburger > div,
+.hamburger > div:nth-child(2) {
+    left: 0px;
+    content: ' ';
+    // height: 33;
+    height: 16px;
+    width: 2px;
+    background-color: #ff5314;
+    position: absolute;
+}
+
+.hamburger > div {
+    transform: rotate(-90deg);
+}
+
+.hamburger > div:nth-child(2) {
+    // margin-top: 10px;
+    margin-top: 6px;
+    transform: rotate(90deg);
+}
+
+.hamburger.active {
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active > div {
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    transform: rotate(-45deg);
+}
+
+.hamburger.active > div:nth-child(2) {
+    margin-top: 0px;
+    transform: rotate(45deg);
+}
+
+.hamburger.active.active-end > div {
+    transform: rotate(-90deg);
+}
+
+.hamburger.active.active-end > div:nth-child(2) {
+    margin-top: 6px;
+    transform: rotate(90deg);
+}
+
+
+/*
+ *******************************************************
+ * Mobile Navigation
+ *******************************************************
+ */
+
+.navigation {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* Off Canvas Menu Slide in Speed */
+    -webkit-transition: 0.3s -webkit-transform cubic-bezier(0, 0, .58, 1);
+    -moz-transition: 0.3s -moz-transform cubic-bezier(0, 0, .58, 1);
+    -o-transition: 0.3s -o-transform cubic-bezier(0, 0, .58, 1);
+    transition: 0.3s transform cubic-bezier(0, 0, .58, 1);
+    width: 100%;
+    overflow-y: auto;
+    z-index: 9999;
+    background: $black;
+    padding-top: 53px;
+}
+
+ul.main-menu {
+    margin-left: 20px;
+    margin-right: 20px;
+    li {
+        border-bottom: 1px solid #292929;
+        a {
+            font-size: 23px;
+            line-height: 57px;
+            font-family: $avenir-black;
+            color: $white;
+        }
+    }
+}
+
+
+/* Hide : Off Canvas Menu */
+
+.off-canvas--hide {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+
+/* Show : Off Canvas Menu Class */
+
+.off-canvas--show {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.navigation__link {
+    display: block;
+    text-align: center;
+    padding-left: 1.25rem;
+    /* 20/16 = 1.25rem */
+    padding: 0.625rem 1.25rem;
+    /* 10/16 = 0.625rem */
+    /* 20/16 = 1.25rem */
+}

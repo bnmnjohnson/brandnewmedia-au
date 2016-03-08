@@ -6,6 +6,9 @@ function CompanyCtrl($rootScope, DarkBackground, MetadataService) {
         description: 'Some des.'
     });
 
+    vm.showNewsletter = false;
+    vm.menuShow = false;
+
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
 }
 

@@ -72,10 +72,11 @@ ul.main-menu {
 
 #menu-trigger {
     display: inline-block;
-    position: absolute;
-    // right: 58px;
-    // top: 20px;
+    position: relative;
+    z-index: 99999;
     text-align: right;
+    float: right;
+    cursor: pointer;
 }
 
 #menu-trigger:hover {

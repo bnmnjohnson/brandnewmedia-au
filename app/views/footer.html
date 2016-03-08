@@ -1,0 +1,58 @@
+<footer class="wider-main">
+        <!-- Newsletter Pop Up -->
+        <div ng-show="showNewsletter">
+            <p> Subscribe to our newsletter to receive good wholesome stuff, once a month or thereabouts. </p>
+            <form>
+                <div class="row">
+                    <div class="medium-3 columns no-pad">
+                        <p> Newsletter</p>
+                    </div>
+                    <div class="medium-9 columns no-pad">
+                        <div class="medium-7 columns no-pad">
+                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Email address">
+                            <button type="submit"> Submit </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Footer -->
+        <div class="row">
+            <div class="large-3 columns no-pad">
+                <ul>
+                    <li class="hide-for-large"><a ng-click="showNewsletter = !showNewsletter" ng-class="{ underlined: showNewsletter} "><span ng-show="showNewsletter">Close</span> Newsletter </a> </li>
+                    <li class=""><a href="#"> Contact </a> </li>
+                </ul>
+            </div>
+            <div class="large-3 columns no-pad show-for-medium show-for-large">
+                <ul>
+                    <li class=""><a href="#"> Sydney </a> </li>
+                    <li class=""><a href="#"> Melbourne </a> </li>
+                    <li class=""><a href="#"> Brisbane </a> </li>
+                    <li class=""><a href="#"> Philipines </a> </li>
+                </ul>
+            </div>
+            <div class="large-3 columns no-pad show-for-medium show-for-large">
+                <ul>
+                    <li class=""><a href="#"> Singapore </a> </li>
+                    <li class=""><a href="#"> USA </a> </li>
+                    <li class=""><a href="#"> Canada </a> </li>
+                    <li class=""><a href="#"> Germany </a> </li>
+                </ul>
+            </div>
+            <div class="small-12 large-3 columns no-pad">
+                <ul>
+                    <li><a href="/people"> Facebook </a></li>
+                    <li><a href="/labs"> Twitter </a></li>
+                    <li><a href="/contact"> Linkedin </a></li>
+                    <li><a href="/contact"> Google+ </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row no-pad show-for-medium show-for-large">
+            <div class="small-12 columns no-pad">
+                <small> © 2016 Brand New Media. All rights reserved. Privacy Policy. Terms and Conditions. </small>
+            </div>
+        </div>
+    </footer>
