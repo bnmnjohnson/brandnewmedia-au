@@ -11,11 +11,11 @@ function MenuDirective() {
                     el.addClass('active-end');
                     el.one('transitionend', function() {
                         el.removeClass('active active-end')
-                        $('body').removeClass('noScroll');
+                        // $('body').removeClass('noScroll');
                     });
                 } else {
                     el.addClass('active');
-                    $('body').addClass('noScroll');
+                    // $('body').addClass('noScroll');
                 }
             });
 
@@ -31,9 +31,9 @@ function MenuDirective() {
                 // optionally emulate non-fixed positioning behaviour
 
                 if (scrolled > 0) {
-                    $('.header-main').addClass('off-canvas');
+                    $('.header-main').addClass('off--canvas').removeClass('transparent');
                 } else {
-                    $('.header-main').removeClass('off-canvas');
+                    $('.header-main').removeClass('off--canvas').addClass('transparent');
                 }
 
                 if (scrolled > scroll) {

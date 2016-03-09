@@ -10,9 +10,12 @@ skins available:
 }
 
 
+
+
 /* the container */
 .universal_video_background {
     position:relative;
+    background: $black;
 }
 .setAsBg {
     position:static;
@@ -22,6 +25,7 @@ skins available:
     left:0;
     top:0;
     overflow: hidden;
+    background: $black;
 }
 .universal_video_background.thumbs  .texture_over_image {
     position:absolute;

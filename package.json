@@ -82,5 +82,8 @@
     "webdriver-update": "./node_modules/.bin/webdriver-manager update",
     "postinstall": "npm run webdriver-update"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "angular-load": "^0.4.1"
+  }
 }

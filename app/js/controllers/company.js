@@ -6,7 +6,7 @@ function CompanyCtrl($rootScope, $scope, DarkBackground, MetadataService) {
     }
 
     MetadataService.setMetadata({
-        title: 'Labs',
+        title: 'Company',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.'
     });
 

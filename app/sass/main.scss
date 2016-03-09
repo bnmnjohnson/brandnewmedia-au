@@ -8,6 +8,8 @@
 @import 'partials/header';
 @import 'partials/video';
 @import 'partials/button';
+@import 'partials/slider';
+
 body {
     background: $black;
     color: $white;
@@ -45,6 +47,10 @@ body {
 
 .underlined {
     border-bottom: 1px solid $white;
+}
+
+.header-main.transparent {
+    background: transparent;
 }
 
 .newsletter {

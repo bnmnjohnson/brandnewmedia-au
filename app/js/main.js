@@ -7,6 +7,7 @@ import onRun from './on_run';
 import 'foundation-sites';
 import 'foundation-sites/js/foundation.offcanvas';
 import 'angular-route';
+import 'angular-load';
 import 'angular-sanitize';
 import './templates';
 import './filters';
@@ -17,6 +18,7 @@ import './directives';
 // create and bootstrap application
 const requires = [
     'ngRoute',
+    'angularLoad',
     'ngSanitize',
     'templates',
     'app.filters',
