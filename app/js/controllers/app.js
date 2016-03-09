@@ -3,6 +3,11 @@ function AppCtrl($rootScope, $scope, $window, $location, $timeout, MetadataServi
     var vm = this;
 
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
+    $scope.home = {
+        "title": "We're Brand New Media. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.",
+        "link": "Watch our story",
+        "url": "/company"
+    }
     vm.menuShow = false;
     vm.showNewsletter = false;
 

@@ -7,7 +7,7 @@
 @import 'partials/base';
 @import 'partials/header';
 @import 'partials/video';
-
+@import 'partials/button';
 body {
     background: $black;
     color: $white;
@@ -24,8 +24,13 @@ body {
 .wbody {
     background-color: $white;
     color: $black;
-    p, li, a {
+    p,
+    li,
+    a {
         color: $black;
+    }
+    .header-main {
+        background: $white;
     }
 }
 
@@ -40,4 +45,36 @@ body {
 
 .underlined {
     border-bottom: 1px solid $white;
+}
+
+.newsletter {
+    background: $lighter-black;
+    padding-top: 42px;
+    [type='text'],
+    [type='password'],
+    [type='date'],
+    [type='datetime'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'],
+    [type='email'],
+    [type='number'],
+    [type='search'],
+    [type='tel'],
+    [type='time'],
+    [type='url'],
+    [type='color'],
+    textarea {
+        color: $white;
+        background-color: $lighter-black;
+        border: 0;
+        border-bottom: 1px solid $white;
+        padding: 0;
+        font-size: 14px;
+        letter-spacing: 0.015em;
+        &:focus {
+            box-shadow: none;
+            transition: none;
+        }
+    }
 }

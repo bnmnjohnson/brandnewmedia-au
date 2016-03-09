@@ -1,9 +1,13 @@
-function CompanyCtrl($rootScope, DarkBackground, MetadataService) {
+function CompanyCtrl($rootScope, $scope, DarkBackground, MetadataService) {
     var vm = this;
 
+    $scope.company = {
+        "title" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue."
+    }
+
     MetadataService.setMetadata({
-        title: 'About This Blog',
-        description: 'Some des.'
+        title: 'Labs',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.'
     });
 
     vm.showNewsletter = false;
@@ -12,7 +16,7 @@ function CompanyCtrl($rootScope, DarkBackground, MetadataService) {
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
 }
 
-CompanyCtrl.$inject = ["$rootScope", "DarkBackground", "MetadataService"];
+CompanyCtrl.$inject = ["$rootScope", "$scope", "DarkBackground", "MetadataService"];
 
 export default {
     name: 'CompanyCtrl',

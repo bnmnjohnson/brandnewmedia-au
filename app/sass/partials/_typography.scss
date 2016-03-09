@@ -1,8 +1,9 @@
 p,
-a, small {
+a,
+small {
     font-size: 14px;
     color: $white;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.015em;
 }
 
 a {
@@ -29,11 +30,26 @@ h1 {
     margin-bottom: 19px;
 }
 
+h2 {
+    font-size: 18px;
+    line-height: 28px;
+    font-family: $avenir-medium;
+    margin-bottom: 36px;
+}
 
-h6 {
+h5 {
+    font-size: 15px;
+    line-height: 27px;
+    font-family: $avenir-heavy;
+}
+
+h6,
+.title-message a {
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    font-family: $avenir-black;
+    font-family: $avenir-heavy;
     margin-bottom: 16px;
+    line-height: 16px;
+    display: block;
 }

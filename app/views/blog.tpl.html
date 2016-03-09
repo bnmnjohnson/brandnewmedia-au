@@ -1,13 +1,15 @@
+<top-panel message="labs"> </top-panel>
+
 <div class="row no-pad">
     <div class="medium-12 columns">
-        <h1>Labs <small>{{ vm.subtitle }}</small></h1>
+        <h1><small>{{ vm.subtitle }}</small></h1>
     </div>
 </div>
 <!-- Search form -->
 <div>
-<form ng-submit="vm.search(term)" name="searchForm">
-    <input type="text" ng-model="vm.searchTerm" ng-blur="searchInputBlur()">
-    <button type="submit" ng-submit="vm.search()" > Submit </button>
+    <form ng-submit="vm.search(term)" name="searchForm">
+        <input type="text" ng-model="vm.searchTerm" ng-blur="searchInputBlur()">
+        <button type="submit" ng-submit="vm.search()"> Submit </button>
     </form>
 </div>
 <div class="row no-pad">
@@ -35,3 +37,4 @@
 <div class="row">
     <button class="btn" href="#" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">Load More</button>
 </div>
+<div ng-include=" 'footer.html' "> </div>

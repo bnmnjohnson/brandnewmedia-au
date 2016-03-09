@@ -38,3 +38,25 @@
         width: calc(100% - 116px);
     }
 }
+
+.story-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 100%;
+    padding-top: 36px;
+}
+
+.text-panel {
+    padding-top: 21px;
+    padding-bottom: 45px;
+}
+
+.details {
+    padding-bottom: 45px;
+}
+
+.title-message {
+    padding-top: 62px;
+}

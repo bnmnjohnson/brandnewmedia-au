@@ -4,6 +4,7 @@ function HomeCtrl($rootScope, DarkBackground, MetadataService) {
 
     // pass an empty object to use the defaults.
     MetadataService.setMetadata({});
+    
 }
 
 HomeCtrl.$inject = ["$rootScope", "DarkBackground", "MetadataService"];

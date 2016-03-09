@@ -1,9 +1,14 @@
 function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackground, BlogService, MetadataService) {
 
+
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
+    $scope.labs = {
+        title: 'Welcome to our labs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.'
+    }
+
     // Concat load more posts http://jsfiddle.net/api/post/library/pure/
-    var vm = this;
+        var vm = this;
     vm.postsPerPage = 4;
     vm.currentPage = 0;
     vm.posts = [];

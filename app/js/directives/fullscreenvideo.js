@@ -4,7 +4,7 @@ function FullScreenVideo() {
         restrict: 'EA',
         templateUrl: 'directives/fullscreenvideo.html',
         scope: {
-            info: '='
+            video: '='
         },
         link: function() {
             console.log("video");
