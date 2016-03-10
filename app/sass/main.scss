@@ -9,7 +9,6 @@
 @import 'partials/video';
 @import 'partials/button';
 @import 'partials/slider';
-
 body {
     background: $black;
     color: $white;
@@ -84,3 +83,11 @@ body {
         }
     }
 }
+
+.footer {
+    background: $black;
+    a {
+        color: $white;
+    }
+}
+

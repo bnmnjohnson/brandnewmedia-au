@@ -10,9 +10,11 @@ function PeopleCtrl($rootScope, $scope, WhiteBackground) {
 
     // Our people data
     vm.team = [
-        { name: 'Tom Garton', title: 'Visual Designer', image: 'images/angular.png' },
-        { name: 'Natalie Johnson', title: 'UX Designer', image: 'images/angular.png' },
-        { name:'Scott Bradley-Pearce', title: 'All-around superhero', image: 'images/angular.png' }
+        { name: 'Tom Garton', title: 'Visual Designer', image: 'images/people/TOM_GARTON_BNM_WEB_PORTRAIT-2.png' },
+        { name: 'Natalie Johnson', title: 'UX Designer', image: 'images/people/TOM_GARTON_BNM_WEB_PORTRAIT-2.png' },
+        { name:'Scott Bradley-Pearce', title: 'All-around superhero', image: 'images/people/TOM_GARTON_BNM_WEB_PORTRAIT-2.png' },
+        { name:'Claudia North', title: 'All-around superhero', image: 'images/people/TOM_GARTON_BNM_WEB_PORTRAIT-2.png' },
+        { name:'Aron Du-Shane', title: 'All-around superhero', image: 'images/people/TOM_GARTON_BNM_WEB_PORTRAIT-2.png' },
     ];
 
     // Our search function
