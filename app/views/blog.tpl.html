@@ -12,9 +12,10 @@
         <button type="submit" ng-submit="vm.search()"> Submit </button>
     </form>
 </div>
-<div class="row no-pad">
-    <ul class="no-bullet post-list">
-        <li ng-repeat="post in vm.posts" class="medium-6 columns">
+
+<div class="wider-main labs">
+    <ul class="row small-up-1 large-up-2 no-pad">
+        <li class="column no-pad" ng-repeat="post in vm.posts">
             <a ng-href="/labs/{{post.ID}}/{{post.slug}}" class="post-list-title">
                 <img ng-src="{{post.featured_image.guid}}">
             </a>
@@ -33,7 +34,11 @@
                     <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>
                     </span>
             </ul>
+        </li>
+    </ul>
 </div>
+
+
 <div class="row">
     <button class="btn" href="#" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">Load More</button>
 </div>

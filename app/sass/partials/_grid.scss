@@ -57,6 +57,7 @@
     }
 }
 
+
 .people-main {
     // no padding for small screens
     ul li {
@@ -80,6 +81,35 @@
             padding-left: 5px;
         }
     }
+}
+
+.labs {
+    // no padding for small screens
+    ul li {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    // Only affects medium screens and larger
+    @include breakpoint(large) {
+        // every odd 
+        ul li:nth-child(2n+1) {
+            padding-right: 11px;
+        }
+        ul li:nth-child(2n) {
+            padding-left: 11px;
+        }
+    }
+    // Only affects medium screens and larger
+    @include breakpoint(xlarge) {
+        // every odd 
+        ul li:nth-child(2n+1) {
+            padding-right: 43px;
+        }
+        ul li:nth-child(2n) {
+            padding-left: 43px;
+        }
+    }
+
 }
 
 .story-container {
