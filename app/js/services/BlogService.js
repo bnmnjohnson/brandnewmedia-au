@@ -7,33 +7,33 @@
  * @returns {{allPosts: allPosts, allPostsByTag: allPostsByTag, allPostsBySearchTerm: allPostsBySearchTerm, featuredPosts: featuredPosts, post: post}}
  * @constructor
  */
-function BlogService($http, $sce) {
+function BlogService($http, $sce, $parse) {
     'ngInject';
 
     var config = {
         'ROOT_URL': 'http://localhost:3000/',
-        'API_URL': 'http://localhost:8888/wp-json/'
+        'API_URL': 'http://manage.brandnewmedia.global/index.php/wp-json/'
     };
 
 
     function allPosts(offset, limit) {
-        return getData('posts?filter[category_name]=post&filter[posts_per_page]=' + limit + '&filter[offset]=' + offset);
+        return getData('posts?filter[category_name]=posts&filter[posts_per_page]=' + limit + '&filter[offset]=' + offset);
     }
 
     function allPostsByTag(offset, limit, tag) {
-        return getData('posts?filter[category_name]=post&filter[posts_per_page]=' + limit + '&filter[tag]=' + tag + '&filter[offset]=' + offset);
+        return getData('posts?filter[category_name]=posts&filter[posts_per_page]=' + limit + '&filter[tag]=' + tag + '&filter[offset]=' + offset);
     }
 
     function allPostsByAuthor(offset, limit, author) {
-        return getData('posts?filter[category_name]=post&filter[posts_per_page]=' + limit + '&filter[author_name]=' + author + '&filter[offset]=' + offset);
+        return getData('posts?filter[category_name]=posts&filter[posts_per_page]=' + limit + '&filter[author]=' + author + '&filter[offset]=' + offset);
     }
 
     function allPostsBySearchTerm(offset, limit, searchTerm) {
-        return getData('posts?filter[category_name]=post&filter[s]=' + searchTerm);
+        return getData('posts?filter[category_name]=posts&filter[s]=' + searchTerm);
     }
 
     function featuredPosts() {
-        return getData('posts?filter[category_name]=post%2Bfeatured');
+        return getData('posts?filter[category_name]=posts%2Bfeatured');
     }
 
     function post(id) {
@@ -66,10 +66,10 @@ function BlogService($http, $sce) {
         result.excerpt = $sce.trustAsHtml(result.excerpt);
         result.date = Date.parse(result.date);
         result.content = $sce.trustAsHtml(result.content);
-        result.video = (result.post_meta.featured_video._fvp_video);
-        // result.author = (result.author.name).toString();
+        result.video = (result.post_meta.vid);
+        // result.video = JSON.parse(result.video);
         // console.log("Author: " + result.author);
-        // console.log(result);
+        console.log(result.video);
         return result;
     }
 

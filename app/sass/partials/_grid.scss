@@ -21,7 +21,8 @@
 
 .main,
 .wider-main,
-.people-main {
+.people-main,
+.labs-main {
     width: calc(100% - 20px);
     max-width: 100%;
     margin-left: auto;
@@ -34,7 +35,8 @@
 }
 
 @include breakpoint(large) {
-    .main {
+    .main,
+    .labs-main {
         width: calc(100% - 29px);
     }
     .wider-main {
@@ -46,7 +48,8 @@
 }
 
 @include breakpoint(xlarge) {
-    .main {
+    .main,
+    .labs-main {
         width: calc(100% - 116px);
     }
     .wider-main {
@@ -83,7 +86,7 @@
     }
 }
 
-.labs {
+.labs-main {
     // no padding for small screens
     ul li {
         padding-right: 0;
@@ -93,10 +96,10 @@
     @include breakpoint(large) {
         // every odd 
         ul li:nth-child(2n+1) {
-            padding-right: 11px;
+            padding-right: 7px;
         }
         ul li:nth-child(2n) {
-            padding-left: 11px;
+            padding-left: 7px;
         }
     }
     // Only affects medium screens and larger

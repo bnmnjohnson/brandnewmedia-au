@@ -9,18 +9,19 @@ function PostController($rootScope, $routeParams, $timeout, $location, BlogServi
 
     BlogService.post($routeParams.id).then(function(post) {
         vm.post = post;
+        vm.video = post.video;
 
-        // console.log(post.video)
+        console.log(post.video)
 
-        vm.video = (post.video).toString();
-        vm.videoUrl = vm.video.split(/"/)[3];
-        console.log(vm.videoUrl);
+        // vm.video = (post.video).toString();
+        // vm.videoUrl = vm.video.split(/"/)[3];
+        // console.log(vm.videoUrl);
 
-        vm.videoTitle = vm.video.split(/"/)[17];
-        console.log(vm.videoTitle);
+        // vm.videoTitle = vm.video.split(/"/)[17];
+        // console.log(vm.videoTitle);
 
-        vm.videoAuthor = vm.video.split(/"/)[21];
-        console.log(vm.videoAuthor);
+        // vm.videoAuthor = vm.video.split(/"/)[21];
+        // console.log(vm.videoAuthor);
 
         // gets description
         // vm.thumbnailUrl = vm.video.split(/"/)[27];

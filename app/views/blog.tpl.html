@@ -13,11 +13,11 @@
     </form>
 </div>
 
-<div class="wider-main labs">
+<div class="labs-main">
     <ul class="row small-up-1 large-up-2 no-pad">
-        <li class="column no-pad" ng-repeat="post in vm.posts">
+        <li class="column no-pad" ng-repeat="post in vm.posts track by $index">
             <a ng-href="/labs/{{post.ID}}/{{post.slug}}" class="post-list-title">
-                <img ng-src="{{post.featured_image.guid}}">
+                <img ng-src="{{post.featured_image.source}}">
             </a>
             <span class="post-list-meta">
                     <div class="date">
@@ -32,7 +32,7 @@
             <ul class="tags">
                 <span ng-repeat="tag in post.terms.post_tag">
                     <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>
-                    </span>
+                </span>
             </ul>
         </li>
     </ul>
