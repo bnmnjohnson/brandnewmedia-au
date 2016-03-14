@@ -1,44 +1,38 @@
 <top-panel message="labs"> </top-panel>
-
 <div class="row no-pad">
     <div class="medium-12 columns">
         <h1><small>{{ vm.subtitle }}</small></h1>
     </div>
 </div>
 <!-- Search form -->
-<div>
+<!-- <div>
     <form ng-submit="vm.search(term)" name="searchForm">
         <input type="text" ng-model="vm.searchTerm" ng-blur="searchInputBlur()">
         <button type="submit" ng-submit="vm.search()"> Submit </button>
     </form>
-</div>
-
+</div> -->
 <div class="labs-main">
     <ul class="row small-up-1 large-up-2 no-pad">
-        <li class="column no-pad" ng-repeat="post in vm.posts track by $index">
+        <li class="column no-pad post" ng-repeat="post in vm.posts track by $index">
             <a ng-href="/labs/{{post.ID}}/{{post.slug}}" class="post-list-title">
                 <img ng-src="{{post.featured_image.source}}">
             </a>
-            <span class="post-list-meta">
-                    <div class="date">
-                        {{ post.date | date:'dd MMM yyyy' }}&nbsp;
-                        by&nbsp;<a ng-href="/author/{{post.author.name}}">{{post.author.name}}</a>
-                    </div>
-                </span>
             <div class="post-list-entry">
+                <!-- <div class="date">
+                    {{ post.date | date:'dd MMM yyyy' }}&nbsp; by&nbsp;
+                    <a ng-href="/author/{{post.author.name}}">{{post.author.name}}</a>
+                </div> -->
                 <h1>{{ post.title | decodeHtmlCodes }} </h1>
                 <div class="post-list-excerpt" ng-bind-html="post.excerpt"></div>
+                <ul class="tags">
+                    <li class="tag" ng-repeat="tag in post.terms.post_tag">
+                        <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>
+                    </li>
+                </ul>
             </div>
-            <ul class="tags">
-                <span ng-repeat="tag in post.terms.post_tag">
-                    <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>
-                </span>
-            </ul>
         </li>
     </ul>
 </div>
-
-
 <div class="row">
     <button class="btn" href="#" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">Load More</button>
 </div>

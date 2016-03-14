@@ -6,6 +6,10 @@ ul {
     list-style: none outside none;
 }
 
+ul ul, ol ul, ul ol, ol ol {
+    margin-left: 0;
+}
+
 a:hover, a:focus {
     color: $white;
 }

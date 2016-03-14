@@ -20,6 +20,11 @@ export default {
         dest: 'build/js'
     },
 
+    videoScripts: {
+        src: 'app/js/video/*.js',
+        dest: 'build/js'
+    },
+
     images: {
         src: 'app/images/**/*',
         dest: 'build/images'

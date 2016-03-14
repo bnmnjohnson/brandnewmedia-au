@@ -1,6 +1,9 @@
-<div class="row">
-    <img ng-src="{{vm.post.featured_image.source}}" style="width: 100%;">
-    <!-- <div ng-bind-html="vm.post.video | linky"></div> -->
+<!-- Featured Video -->
+<div ng-if="vm.video != null">
+    <div ng-include=" 'directives/fullwidthvideo.html' "> </div>
+</div>
+<div class="post-hero" ng-hide="vm.video != null">
+    <div class="hero-image" background-image="{{hero.thumbnail}}"></div>
 </div>
 <div class="row">
     <div class="medium-7 medium-push-1 columns">
@@ -8,7 +11,7 @@
         <div class="date">
             {{ vm.post.date | date:'dd MMM yyyy' }}&nbsp;by&nbsp;{{vm.post.author.name}}</div>
         <div class="post-body" ng-bind-html="vm.post.content"></div>
-        <p> {{vm.video.featured_video}} </p>
+
         <ul class="tags">
             <span ng-repeat="tag in vm.post.terms.post_tag">
                 <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>

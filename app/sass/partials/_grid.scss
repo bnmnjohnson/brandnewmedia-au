@@ -34,40 +34,56 @@
     width: calc(100% - 40px);
 }
 
-@include breakpoint(large) {
-    .main,
-    .labs-main {
+.main {
+    @include breakpoint(large) {
         width: calc(100% - 29px);
     }
-    .wider-main {
-        width: calc(100% - 44px);
-    }
-    .people-main {
-        width: calc(100% - 19px);
-    }
-}
-
-@include breakpoint(xlarge) {
-    .main,
-    .labs-main {
+    @include breakpoint(xlarge) {
         width: calc(100% - 116px);
     }
-    .wider-main {
-        width: calc(100% - 176px);
-    }
-    .people-main {
-        width: calc(100% - 106px);
-    }
 }
 
-
-.people-main {
-    // no padding for small screens
-    ul li {
+.labs-main {
+    ul li.post {
         padding-right: 0;
         padding-left: 0;
     }
-    // Only affects medium screens and larger
+    @include breakpoint(large) {
+        width: calc(100% - 29px);
+        ul li.post:nth-child(2n+1) {
+            padding-right: 7px;
+        }
+        ul li.post:nth-child(2n) {
+            padding-left: 7px;
+        }
+    }
+    @include breakpoint(xlarge) {
+        width: calc(100% - 116px);
+        ul li.post:nth-child(2n+1) {
+            padding-right: 43px;
+        }
+        ul li.post:nth-child(2n) {
+            padding-left: 43px;
+        }
+    }
+}
+
+.wider-main {
+    @include breakpoint(large) {
+        width: calc(100% - 44px);
+    }
+    @include breakpoint(xlarge) {
+        width: calc(100% - 176px);
+    }
+}
+
+.people-main {
+    ul li {
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
     @include breakpoint(medium) {
         // every odd 
         ul li:nth-child(2n+1) {
@@ -77,42 +93,16 @@
             padding-left: 5px;
         }
     }
-    // Only affects large screens and larger
     @include breakpoint(large) {
+        width: calc(100% - 19px);
         ul li {
             padding-right: 5px;
             padding-left: 5px;
         }
     }
-}
-
-.labs-main {
-    // no padding for small screens
-    ul li {
-        padding-right: 0;
-        padding-left: 0;
-    }
-    // Only affects medium screens and larger
-    @include breakpoint(large) {
-        // every odd 
-        ul li:nth-child(2n+1) {
-            padding-right: 7px;
-        }
-        ul li:nth-child(2n) {
-            padding-left: 7px;
-        }
-    }
-    // Only affects medium screens and larger
     @include breakpoint(xlarge) {
-        // every odd 
-        ul li:nth-child(2n+1) {
-            padding-right: 43px;
-        }
-        ul li:nth-child(2n) {
-            padding-left: 43px;
-        }
+        width: calc(100% - 106px);
     }
-
 }
 
 .story-container {
@@ -122,6 +112,12 @@
     display: block;
     top: 100%;
     padding-top: 36px;
+    @include breakpoint (xlarge) {
+        padding-top: 92px;
+        h1 {
+            margin-bottom: 34px;
+        }
+    }
 }
 
 .text-panel {
@@ -135,4 +131,43 @@
 
 .title-message {
     padding-top: 62px;
+    margin-bottom: 11px;
+    @include breakpoint (medium) {
+        padding-top: 114px;
+        margin-bottom: 42px;
+    }
+    @include breakpoint (large) {
+        padding-top: 174px;
+        margin-bottom: 63px;
+    }
+    @include breakpoint (xlarge) {
+        padding-top: 234px;
+        margin-bottom: 88px;
+    }
+}
+
+.message-container {
+    position: relative;
+    display: block;
+    min-width: 225px;
+    max-width: 310px;
+    @include breakpoint (medium) {
+        min-width: 400px;
+        max-width: 550px;
+    }
+    @include breakpoint (large) {
+        min-width: 600px;
+        max-width: 645px;
+    }
+    @include breakpoint (xlarge) {
+        min-width: 768px;
+        max-width: 768px;
+        width: 768px;
+    }
+    @include breakpoint (xxlarge) {
+        min-width: 798px;
+        max-width: 798px;
+        width: 798px;
+        padding-left: 30px;
+    }
 }

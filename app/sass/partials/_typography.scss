@@ -1,5 +1,3 @@
-p,
-a,
 small {
     font-size: 14px;
     color: $white;
@@ -8,26 +6,50 @@ small {
 
 a {
     line-height: 57px;
+    font-size: 14px;
+    color: $white;
+    letter-spacing: 0.015em;
+    @include breakpoint(medium) {
+        font-size: 15px;
+    }
+    @include breakpoint(large) {
+        font-size: 16px;
+    }
 }
 
 p {
+    font-size: 14px;
     line-height: 27px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: $header-font-family;
+    letter-spacing: 0.015em;
+    font-family: $avenir-medium;
+    color: $white;
+    @include breakpoint(medium) {
+        font-size: 15px;
+        line-height: 30px;
+    }
+    @include breakpoint(large) {
+        font-size: 16px;
+        line-height: 32px;
+    }
 }
 
 h1 {
     font-size: 23px;
     line-height: 30px;
     font-family: $avenir-black;
-    margin-bottom: 19px;
+    @include breakpoint(medium) {
+        font-size: 26px;
+        line-height: 35px;
+        font-family: $avenir-heavy;
+    }
+    @include breakpoint(large) {
+        font-size: 29px;
+        line-height: 41px;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 35px;
+        line-height: 47px;
+    }
 }
 
 h2 {
@@ -35,6 +57,10 @@ h2 {
     line-height: 28px;
     font-family: $avenir-medium;
     margin-bottom: 36px;
+    @include breakpoint(xlarge) {
+        font-size: 26px;
+        line-height: 41px;
+    }
 }
 
 h5 {
@@ -52,4 +78,16 @@ h6,
     margin-bottom: 16px;
     line-height: 16px;
     display: block;
+}
+
+.results {
+    h1 {
+        font-size: 70px;
+        font-family: $avenir-black;
+    }
+    @include breakpoint(xlarge) {
+        h1 {
+            font-size: 116px;
+        }
+    }
 }

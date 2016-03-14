@@ -1,19 +1,13 @@
-function CaseCtrl($scope, $rootScope, DarkBackground, angularLoad) {
+function CaseCtrl($scope, $rootScope, DarkBackground, angularLoad, $timeout) {
 
-    angularLoad.loadScript('js/all.js').then(function() {
-        console.log("script loaded successfully")
-        // Script loaded succesfully.
-        // We can now start using the functions from someplugin.js
-    }).catch(function() {
-        // There was some error loading the script. Meh
-    });
+
     var vm = this;
 
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
 
     $scope.hero = {
-        url: 'C-y70ZOSzE0',
-        thumbnail: 'images/AB1PpQlRyds.jpg'
+        'url': 'http://cdn.brandnewmedia.global/wp-content/uploads/2016/03/10125033/ChannelPLAY2-AU.mp4',
+        'thumbnail': 'images/AB1PpQlRyds.jpg'
     }
 
     $scope.lunaimage = {
@@ -44,7 +38,7 @@ function CaseCtrl($scope, $rootScope, DarkBackground, angularLoad) {
 
 }
 
-CaseCtrl.$inject = ["$scope", "$rootScope", "DarkBackground", "angularLoad"];
+CaseCtrl.$inject = ["$scope", "$rootScope", "DarkBackground", "angularLoad", "$timeout"];
 
 export default {
     name: 'CaseCtrl',

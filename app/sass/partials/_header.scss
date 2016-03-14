@@ -16,6 +16,9 @@
     background: $black;
     z-index: 9999;
     overflow: hidden;
+    @include breakpoint (xlarge) {
+        height: 113px;
+    }
 }
 
 .header-inner {
@@ -28,21 +31,22 @@
 
 .off-canvas {
     background: transparent;
-
 }
+
 .header-main.off--canvas {
     top: -53px;
+    @include breakpoint (xlarge) {
+        top: -113px;
+    }
 }
 
 .header-main.fixed {
     top: 0;
 }
 
-
 .header-main.absolute {
     position: absolute;
 }
-
 
 
 /*
@@ -165,20 +169,39 @@
     overflow-y: auto;
     z-index: 999;
     background: $black;
+    @include breakpoint (large) {
+        width: 50%;
+        display: table;
+        height: 100%;
+    }
 }
 
 .main-menu {
     margin-left: 20px;
     margin-right: 20px;
     padding-top: 49px;
+    @include breakpoint (large) {
+        padding-left: 86px;
+        height: 100%;
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+    }
     li {
         border-bottom: 1px solid #292929;
+        @include breakpoint (large) {
+            border-bottom: none;
+        }
         a {
             font-size: 23px;
             line-height: 57px;
             font-family: $avenir-black;
             color: $white;
             letter-spacing: 0px;
+            @include breakpoint (xlarge) {
+                font-size: 76px;
+                line-height: 91px;
+            }
         }
     }
 }

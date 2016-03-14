@@ -1,35 +1,35 @@
-function FullScreenVideo() {
+function FullWidthVideo() {
 
     return {
         restrict: 'A',
         link: function(scope, element, attrs, ctrl) {
 
-            scope.$watch(attrs.fullScreenVideo, function(value) {
+            scope.$watch(attrs.fullWidthVideo, function(value) {
                 setTimeout(function() {
                     $('#universal_video_background_default').universal_video_background({
                         width: 1920,
-                        height: 1200,
-                        autoPlayFirstVideo: true,
+                        height: 600,
+                        autoPlayFirstVideo: false,
                         width100Proc: true,
-                        height100Proc: true,
                         responsive: true,
-                        setAsBg: true,
                         showVideoControls: false,
-                        bottomNavPos: 'left', //left/center/right
-                        showBottomNav: false,
-                        showOnInitBottomNav: false,
-
                         borderWidth: 0,
                         borderColor: '#FFFFFF',
+                        showBottomNav: false,
 
+                        texturePath: 'skins/patternFullScreenBg_1.png',
 
-                        thumbsBorderColorON: '#FF0000',
-                        thumbsBorderColorOFF: '#000000',
+                        thumbsWrapperTopPadding: 14,
+                        thumbsWrapperBottomPadding: 14,
+                        thumbsBorderColorON: '#FFFFFF',
+                        thumbsBorderColorOFF: '#cccccc',
                         thumbsWrapperBg: 'transparent', //hexa or image
-                        thumbsBgOffImgOpacity: 30,
-                        thumbsWrapperMarginTop: 40
+                        thumbsBgOffImgOpacity: 70,
+                        thumbsWrapperMarginTop: -70
 
                     });
+
+
                     var videoId = ($(".html5-video-player").attr('id'));
                     // alert(videoId);
 
@@ -66,12 +66,14 @@ function FullScreenVideo() {
 
             });
 
+
+
         }
     }
 }
 
 
 export default {
-    name: 'fullScreenVideo',
-    fn: FullScreenVideo
+    name: 'fullWidthVideo',
+    fn: FullWidthVideo
 };

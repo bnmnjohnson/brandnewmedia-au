@@ -1,17 +1,40 @@
-function PostController($rootScope, $routeParams, $timeout, $location, BlogService, MetadataService, WhiteBackground, $sanitize) {
+function PostController($rootScope, $scope, $routeParams, $timeout, $location, BlogService, MetadataService, WhiteBackground, $sanitize) {
     var vm = this;
-
-    vm.post = {};
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
     // console.log($routeParams.id);
 
     BlogService.post($routeParams.id).then(function(post) {
+        // console.log("getting post");
+        console.log(post)
         vm.post = post;
-        vm.video = post.video;
+        // vm.video = post.video;
 
-        console.log(post.video)
+        // if (vm.video != null) {
+
+        var video = post.video;
+
+        // for (var prop in video) {
+        //     console.log("Object1: " + prop);
+        // }
+
+        if (video.hasOwnProperty('featured_video')) {
+            // alert("has own video");
+            vm.video = post.video.featured_video[0];
+            $scope.hero = {
+                'url': vm.video,
+                'thumbnail': vm.post.featured_image.source
+            }
+
+        } else {
+            $scope.hero = {
+                'thumbnail': vm.post.featured_image.source
+            }
+        }
+
+
+
 
         // vm.video = (post.video).toString();
         // vm.videoUrl = vm.video.split(/"/)[3];
@@ -34,7 +57,7 @@ function PostController($rootScope, $routeParams, $timeout, $location, BlogServi
     });
 }
 
-PostController.$inject = ["$rootScope", "$routeParams", "$timeout", "$location", "BlogService", "MetadataService", "WhiteBackground", "$sanitize"];
+PostController.$inject = ["$rootScope", "$scope", "$routeParams", "$timeout", "$location", "BlogService", "MetadataService", "WhiteBackground", "$sanitize"];
 
 export default {
     name: 'PostController',

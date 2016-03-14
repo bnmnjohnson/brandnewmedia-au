@@ -1,0 +1,22 @@
+.post-list-entry {
+    padding-left: 31px;
+    padding-top: 30px;
+    padding-right: 50px;
+}
+
+.btn {}
+
+li.tag {
+    padding: 0;
+    display: inline;
+    padding-right: 20px;
+    a {
+        font-size: 13px;
+        font-family: "Courier New", Courier, Consolas, mono;
+        color: $text-grey;
+    }
+}
+
+.post {
+    margin-bottom: 116px;
+}
