@@ -12,8 +12,8 @@
     </form>
 </div> -->
 <div class="labs-main">
-    <ul class="row small-up-1 large-up-2 no-pad">
-        <li class="column no-pad post" ng-repeat="post in vm.posts track by $index">
+    <ul masonry preserve-order class="row small-up-1 large-up-2 no-pad">
+        <li class="masonry-brick column no-pad post" ng-repeat="post in vm.posts track by $index">
             <a ng-href="/labs/{{post.ID}}/{{post.slug}}" class="post-list-title">
                 <img ng-src="{{post.featured_image.source}}">
             </a>
@@ -34,6 +34,6 @@
     </ul>
 </div>
 <div class="row">
-    <button class="btn" href="#" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">Load More</button>
+    <button class="more-btn" href="#" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">More</button>
 </div>
 <div ng-include=" 'footer.html' "> </div>

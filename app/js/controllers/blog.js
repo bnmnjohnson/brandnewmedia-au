@@ -13,10 +13,11 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
     });
 
     // Concat load more posts http://jsfiddle.net/api/post/library/pure/
-        var vm = this;
+    var vm = this;
     vm.postsPerPage = 4;
     vm.currentPage = 0;
     vm.posts = [];
+
     // vm.total = BlogService.total();
 
     console.log($routeParams.tag);
@@ -35,6 +36,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPostsByTag(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.tag).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
+                
             });
 
         };
@@ -52,6 +54,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPostsByAuthor(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.author).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
+                
             });
 
         };
@@ -62,6 +65,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
         // If we are searching
         BlogService.allPostsBySearchTerm(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.searchTerm).then(function(posts) {
             vm.posts = posts;
+
         });
 
         vm.loadMore = function() {
@@ -69,6 +73,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPostsBySearchTerm(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.searchTerm).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
+                
             });
 
         };
@@ -85,17 +90,19 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
+                
             });
 
         };
     }
 
     vm.nextPageDisabledClass = function() {
-        return vm.currentPage === vm.pageCount() - 1 ? "disabled" : "";
+        return vm.currentPage >= vm.pageCount() - 1 ? "disabled" : "";
     };
 
     vm.pageCount = function() {
         return Math.ceil(vm.total / vm.postsPerPage);
+        console.log(vm.total);
     };
 
     vm.search = function(term) {

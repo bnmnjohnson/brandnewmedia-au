@@ -25,6 +25,11 @@ export default {
         dest: 'build/js'
     },
 
+    masonryScripts: {
+        src: 'app/js/masonry/*.js',
+        dest: 'build/js'
+    },
+
     images: {
         src: 'app/images/**/*',
         dest: 'build/images'

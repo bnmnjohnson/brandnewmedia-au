@@ -114,10 +114,12 @@ hr {
     @include breakpoint (large) {
         padding-top: 48px;
         padding-bottom:31px;
+        margin-top: 40px;
     }
     @include breakpoint (xlarge) {
         padding-top: 78px;
         padding-bottom: 45px;
+        margin-top: 80px;
     }
     a {
         color: $white;
