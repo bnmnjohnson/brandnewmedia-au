@@ -10,7 +10,7 @@
 @import 'partials/button';
 @import 'partials/slider';
 @import 'partials/labs';
-
+@import 'partials/case';
 body {
     background: $black;
     color: $white;
@@ -27,6 +27,11 @@ img {
     width: 100%;
 }
 
+hr {
+    border: 0;
+    border-top: 1px solid $divider-grey;
+}
+
 .wbody {
     background-color: $white;
     color: $black;
@@ -40,8 +45,10 @@ img {
     .header-main {
         background: $white;
     }
-    h1 {
+    h1,
+    .h1 {
         font-family: $avenir-black;
+        letter-spacing: 0;
     }
 }
 
@@ -50,11 +57,9 @@ img {
     margin-bottom: 8px;
     @include breakpoint(large) {
         margin-bottom: 14px;
-
     }
     @include breakpoint(xlarge) {
         margin-bottom: 40px;
-
     }
 }
 
@@ -104,8 +109,27 @@ img {
 
 .footer {
     background: $black;
+    padding-top: 18px;
+    padding-bottom: 20px;
+    @include breakpoint (large) {
+        padding-top: 48px;
+        padding-bottom:31px;
+    }
+    @include breakpoint (xlarge) {
+        padding-top: 78px;
+        padding-bottom: 45px;
+    }
     a {
         color: $white;
+    }
+}
+
+.contact-footer {
+    @include breakpoint (large) {
+        padding-bottom: 65px;
+    }
+    @include breakpoint (xlarge) {
+        padding-bottom: 130px;
     }
 }
 

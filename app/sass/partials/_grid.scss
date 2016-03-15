@@ -123,6 +123,14 @@
 .text-panel {
     padding-top: 21px;
     padding-bottom: 45px;
+    padding-right: 20px;
+    padding-left: 20px;
+    @include breakpoint (xlarge) {
+        padding-top: 80px;
+        padding-bottom: 88px;
+        padding-right: 42px;
+        padding-left: 50px;
+    }
 }
 
 .details {
@@ -169,5 +177,109 @@
         max-width: 798px;
         width: 798px;
         padding-left: 30px;
+    }
+}
+
+.inner-side {
+    padding-top: 0px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 65px;
+    @include breakpoint (medium) {
+        padding-top: 31px;
+    }
+    @include breakpoint (large) {
+        padding-top: 63px;
+        padding-right: 44px;
+        padding-left: 0px;
+    }
+    @include breakpoint (xlarge) {
+        padding-top: 95px;
+    }
+    p {
+        font-size: 14px;
+        line-height: 27px;
+    }
+}
+
+.inner-case {
+    padding-top: 28px;
+    padding-bottom: 0px;
+    padding-right: 20px;
+    padding-left: 20px;
+    @include breakpoint (medium) {
+        padding-top: 31px;
+    }
+    @include breakpoint (large) {
+        max-width: 635px;
+        padding-left: 44px;
+        padding-top: 60px;
+        padding-bottom: 69px;
+        padding-right: 44px;
+    }
+    @include breakpoint (xlarge) {
+        min-width: 600px;
+        max-width: 695px;
+        padding-right: 42px;
+        padding-left: 50px;
+        padding-top: 92px;
+        padding-bottom: 97px;
+    }
+    h1 {
+        margin-bottom: 35px;
+    }
+    p {
+        margin-bottom: 20px;
+        color: $paragraph;
+        @include breakpoint (large) {
+            margin-bottom: 38px;
+        }
+    }
+}
+
+.post-entry {
+    br {
+        display: none;
+    }
+    padding-top: 28px;
+    padding-bottom: 65px;
+    padding-right: 20px;
+    padding-left: 20px;
+    @include breakpoint (medium) {
+        padding-top: 31px;
+    }
+    @include breakpoint (large) {
+        max-width: 635px;
+        min-width: 515px;
+        padding-left: 0px;
+        padding-top: 49px;
+        padding-bottom: 75px;
+        padding-right: 0px;
+    }
+    @include breakpoint (xlarge) {
+        width: 695px;
+        max-width: 695px;
+        padding-right: 17px;
+        padding-left: 50px;
+    }
+    h1 {
+        margin-bottom: 22px;
+    }
+    .date {
+        margin-bottom: 30px;
+    }
+    p {
+        margin-bottom: 20px;
+        color: $paragraph;
+        @include breakpoint (large) {
+            margin-bottom: 38px;
+        }
+    }
+    iframe {
+        margin-top: 38px;
+        margin-bottom: 38px;
+    }
+    .post-body {
+        padding-bottom: 18px;
     }
 }

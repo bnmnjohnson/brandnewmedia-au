@@ -401,15 +401,15 @@
   #example {
       position: relative;
       overflow: hidden;
-      margin-top: 61px;
+      margin-top: 0px;
       background: transparent;
   }
   
   #example .frame {
       position: relative;
       width: 100%;
-      padding: 20px 0;
-      padding-bottom: 50px;
+      padding: 0px;
+      padding-bottom: 0px;
       -webkit-perspective: 1000px;
       perspective: 1000px;
       -webkit-perspective-origin: 50% 50%;

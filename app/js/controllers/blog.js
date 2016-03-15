@@ -4,8 +4,13 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
     $scope.labs = {
-        title: 'Welcome to our labs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.'
+        title: 'Welcome to our labs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     }
+
+    MetadataService.setMetadata({
+        title: 'Brand New Media | Labs',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.'
+    });
 
     // Concat load more posts http://jsfiddle.net/api/post/library/pure/
         var vm = this;

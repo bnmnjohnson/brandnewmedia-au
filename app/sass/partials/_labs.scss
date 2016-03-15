@@ -1,8 +1,82 @@
 .post-list-entry {
-    padding-left: 31px;
-    padding-top: 30px;
-    padding-right: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 22px;
+    h1,
+    .h1 {
+        display: block;
+        margin-bottom: 15px;
+    }
+    p {
+        margin: 0;
+        margin-bottom: 12px;
+        font-size: 16px;
+        line-height: 32px;
+        color: $paragraph;
+    }
+    // @include breakpoint (medium) {
+    //     padding-left: 31px;
+    //     padding-top: 30px;
+    //     padding-right: 50px;
+    // }
+    @include breakpoint (xlarge) {
+        padding-left: 20px;
+        padding-top: 30px;
+        padding-right: 25px;
+    }
+    @include breakpoint (xxlarge) {
+        padding-left: 31px;
+        padding-top: 30px;
+        padding-right: 50px;
+    }
 }
+
+// .post-entry {
+//     br {
+//         display: none;
+//     }
+//     padding-top: 28px;
+//     padding-bottom: 65px;
+//     padding-right: 20px;
+//     padding-left: 20px;
+//     @include breakpoint (medium) {
+//         padding-top: 31px;
+//     }
+//     @include breakpoint (large) {
+//         max-width: 635px;
+//         min-width: 515px;
+//         padding-left: 0px;
+//         padding-top: 49px;
+//         padding-bottom: 75px;
+//         padding-right: 0px;
+//     }
+//     @include breakpoint (xlarge) {
+//         width: 695px;
+//         max-width: 695px;
+//         padding-right: 17px;
+//         padding-left: 50px;
+//     }
+//     h1 {
+//         margin-bottom: 22px;
+//     }
+//     .date {
+//         margin-bottom: 30px;
+//     }
+//     p {
+//         margin-bottom: 20px;
+//         color: $paragraph;
+//         @include breakpoint (large) {
+//             margin-bottom: 38px;
+//         }
+//     }
+//     iframe {
+//         margin-top: 38px;
+//         margin-bottom: 38px;
+//     }
+//     .post-body {
+//         padding-bottom: 18px;
+//     }
+// }
 
 .btn {}
 
@@ -14,9 +88,17 @@ li.tag {
         font-size: 13px;
         font-family: "Courier New", Courier, Consolas, mono;
         color: $text-grey;
+        line-height: 27px;
     }
 }
 
 .post {
-    margin-bottom: 116px;
+    margin-bottom: 34px;
+    @include breakpoint (medium) {}
+    @include breakpoint (xlarge) {
+        margin-bottom: 58px;
+    }
+    @include breakpoint (xxlarge) {
+        margin-bottom: 116px;
+    }
 }

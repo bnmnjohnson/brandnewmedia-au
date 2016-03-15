@@ -9,11 +9,18 @@ a {
     font-size: 14px;
     color: $white;
     letter-spacing: 0.015em;
+    // @include breakpoint(medium) {
+    //     font-size: 15px;
+    //     line-height: 33px;
+
+    // }
     @include breakpoint(medium) {
-        font-size: 15px;
-    }
-    @include breakpoint(large) {
         font-size: 16px;
+        line-height: 33px;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 17px;
+        line-height: 33px;
     }
 }
 
@@ -23,28 +30,36 @@ p {
     letter-spacing: 0.015em;
     font-family: $avenir-medium;
     color: $white;
+    margin-bottom: 0;
+    // @include breakpoint(medium) {
+    //     font-size: 15px;
+    //     line-height: 30px;
+    // }
     @include breakpoint(medium) {
-        font-size: 15px;
-        line-height: 30px;
-    }
-    @include breakpoint(large) {
         font-size: 16px;
         line-height: 32px;
     }
+    @include breakpoint(large) {
+        font-size: 18px;
+        line-height: 38px;
+    }
 }
 
-h1 {
+h1,
+.h1 {
     font-size: 23px;
     line-height: 30px;
     font-family: $avenir-black;
+    margin-bottom: 0;
+    // @include breakpoint(medium) {
+    //     font-size: 26px;
+    //     line-height: 35px;
+    //     font-family: $avenir-heavy;
+    // }
     @include breakpoint(medium) {
-        font-size: 26px;
-        line-height: 35px;
-        font-family: $avenir-heavy;
-    }
-    @include breakpoint(large) {
         font-size: 29px;
         line-height: 41px;
+        font-family: $avenir-heavy;
     }
     @include breakpoint(xlarge) {
         font-size: 35px;
@@ -56,7 +71,11 @@ h2 {
     font-size: 18px;
     line-height: 28px;
     font-family: $avenir-medium;
-    margin-bottom: 36px;
+    margin-bottom: 0;
+    @include breakpoint(medium) {
+        font-size: 22px;
+        line-height: 39px;
+    }
     @include breakpoint(xlarge) {
         font-size: 26px;
         line-height: 41px;
@@ -67,6 +86,14 @@ h5 {
     font-size: 15px;
     line-height: 27px;
     font-family: $avenir-heavy;
+    @include breakpoint(medium) {
+        font-size: 16px;
+        line-height: 32px;
+    }
+    @include breakpoint(large) {
+        font-size: 18px;
+        line-height: 38px;
+    }
 }
 
 h6,
