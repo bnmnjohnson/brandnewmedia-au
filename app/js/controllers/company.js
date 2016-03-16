@@ -1,8 +1,9 @@
 function CompanyCtrl($rootScope, $scope, DarkBackground, MetadataService) {
     var vm = this;
 
+
     $scope.company = {
-        "title" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue."
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue."
     }
 
     MetadataService.setMetadata({

@@ -1,4 +1,4 @@
-function AppCtrl($rootScope, $scope, $window, $location, $timeout, MetadataService, DarkBackground) {
+function AppCtrl($rootScope, $routeParams, $scope, $window, $location, $timeout, MetadataService, DarkBackground) {
 
     var vm = this;
 
@@ -8,7 +8,7 @@ function AppCtrl($rootScope, $scope, $window, $location, $timeout, MetadataServi
         "link": "Watch our story",
         "url": "/company"
     }
-    vm.menuShow = false;
+    // vm.menuShow = false;
     vm.showNewsletter = false;
 
 
@@ -30,7 +30,7 @@ function AppCtrl($rootScope, $scope, $window, $location, $timeout, MetadataServi
     });
 }
 
-AppCtrl.$inject = ["$rootScope", "$scope", "$window", "$location", "$timeout", "MetadataService", "DarkBackground"];
+AppCtrl.$inject = ["$rootScope", "$routeParams", "$scope", "$window", "$location", "$timeout", "MetadataService", "DarkBackground"];
 
 export default {
     name: 'AppCtrl',

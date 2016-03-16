@@ -3,6 +3,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
+
     $scope.labs = {
         title: 'Welcome to our labs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     }

@@ -1,0 +1,75 @@
+label {
+    color: $white;
+    display: none;
+}
+
+.newsletter {
+    background: $lighter-black;
+    padding-top: 37px;
+    padding-bottom: 23px;
+    @include breakpoint (medium) {
+        padding-top: 52px;
+        padding-bottom: 50px;
+    }
+    p {
+        color: $white;
+        margin-bottom: 22px;
+    }
+    form {
+        // max-width: 525px;
+    }
+    [type='text'],
+    [type='password'],
+    [type='date'],
+    [type='datetime'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'],
+    [type='email'],
+    [type='number'],
+    [type='search'],
+    [type='tel'],
+    [type='time'],
+    [type='url'],
+    [type='color'],
+    textarea {
+        color: $white;
+        background-color: $lighter-black;
+        border: 0;
+        border-bottom: 1px solid $white;
+        padding: 0;
+        height: 2.0375rem;
+        @include breakpoint (large) {
+            height: 2.4375rem;
+        }
+        &:focus {
+            box-shadow: none;
+            transition: none;
+        }
+    }
+}
+
+.newsl-btn {
+    float: right;
+}
+
+.fieldName {
+    padding-bottom: 32px;
+    @include breakpoint (large) {
+        padding-bottom: 21px;
+    }
+}
+
+.fieldEmail {
+    padding-bottom: 28px;
+    @include breakpoint (large) {
+        padding-bottom: 39px;
+    }
+}
+
+.form-group {
+    width: 100%;
+    @include breakpoint (medium) {
+        max-width: 525px;
+    }
+}

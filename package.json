@@ -86,6 +86,7 @@
   "dependencies": {
     "angular-load": "^0.4.1",
     "angular-masonry": "^0.16.0",
-    "fizzy-ui-utils": "^2.0.1"
+    "fizzy-ui-utils": "^2.0.1",
+    "foundation-sites": "^6.2.0"
   }
 }

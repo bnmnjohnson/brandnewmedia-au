@@ -11,6 +11,7 @@
 @import 'partials/slider';
 @import 'partials/labs';
 @import 'partials/case';
+@import 'partials/forms';
 body {
     background: $black;
     color: $white;
@@ -30,6 +31,8 @@ img {
 hr {
     border: 0;
     border-top: 1px solid $divider-grey;
+    width: 22px;
+    margin: 1.25rem 0;
 }
 
 .wbody {
@@ -39,16 +42,14 @@ hr {
     a {
         color: $black;
     }
-    p {
-        color: $paragraph;
+    .post-entry,
+    .post-list-excerpt {
+        p {
+            color: $paragraph;
+        }
     }
     .header-main {
         background: $white;
-    }
-    h1,
-    .h1 {
-        font-family: $avenir-black;
-        letter-spacing: 0;
     }
 }
 
@@ -75,54 +76,28 @@ hr {
     background: transparent;
 }
 
-.newsletter {
-    background: $lighter-black;
-    padding-top: 42px;
-    [type='text'],
-    [type='password'],
-    [type='date'],
-    [type='datetime'],
-    [type='datetime-local'],
-    [type='month'],
-    [type='week'],
-    [type='email'],
-    [type='number'],
-    [type='search'],
-    [type='tel'],
-    [type='time'],
-    [type='url'],
-    [type='color'],
-    textarea {
-        color: $white;
-        background-color: $lighter-black;
-        border: 0;
-        border-bottom: 1px solid $white;
-        padding: 0;
-        font-size: 14px;
-        letter-spacing: 0.015em;
-        &:focus {
-            box-shadow: none;
-            transition: none;
-        }
-    }
-}
-
 .footer {
     background: $black;
-    padding-top: 18px;
+    padding-top: 19px;
     padding-bottom: 20px;
-    @include breakpoint (large) {
-        padding-top: 48px;
-        padding-bottom:31px;
-        margin-top: 40px;
+    @include breakpoint (medium) {
+        padding-top: 52px;
+        padding-bottom: 28px;
     }
     @include breakpoint (xlarge) {
-        padding-top: 78px;
-        padding-bottom: 45px;
-        margin-top: 80px;
+        padding-top: 75px;
+        padding-bottom: 40px;
+        // margin-top: 80px;
     }
     a {
         color: $white;
+        line-height: 57px;
+        @include breakpoint (medium) {
+            line-height: 33px;
+        }
+    }
+    small {
+        color: $text-grey;
     }
 }
 
@@ -131,7 +106,7 @@ hr {
         padding-bottom: 65px;
     }
     @include breakpoint (xlarge) {
-        padding-bottom: 130px;
+        padding-bottom: 121px;
     }
 }
 
@@ -158,4 +133,12 @@ hr {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.countries-1,
+.countries-2 {
+    display: none;
+    @include breakpoint (medium) {
+        display: block;
+    }
 }

@@ -1,6 +1,7 @@
 function PeopleCtrl($rootScope, $scope, WhiteBackground) {
 
     const vm = this;
+    $scope.showNewsletter= false;
 
     $scope.people = {
         "title" : "We're a team of storytellers. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue."

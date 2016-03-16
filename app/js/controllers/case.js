@@ -3,6 +3,8 @@ function CaseCtrl($scope, $rootScope, DarkBackground, angularLoad, $timeout) {
 
     var vm = this;
 
+
+
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
 
     $scope.hero = {

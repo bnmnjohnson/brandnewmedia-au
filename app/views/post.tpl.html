@@ -5,9 +5,10 @@
 <div class="post-hero" ng-hide="vm.video != null">
     <div class="hero-image" background-image="{{hero.thumbnail}}"></div>
 </div>
-<div class="row no-pad">
-    <div class="small-12 large-10 large-push-1 xlarge-7 xlarge-push-1 columns no-pad">
-        <div class="post-entry">
+<div class="wider-main">
+    <div class="row no-pad">
+        <div class="small-12 medium-12 large-12 xlarge-8 columns no-pad post-entry">
+            <!-- <div class="small-12 medium-10 medium-push-1 large-9 large-push-1 xlarge-8 xlarge-push-1 columns no-pad"> -->
             <h1>{{ vm.post.title }}</h1>
             <div class="date">
                 <p>{{ vm.post.date | date:'dd MMM yyyy' }}&nbsp;by&nbsp;{{vm.post.author.name}}</p>

@@ -1,36 +1,19 @@
-<!-- Newsletter Pop Up -->
-<!-- ng-show="showNewsletter" -->
-<div class="newsletter" ng-show="showNewsletter">
-<button ng-click= "showNewsletter = false"> close </button>
-    <div class="wider-main">
-        <p> Subscribe to our newsletter to receive good wholesome stuff, once a month or thereabouts. </p>
-        <form>
-            <div class="row">
-                <div class="medium-3 columns no-pad show-for-medium show-for-large">
-                    <p> Newsletter</p>
-                </div>
-                <div class="medium-9 columns no-pad">
-                    <div class="medium-7 columns no-pad">
-                        <input type="text" placeholder="Name">
-                        <input type="text" placeholder="Email address">
-                        <button type="submit"> Submit </button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<newsletter-directive></newsletter-directive>
 <footer class="footer">
     <div class="wider-main">
         <!-- Footer -->
         <div class="row contact-footer">
-            <div class="large-3 columns no-pad">
+            <div class="medium-3 columns no-pad-left">
                 <ul>
-                    <li class="hide-for-large"><a ng-click="showNewsletter = !showNewsletter" ng-class="{ underlined: showNewsletter} "><span ng-show="showNewsletter">Close</span> Newsletter </a> </li>
-                    <li class=""><a href="#"> Contact </a> </li>
+                    <li class="hide-for-medium hide-for-large">
+                        <a ng-click="showNewsletter = !showNewsletter" ng-class="{ underlined: showNewsletter} "> Newsletter </a>
+                    </li>
+                    <li class="">
+                        <a href="#"> Contact </a>
+                    </li>
                 </ul>
             </div>
-            <div class="large-3 columns no-pad show-for-medium show-for-large">
+            <div class="medium-3 columns no-pad-left countries-1">
                 <ul>
                     <li class=""><a href="#"> Sydney </a> </li>
                     <li class=""><a href="#"> Melbourne </a> </li>
@@ -38,7 +21,7 @@
                     <li class=""><a href="#"> Philipines </a> </li>
                 </ul>
             </div>
-            <div class="large-3 columns no-pad show-for-medium show-for-large">
+            <div class="medium-3 columns no-pad-left countries-2">
                 <ul>
                     <li class=""><a href="#"> Singapore </a> </li>
                     <li class=""><a href="#"> USA </a> </li>
@@ -46,12 +29,12 @@
                     <li class=""><a href="#"> Germany </a> </li>
                 </ul>
             </div>
-            <div class="small-12 large-3 columns no-pad">
+            <div class="medium-3 columns no-pad-left no-pad-right">
                 <ul>
-                    <li><a href="/people"> Facebook </a></li>
-                    <li><a href="/labs"> Twitter </a></li>
-                    <li><a href="/contact"> Linkedin </a></li>
-                    <li><a href="/contact"> Google+ </a></li>
+                    <li><a href="/" target="_blank"> Facebook </a></li>
+                    <li><a href="/" target="_blank"> Twitter </a></li>
+                    <li><a href="/" target="_blank"> Linkedin </a></li>
+                    <li><a href="/" target="_blank"> Google+ </a></li>
                 </ul>
             </div>
         </div>

@@ -4,6 +4,7 @@ function PostController($rootScope, $scope, $routeParams, $timeout, $location, B
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
     // console.log($routeParams.id);
+    $scope.showNewsletter= false;
 
     BlogService.post($routeParams.id).then(function(post) {
         // console.log("getting post");

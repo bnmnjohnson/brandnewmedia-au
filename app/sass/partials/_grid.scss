@@ -1,5 +1,9 @@
+$outer: 10px;
+$inner: 20px;
+$middle: 30px;
+$large-gap: 54px;
+$xlarge-gap: 116px;
 .row {
-    // max-width: 78.125rem;
     max-width: 86.25rem;
     margin-left: auto;
     margin-right: auto;
@@ -30,18 +34,84 @@
     position: relative;
 }
 
+
+/* 
+
+Our wider main is set slightly further inside the content.
+.wider-main margins are wider the .main margins
+
+    RATIOS .wider-main to .main
+    – (small) -- 2 : 1
+    – (medium) -- 4 : 3
+    – (large) -- 2 : 1
+    – (xlarge) -- 3 : 2
+    – (xxlarge) -- freeform edges
+
+*/
+
 .wider-main {
     width: calc(100% - 40px);
 }
 
-.main {
+.main,
+.labs-main {
+    @include breakpoint(medium) {
+        width: calc(100% - 32px);
+    }
     @include breakpoint(large) {
-        width: calc(100% - 29px);
+        width: calc(100% - 58px);
     }
     @include breakpoint(xlarge) {
         width: calc(100% - 116px);
     }
 }
+
+
+
+/* 
+    .people-main is the same as .main 
+    we have subtracted 10px to correspond with the padding of the people grid 
+
+*/
+
+.people-main {
+    @include breakpoint(medium) {
+        width: calc(100% - 22px);
+    }
+    @include breakpoint(large) {
+        width: calc(100% - 48px);
+    }
+    @include breakpoint(xlarge) {
+        width: calc(100% - 106px);
+    }
+}
+
+.wider-main {
+    @include breakpoint(medium) {
+        width: calc(100% - 44px);
+    }
+    @include breakpoint(large) {
+        width: calc(100% - 116px);
+    }
+    @include breakpoint(xlarge) {
+        width: calc(100% - 174px);
+    }
+}
+
+.close-btn {
+    float:right;
+    // padding-right: 20px;
+    z-index: 88;
+
+}
+
+
+
+/*
+ *******************************************************
+ * Labs Grid
+ *******************************************************
+ */
 
 .labs-main {
     ul li.post {
@@ -49,33 +119,29 @@
         padding-left: 0;
     }
     @include breakpoint(large) {
-        width: calc(100% - 29px);
         ul li.post:nth-child(2n+1) {
-            padding-right: 7px;
+            padding-right: 15px;
         }
         ul li.post:nth-child(2n) {
-            padding-left: 7px;
+            padding-left: 15px;
         }
     }
     @include breakpoint(xlarge) {
-        width: calc(100% - 116px);
         ul li.post:nth-child(2n+1) {
-            padding-right: 43px;
+            padding-right: 44px;
         }
         ul li.post:nth-child(2n) {
-            padding-left: 43px;
+            padding-left: 44px;
         }
     }
 }
 
-.wider-main {
-    @include breakpoint(large) {
-        width: calc(100% - 44px);
-    }
-    @include breakpoint(xlarge) {
-        width: calc(100% - 176px);
-    }
-}
+
+/*
+ *******************************************************
+ * People Grid
+ *******************************************************
+ */
 
 .people-main {
     ul li {
@@ -85,7 +151,6 @@
         padding-top: 5px;
     }
     @include breakpoint(medium) {
-        // every odd 
         ul li:nth-child(2n+1) {
             padding-right: 5px;
         }
@@ -94,42 +159,10 @@
         }
     }
     @include breakpoint(large) {
-        width: calc(100% - 19px);
         ul li {
             padding-right: 5px;
             padding-left: 5px;
         }
-    }
-    @include breakpoint(xlarge) {
-        width: calc(100% - 106px);
-    }
-}
-
-.story-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: block;
-    top: 100%;
-    padding-top: 36px;
-    @include breakpoint (xlarge) {
-        padding-top: 92px;
-        h1 {
-            margin-bottom: 34px;
-        }
-    }
-}
-
-.text-panel {
-    padding-top: 21px;
-    padding-bottom: 45px;
-    padding-right: 20px;
-    padding-left: 20px;
-    @include breakpoint (xlarge) {
-        padding-top: 80px;
-        padding-bottom: 88px;
-        padding-right: 42px;
-        padding-left: 50px;
     }
 }
 
@@ -180,21 +213,49 @@
     }
 }
 
-.inner-side {
+
+/*
+ *******************************************************
+ * Case Story Grid
+ *******************************************************
+ */
+
+
+/* 
+    .side, .case
+    Share same padding-top and padding-bottom for medium-up
+*/
+
+// .inner-top {
+//     @include breakpoint (medium) {
+//         padding-top: 31px;
+//     }
+//     @include breakpoint (large) {
+//          padding-top: 63px;
+//          padding-bottom: 69px;
+//     }
+//     @include breakpoint (xlarge) {
+//         padding-top: 95px;
+//         padding-bottom: 97px;
+//     }
+// }
+.side {
     padding-top: 0px;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 65px;
+    padding-right: 0.625rem;
+    padding-bottom: 45px;
     @include breakpoint (medium) {
+        padding-right: 0.9375rem;
         padding-top: 31px;
+
     }
     @include breakpoint (large) {
+        padding-right: 0;
         padding-top: 63px;
-        padding-right: 44px;
-        padding-left: 0px;
+        padding-bottom: 69px;
     }
     @include breakpoint (xlarge) {
         padding-top: 95px;
+        padding-bottom: 97px;
     }
     p {
         font-size: 14px;
@@ -202,40 +263,66 @@
     }
 }
 
-.inner-case {
+.case {
     padding-top: 28px;
     padding-bottom: 0px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-left: 0.625rem;
+    max-width: 700px;
     @include breakpoint (medium) {
-        padding-top: 31px;
+        padding-left: 0.9375rem;
+        padding-top: 29px;
     }
     @include breakpoint (large) {
-        max-width: 635px;
-        padding-left: 44px;
+        padding-left: 0;
         padding-top: 60px;
         padding-bottom: 69px;
-        padding-right: 44px;
     }
     @include breakpoint (xlarge) {
-        min-width: 600px;
-        max-width: 695px;
-        padding-right: 42px;
-        padding-left: 50px;
-        padding-top: 92px;
+        padding-top: 91px;
         padding-bottom: 97px;
     }
     h1 {
-        margin-bottom: 35px;
+        margin-bottom: 24px;
     }
-    p {
-        margin-bottom: 20px;
-        color: $paragraph;
-        @include breakpoint (large) {
-            margin-bottom: 38px;
+}
+
+.text-panel {
+    padding-top: 28px;
+    padding-bottom: 38px;
+    @include breakpoint (medium) {
+        padding-top: 29px;
+    }
+    @include breakpoint (large) {
+        padding-top: 60px;
+        padding-bottom: 69px;
+    }
+    @include breakpoint (xlarge) {
+        padding-top: 80px;
+        padding-bottom: 88px;
+    }
+}
+
+.story-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 100%;
+    padding-top: 36px;
+    @include breakpoint (xlarge) {
+        padding-top: 92px;
+        h1 {
+            margin-bottom: 34px;
         }
     }
 }
+
+
+/*
+ *******************************************************
+ * Blog Post
+ *******************************************************
+ */
 
 .post-entry {
     br {
@@ -247,20 +334,18 @@
     padding-left: 20px;
     @include breakpoint (medium) {
         padding-top: 31px;
+        padding-right: 0px;
+        padding-left: 0px;
     }
     @include breakpoint (large) {
-        max-width: 635px;
-        min-width: 515px;
-        padding-left: 0px;
+        // max-width: 635px;
+        // min-width: 515px;
+        // padding-left: 0px;
+        // padding-right: 0px;
         padding-top: 49px;
         padding-bottom: 75px;
-        padding-right: 0px;
-    }
-    @include breakpoint (xlarge) {
-        width: 695px;
-        max-width: 695px;
-        padding-right: 17px;
-        padding-left: 50px;
+        max-width: 700px;
+        
     }
     h1 {
         margin-bottom: 22px;
@@ -278,6 +363,7 @@
     iframe {
         margin-top: 38px;
         margin-bottom: 38px;
+
     }
     .post-body {
         padding-bottom: 18px;

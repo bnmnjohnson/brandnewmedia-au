@@ -1,56 +1,53 @@
 small {
-    font-size: 14px;
+    font-size: 13px;
     color: $white;
-    letter-spacing: 0.015em;
-}
-
-a {
-    line-height: 57px;
-    font-size: 14px;
-    color: $white;
-    letter-spacing: 0.015em;
-    // @include breakpoint(medium) {
-    //     font-size: 15px;
-    //     line-height: 33px;
-
-    // }
-    @include breakpoint(medium) {
-        font-size: 16px;
-        line-height: 33px;
-    }
-    @include breakpoint(xlarge) {
-        font-size: 17px;
-        line-height: 33px;
-    }
-}
-
-p {
-    font-size: 14px;
-    line-height: 27px;
     letter-spacing: 0.015em;
     font-family: $avenir-medium;
+}
+
+a,
+p,
+.newsl-btn,
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+.newsletter p {
+    line-height: 27px;
+    font-size: 14px;
     color: $white;
+    letter-spacing: 0.015em;
+    font-family: $avenir-medium;
     margin-bottom: 0;
-    // @include breakpoint(medium) {
-    //     font-size: 15px;
-    //     line-height: 30px;
-    // }
     @include breakpoint(medium) {
-        font-size: 16px;
-        line-height: 32px;
+        font-size: 15px;
+        line-height: 33px;
     }
     @include breakpoint(large) {
         font-size: 18px;
-        line-height: 38px;
+        line-height: 33px;
     }
 }
+
+p {}
 
 h1,
 .h1 {
     font-size: 23px;
     line-height: 30px;
-    font-family: $avenir-black;
+    font-family: $avenir-heavy;
     margin-bottom: 0;
+    letter-spacing: -0.001em;
     // @include breakpoint(medium) {
     //     font-size: 26px;
     //     line-height: 35px;
@@ -59,11 +56,10 @@ h1,
     @include breakpoint(medium) {
         font-size: 29px;
         line-height: 41px;
-        font-family: $avenir-heavy;
     }
-    @include breakpoint(xlarge) {
+    @include breakpoint(large) {
         font-size: 35px;
-        line-height: 47px;
+        line-height: 48px;
     }
 }
 
@@ -110,11 +106,27 @@ h6,
 .results {
     h1 {
         font-size: 70px;
-        font-family: $avenir-black;
+        // font-family: $avenir-heavy;
     }
     @include breakpoint(xlarge) {
         h1 {
             font-size: 116px;
         }
     }
+}
+
+::-webkit-input-placeholder {
+   color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+:-ms-input-placeholder {  
+   color: white;  
 }

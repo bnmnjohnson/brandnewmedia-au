@@ -1,8 +1,9 @@
 function ContactCtrl($rootScope, $scope, WhiteBackground) {
 
+ 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
     $scope.contact = {
-        "title" : "Let's work together. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue."
+        "title": "Let's work together. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue."
     }
 }
 
