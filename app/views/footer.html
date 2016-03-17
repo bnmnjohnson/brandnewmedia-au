@@ -1,4 +1,4 @@
-<newsletter-directive></newsletter-directive>
+<div ng-include=" 'directives/newsletter.html' "> </div>
 <footer class="footer">
     <div class="wider-main">
         <!-- Footer -->
@@ -6,10 +6,10 @@
             <div class="medium-3 columns no-pad-left">
                 <ul>
                     <li class="hide-for-medium hide-for-large">
-                        <a ng-click="showNewsletter = !showNewsletter" ng-class="{ underlined: showNewsletter} "> Newsletter </a>
+                        <a ng-click="showNewsletter = !showNewsletter" ng-class="{ 'underlined': showNewsletter, 'noline' : !showNewsletter } "> Newsletter </a>
                     </li>
                     <li class="">
-                        <a href="#"> Contact </a>
+                        <a> Contact </a>
                     </li>
                 </ul>
             </div>

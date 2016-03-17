@@ -4,6 +4,10 @@
     color: $white;
 }
 
+button:focus {
+    outline: none;
+}
+
 .button {
     width: 100%;
     background-color: $black;

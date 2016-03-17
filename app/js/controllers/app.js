@@ -1,15 +1,21 @@
-function AppCtrl($rootScope, $routeParams, $scope, $window, $location, $timeout, MetadataService, DarkBackground) {
+function AppCtrl($rootScope, $sce, $scope, $http, $httpParamSerializer, $routeParams, $window, $location, $timeout, MetadataService, DarkBackground, NewsletterService) {
 
     var vm = this;
 
+
+    // $scope.formData = {};
+
+
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
-    $scope.home = {
-        "title": "We're Brand New Media. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.",
-        "link": "Watch our story",
-        "url": "/company"
-    }
-    // vm.menuShow = false;
-    vm.showNewsletter = false;
+    // $scope.home = {
+    //     "title": "We're Brand New Media. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.",
+    //     "link": "Watch our story",
+    //     "url": "/company"
+    // }
+
+    //vm.showNewsletter = false;
+
+
 
 
     $rootScope.$watchCollection(function() {
@@ -30,7 +36,7 @@ function AppCtrl($rootScope, $routeParams, $scope, $window, $location, $timeout,
     });
 }
 
-AppCtrl.$inject = ["$rootScope", "$routeParams", "$scope", "$window", "$location", "$timeout", "MetadataService", "DarkBackground"];
+AppCtrl.$inject = ["$rootScope", "$scope", "$sce", "$http", "$httpParamSerializer", "$routeParams", "$window", "$location", "$timeout", "MetadataService", "DarkBackground", "NewsletterService"];
 
 export default {
     name: 'AppCtrl',
