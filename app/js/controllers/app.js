@@ -1,19 +1,41 @@
 function AppCtrl($rootScope, $sce, $scope, $http, $httpParamSerializer, $routeParams, $window, $location, $timeout, MetadataService, DarkBackground, NewsletterService) {
 
     var vm = this;
+    // $scope.submitted = false;
 
 
     // $scope.formData = {};
 
 
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
-    // $scope.home = {
-    //     "title": "We're Brand New Media. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.",
-    //     "link": "Watch our story",
-    //     "url": "/company"
-    // }
+
 
     //vm.showNewsletter = false;
+
+    $(function() {
+        $('#subForm').submit(function(e) {
+            e.preventDefault();
+            $.getJSON(
+                this.action + "?callback=?",
+                $(this).serialize(),
+                function(data) {
+                    if (data.Status === 400) {
+                        alert("Error: " + data.Message);
+                        $("#signup-message").hide();
+                        $('#error-message').show();
+                        
+
+                    } else { // 200
+                        // alert("Success: " + data.Message);
+
+                        document.getElementById("subForm").reset();
+                        $("#signup-message").hide();
+                        $('#submitted-message').show();
+                        
+                    }
+                });
+        });
+    });
 
 
 

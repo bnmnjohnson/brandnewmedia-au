@@ -1,4 +1,48 @@
-<div ng-include=" 'directives/newsletter.html' "> </div>
+<div class="newsletter" ng-show="showNewsletter">
+    <div class="wider-main">
+        <div class="row no-pad">
+            <div class="large-3 show-for-large columns no-pad">
+                <p> Newsletter</p>
+            </div>
+            <div class="small-12 large-8 columns no-pad">
+                <div class="small-12 columns no-pad">
+                    <div class="small-12 columns no-pad">
+                        <div class="small-11 large-12 columns no-pad">
+                            <div class="form-group">
+                                <p id="signup-message"> Subscribe to our newsletter to receive good wholesome stuff, once a month or thereabouts. </p>
+                                <p id="submitted-message" style="display: none;">You have submitted successfully.</p>
+                                <p id="error-message" style="display: none;">There was an error submitting your form.</p>
+                            </div>
+                        </div>
+                        <div class="small-1 hide-for-large columns no-pad">
+                            <button class="mobile-close-btn" ng-click="showNewsletter =! showNewsletter">
+                                <p>X</p>
+                            </button>
+                        </div>
+                    </div>
+                    <form class="small-12 columns no-pad" autocomplete="off" action="http://brandnewmedia1.createsend.com/t/j/s/nuyuri/" method="post" id="subForm">
+                        <div class="form-group">
+                            <div class="fieldName">
+                                <input id="fieldName" name="cm-name" type="text" placeholder="Name" />
+                            </div>
+                            <div class="fieldEmail">
+                                <input id="fieldEmail" name="cm-nuyuri-nuyuri" type="email" required placeholder="Email Address" />
+                            </div>
+                            <div>
+                                <button type="submit" class="newsl-btn" ng-click="processForm()">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="show-for-large large-1 columns no-pad">
+                <button class="close-btn" ng-click="showNewsletter = !showNewsletter">
+                    <p> close </p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <footer class="footer">
     <div class="wider-main">
         <!-- Footer -->

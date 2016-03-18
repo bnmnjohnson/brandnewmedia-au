@@ -1,10 +1,16 @@
-function HomeCtrl($rootScope, $scope, $sce, DarkBackground, MetadataService, NewsletterService) {
+function HomeCtrl($rootScope, $scope, $sce, $http, $httpParamSerializer, DarkBackground, MetadataService, NewsletterService, TransformRequestAsFormPost) {
 
     var vm = this;
 
 
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
     // vm.showNewsletter = true;
+
+    $scope.home = {
+        "title": "We're Brand New Media. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.",
+        "link": "Watch our story",
+        "url": "/company"
+    }
 
     // pass an empty object to use the defaults.
     MetadataService.setMetadata({});
@@ -20,27 +26,11 @@ function HomeCtrl($rootScope, $scope, $sce, DarkBackground, MetadataService, New
         console.log('MAX 720 FALSE');
     });
 
-    $scope.formData = {};
-
-    $scope.processForm = function() {
-        $http({
-            method: 'POST',
-            url: $sce.trustAsResourceUrl("http://brandnewmedia1.createsend.com/t/j/s/nuyuri/"),
-            data: $.param($scope.formData),
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        }).success(function(response) {
-            console.log(response);
-            console.log("sending data....")
-                // this callback will be called asynchronously
-                // when the response is available
-        });
-
-    }
 
 
 }
 
-HomeCtrl.$inject = ["$rootScope", "$scope", "$sce", "DarkBackground", "MetadataService", "NewsletterService"];
+HomeCtrl.$inject = ["$rootScope", "$scope", "$sce", "$http", "$httpParamSerializer", "DarkBackground", "MetadataService", "NewsletterService", "TransformRequestAsFormPost"];
 
 export default {
     name: 'HomeCtrl',

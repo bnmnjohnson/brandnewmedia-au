@@ -1,2 +1,56 @@
 <top-panel message="contact"> </top-panel>
+<div style="display: block; width: 100%; border-bottom: 1px solid #ccc; height: 100px; margin-bottom: 20px;">
+    <div class="labels" style="width: 100%" ng-init="vm.changeCat()">
+        <ul>
+            <!-- <li class="country">
+                <a href="" ng-href="#Australia"><input type="radio" ng-model="vm.catSort" name="Australia" value="Australia" />  Australia </a>
+            </li> -->
+            <li class="country">
+                <a ng-click="vm.catSort = 'Australia'; vm.changeHref()">  Australia </a>
+            </li>
+            <li class="country">
+                <a ng-click="vm.catSort = 'Singapore'"> Singapore </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- ng-repeat="(country, contact) in vm.contactDetails" -->
+<div class="wider-main contact-details">
+    <div class="row no-pad">
+        <ul class="row small-up-1 medium-up-2 no-pad">
+            <li class="column no-pad contact" ng-repeat="(index, country) in vm.countries | filter: vm.filterCountries" ng-click="selectCountry(country)">
+                {{country.name}}
+            </li>
+        </ul>
+    </div>
+</div>
 <div ng-include=" 'footer.html' "> </div>
+<style>
+.labels {
+    padding-bottom: 0;
+    line-height: 77px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    text-align: left;
+}
+
+.country {
+    margin: 0 8px;
+    display: inline-block;
+    cursor: pointer;
+    /*font-size: 16px;*/
+    letter-spacing: 0.1px;
+    position: relative;
+    /*border-bottom: 3px solid #f7f7f7;*/
+}
+
+span {
+    /*position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+*/
+}
+</style>

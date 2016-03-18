@@ -3,8 +3,8 @@
 @import 'partials/vars';
 @import 'partials/fonts';
 @import 'partials/typography';
-@import 'partials/grid';
 @import 'partials/base';
+@import 'partials/grid';
 @import 'partials/header';
 @import 'partials/video';
 @import 'partials/button';
@@ -12,137 +12,7 @@
 @import 'partials/labs';
 @import 'partials/case';
 @import 'partials/forms';
-body {
-    background: $black;
-    color: $white;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: $avenir-medium;
-    width: 100%;
-    height: 100%;
-}
 
-img {
-    width: 100%;
-}
 
-hr {
-    border: 0;
-    border-top: 1px solid $divider-grey;
-    width: 22px;
-    margin: 1.25rem 0;
-}
 
-.wbody {
-    background-color: $white;
-    color: $black;
-    li,
-    a {
-        color: $black;
-    }
-    .post-entry,
-    .post-list-excerpt {
-        p {
-            color: $paragraph;
-        }
-    }
-    .header-main {
-        background: $white;
-    }
-}
 
-.hp-gifs {
-    width: 100%;
-    margin-bottom: 8px;
-    @include breakpoint(large) {
-        margin-bottom: 14px;
-    }
-    @include breakpoint(xlarge) {
-        margin-bottom: 40px;
-    }
-}
-
-.noScroll {
-    overflow: hidden;
-}
-
-.underlined {
-    border-bottom: 1px solid $white;
-}
-
-.noline {
-    border-bottom: 0;
-}
-
-.header-main.transparent {
-    background: transparent;
-}
-
-.footer {
-    background: $black;
-    padding-top: 19px;
-    padding-bottom: 20px;
-    @include breakpoint (medium) {
-        padding-top: 52px;
-        padding-bottom: 28px;
-    }
-    @include breakpoint (xlarge) {
-        padding-top: 75px;
-        padding-bottom: 40px;
-        // margin-top: 80px;
-    }
-    a {
-        color: $white;
-        line-height: 57px;
-        @include breakpoint (medium) {
-            line-height: 33px;
-        }
-    }
-    small {
-        color: $text-grey;
-    }
-}
-
-.contact-footer {
-    @include breakpoint (large) {
-        padding-bottom: 65px;
-    }
-    @include breakpoint (xlarge) {
-        padding-bottom: 121px;
-    }
-}
-
-.hero-image {
-    width: 100%;
-    height: 600px;
-    position: relative;
-    display: block;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.post-background {
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.countries-1,
-.countries-2 {
-    display: none;
-    @include breakpoint (medium) {
-        display: block;
-    }
-}
