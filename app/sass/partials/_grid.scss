@@ -114,7 +114,8 @@ Our wider main is set slightly further inside the content.
 
 */
 
-.wider-main {
+.wider-main,
+.header-main {
     width: calc(100% - 40px);
 }
 
