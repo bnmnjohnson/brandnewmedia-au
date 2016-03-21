@@ -15,6 +15,11 @@ label {
         color: $white;
         margin-bottom: 22px;
     }
+    .pull-p-right {
+        @include breakpoint (xxlarge) {
+            margin-left: 30px;
+        }
+    }
     form {
         // max-width: 525px;
     }

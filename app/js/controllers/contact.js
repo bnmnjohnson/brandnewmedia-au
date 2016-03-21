@@ -1,33 +1,111 @@
-function ContactCtrl($rootScope, $scope, WhiteBackground, $location) {
+function ContactCtrl($rootScope, $scope, WhiteBackground, $location, $routeParams) {
 
     var vm = this;
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
     $scope.contact = {
-        "title": "Let's work together. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue."
+        "title": "Let's work together. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
 
-    vm.catSort = "Australia";
+    // vm.menuItem = 'australia';
+    vm.menuState = $location.path();
+    console.log(vm.menuState);
 
-    vm.changeHref = function() {
-        if (vm.catSort == 'Australia') {
-            alert("change href")
-            $location.hash('australia');
-        }
 
-    }
 
-    vm.changeCat = function() {
-        if ($location.hash() == 'Singapore') {
-            alert("Singapore")
-            vm.catSort = "Singapore";
-        }
-    }
+    vm.menuItem = $routeParams.country;
 
-    vm.countries = [
-    {
+    // vm.catSort = "Australia";
+
+    // vm.changeHref = function() {
+    //     if (vm.catSort == 'Australia') {
+    //         alert("change href")
+    //         $location.hash('australia');
+    //     }
+
+    // }
+
+    // vm.changeCat = function() {
+    //     if ($location.hash() == 'Singapore') {
+    //         alert("Singapore")
+    //         vm.catSort = "Singapore";
+    //     }
+    // }
+
+    vm.australiaDetails = [{
+        "name": "Sydney Office",
+        "country": "australia",
+        "city": "Sydney",
+        "address": "The Pavilion, 201 Miller Street",
+        "suburb": "North Sydney",
+        "state": "NSW",
+        "postcode": "2060",
+        "phone": "61299013100",
+        "email": "hello@brandnewmedia.com.au",
+        "id": '1'
+    }, {
+        "name": "Sydney Studio",
+        "country": "australia",
+        "city": "Sydney",
+        "address": "The Pavilion, 201 Miller Street",
+        "suburb": "North Sydney",
+        "state": "NSW",
+        "postcode": "2060",
+        "phone": "61299013100",
+        "email": "hello@brandnewmedia.com.au",
+        "id": '1'
+    }, {
+        "name": "Melbourne Office",
+        "country": "australia",
+        "city": "Sydney",
+        "address": "The Pavilion, 201 Miller Street",
+        "suburb": "North Sydney",
+        "state": "NSW",
+        "postcode": "2060",
+        "phone": "61299013100",
+        "email": "hello@brandnewmedia.com.au",
+        "id": '1'
+    }, {
+        "name": "Melbourne Studio",
+        "country": "australia",
+        "city": "Sydney",
+        "address": "The Pavilion, 201 Miller Street",
+        "suburb": "North Sydney",
+        "state": "NSW",
+        "postcode": "2060",
+        "phone": "61299013100",
+        "email": "hello@brandnewmedia.com.au",
+        "id": '1'
+    }]
+
+    vm.singaporeDetails = [{
+        "name": "Singapore Office",
+        "country": "australia",
+        "city": "Sydney",
+        "address": "The Pavilion, 201 Miller Street",
+        "suburb": "North Sydney",
+        "state": "NSW",
+        "postcode": "2060",
+        "phone": "61299013100",
+        "email": "hello@brandnewmedia.com.au",
+        "id": '1'
+    }, {
+        "name": "Singapore Studio",
+        "country": "australia",
+        "city": "Sydney",
+        "address": "The Pavilion, 201 Miller Street",
+        "suburb": "North Sydney",
+        "state": "NSW",
+        "postcode": "2060",
+        "phone": "61299013100",
+        "email": "hello@brandnewmedia.com.au",
+        "id": '1'
+    }]
+
+    vm.countries = [{
+        "australia": [{
             "name": "Sydney Office",
-            "country": "Australia",
+            "country": "australia",
             "city": "Sydney",
             "address": "The Pavilion, 201 Miller Street",
             "suburb": "North Sydney",
@@ -35,11 +113,10 @@ function ContactCtrl($rootScope, $scope, WhiteBackground, $location) {
             "postcode": "2060",
             "phone": "61299013100",
             "email": "hello@brandnewmedia.com.au",
-            "id" : '1'
-        },
-        {
+            "id": '1'
+        }, {
             "name": "Sydney Studio",
-            "country": "Australia",
+            "country": "australia",
             "city": "Sydney",
             "address": "The Pavilion, 201 Miller Street",
             "suburb": "North Sydney",
@@ -47,11 +124,12 @@ function ContactCtrl($rootScope, $scope, WhiteBackground, $location) {
             "postcode": "2060",
             "phone": "61299013100",
             "email": "hello@brandnewmedia.com.au",
-            "id" : '1'
-        },
-        {
-            "name": "Signapore Office",
-            "country": "Singapore",
+            "id": '1'
+        }]
+    }, {
+        "singapore": [{
+            "name": "Singapore Office",
+            "country": "australia",
             "city": "Sydney",
             "address": "The Pavilion, 201 Miller Street",
             "suburb": "North Sydney",
@@ -59,11 +137,10 @@ function ContactCtrl($rootScope, $scope, WhiteBackground, $location) {
             "postcode": "2060",
             "phone": "61299013100",
             "email": "hello@brandnewmedia.com.au",
-            "id" : '2'
-        },
-        {
+            "id": '1'
+        }, {
             "name": "Singapore Studio",
-            "country": "Singapore",
+            "country": "australia",
             "city": "Sydney",
             "address": "The Pavilion, 201 Miller Street",
             "suburb": "North Sydney",
@@ -71,48 +148,79 @@ function ContactCtrl($rootScope, $scope, WhiteBackground, $location) {
             "postcode": "2060",
             "phone": "61299013100",
             "email": "hello@brandnewmedia.com.au",
-            "id" : '2'
-        },
-        {
-            "name": "Melbourne Office",
-            "country": "Australia",
-            "city": "Sydney",
-            "address": "The Pavilion, 201 Miller Street",
-            "suburb": "North Sydney",
-            "state": "NSW",
-            "postcode": "2060",
-            "phone": "61299013100",
-            "email": "hello@brandnewmedia.com.au",
-            "id" : '1'
-        },
-        {
-            "name": "Melbourne Studio",
-            "country": "Australia",
-            "city": "Sydney",
-            "address": "The Pavilion, 201 Miller Street",
-            "suburb": "North Sydney",
-            "state": "NSW",
-            "postcode": "2060",
-            "phone": "61299013100",
-            "email": "hello@brandnewmedia.com.au",
-            "id" : '1'
-        }
-
-    ]
-
-    vm.filterCountries = function (country) {
-        //console.log(tag, $scope.catSort);
-        return !vm.catSort ? 
-                   country : (country.country == vm.catSort);
-
-    };
+            "id": '1'
+        }]
+    }, {
+        "philippines": [{
+            "name": "Sydney",
+            "country": "Australia"
+        }]
+    }, {
+        "germany": [{
+            "name": "Sydney",
+            "country": "Australia"
+        }]
+    }, {
+        "america": [{
+            "name": "Sydney",
+            "country": "Australia"
+        }]
+    }]
 
 
+
+    // vm.Australia = [{
+    //     "Australia": [{
+    //             "name": "Sydney Office",
+    //             "country": "australia",
+    //             "city": "Sydney",
+    //             "address": "The Pavilion, 201 Miller Street",
+    //             "suburb": "North Sydney",
+    //             "state": "NSW",
+    //             "postcode": "2060",
+    //             "phone": "61299013100",
+    //             "email": "hello@brandnewmedia.com.au",
+    //             "id": '1'
+    //         }, {
+    //             "name": "Sydney Studio",
+    //             "country": "australia",
+    //             "city": "Sydney",
+    //             "address": "The Pavilion, 201 Miller Street",
+    //             "suburb": "North Sydney",
+    //             "state": "NSW",
+    //             "postcode": "2060",
+    //             "phone": "61299013100",
+    //             "email": "hello@brandnewmedia.com.au",
+    //             "id": '1'
+    //         }, {
+    //             "name": "Melbourne Office",
+    //             "country": "australia",
+    //             "city": "Sydney",
+    //             "address": "The Pavilion, 201 Miller Street",
+    //             "suburb": "North Sydney",
+    //             "state": "NSW",
+    //             "postcode": "2060",
+    //             "phone": "61299013100",
+    //             "email": "hello@brandnewmedia.com.au",
+    //             "id": '1'
+    //         }, {
+    //             "name": "Melbourne Studio",
+    //             "country": "australia",
+    //             "city": "Sydney",
+    //             "address": "The Pavilion, 201 Miller Street",
+    //             "suburb": "North Sydney",
+    //             "state": "NSW",
+    //             "postcode": "2060",
+    //             "phone": "61299013100",
+    //             "email": "hello@brandnewmedia.com.au",
+    //             "id": '1'
+    //         }
+    //     }], {
 
 
 }
 
-ContactCtrl.$inject = ["$rootScope", "$scope", "WhiteBackground", "$location"];
+ContactCtrl.$inject = ["$rootScope", "$scope", "WhiteBackground", "$location", "$routeParams"];
 
 export default {
     name: 'ContactCtrl',

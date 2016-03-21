@@ -63,6 +63,12 @@ function OnConfig($routeProvider, $locationProvider) {
         title: 'Contact'
     })
 
+    .when('/contact/:country', {
+        templateUrl: 'contact.tpl.html',
+        controller: 'ContactCtrl as vm',
+        title: 'Contact'
+    })
+
     .otherwise({
         redirectTo: '/'
     });

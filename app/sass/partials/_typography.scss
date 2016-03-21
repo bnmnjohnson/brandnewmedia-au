@@ -7,7 +7,7 @@ small {
 
 a,
 p,
-address,
+.contact-details div,
 .newsl-btn,
 [type='text'],
 [type='password'],
@@ -24,14 +24,14 @@ address,
 [type='url'],
 [type='color'],
 .newsletter p {
-    line-height: 27px;
-    font-size: 14px;
+    line-height: 28px;
+    font-size: 15px;
     color: $white;
     letter-spacing: 0.015em;
     font-family: $avenir-medium;
     margin-bottom: 0;
     @include breakpoint(medium) {
-        font-size: 15px;
+        font-size: 16px;
         line-height: 33px;
     }
     @include breakpoint(large) {
@@ -63,6 +63,15 @@ h1,
         line-height: 48px;
     }
 }
+
+// .message-container h1 {
+//     @include breakpoint (large) {
+//         // font-size: 56px;
+//         // line-height: 71px;
+//         font-size: 46px;
+//         line-height: 61px;
+//     }
+// }
 
 h2 {
     font-size: 18px;
@@ -117,17 +126,19 @@ h6,
 }
 
 ::-webkit-input-placeholder {
-   color: white;
+    color: white;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: white;  
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: white;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: white;  
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: white;
 }
 
-:-ms-input-placeholder {  
-   color: white;  
+:-ms-input-placeholder {
+    color: white;
 }

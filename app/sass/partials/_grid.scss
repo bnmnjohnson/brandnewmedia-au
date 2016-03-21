@@ -26,12 +26,77 @@ $xlarge-gap: 116px;
 .main,
 .wider-main,
 .people-main,
-.labs-main {
+.labs-main,
+.header-inner {
     width: calc(100% - 20px);
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+}
+
+.filter-bar {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+    height: 70px;
+    margin-bottom: 35px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    @include breakpoint (medium) {
+        height: 95px;
+    }
+    @include breakpoint (large) {
+        height: 120px;
+        margin-bottom: 50px;
+    }
+    .wider-main {
+        width: 100%;
+        @include breakpoint(large) {
+            width: calc(100% - 116px);
+        }
+        @include breakpoint(xlarge) {
+            width: calc(100% - 174px);
+        }
+    }
+}
+
+.labels {
+    padding-bottom: 0;
+    // padding-left: 20px;
+    line-height: 70px;
+    height: 70px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    text-align: left;
+    width: 100%;
+    @include breakpoint (medium) {
+        line-height: 95px;
+        height: 95px;
+    }
+    @include breakpoint (large) {
+        line-height: 120px;
+        height: 120px;
+    }
+    @include breakpoint (xxlarge) {
+        padding-left: 30px;
+    }
+    li:first-child {
+        margin-left: 20px;
+        @include breakpoint(medium) {
+            margin-left: 22px;
+        }
+        @include breakpoint(large) {
+            margin-left: 0;
+        }
+    }
+}
+
+.contact-list {
+    @include breakpoint (xxlarge) {
+        padding-left: 30px;
+    }
 }
 
 
@@ -67,7 +132,6 @@ Our wider main is set slightly further inside the content.
 }
 
 
-
 /* 
     .people-main is the same as .main 
     we have subtracted 10px to correspond with the padding of the people grid 
@@ -86,7 +150,8 @@ Our wider main is set slightly further inside the content.
     }
 }
 
-.wider-main {
+.wider-main,
+.header-inner {
     @include breakpoint(medium) {
         width: calc(100% - 44px);
     }
@@ -99,12 +164,10 @@ Our wider main is set slightly further inside the content.
 }
 
 .close-btn {
-    float:right;
+    float: right;
     // padding-right: 20px;
     z-index: 88;
-
 }
-
 
 
 /*
@@ -182,8 +245,17 @@ Our wider main is set slightly further inside the content.
         margin-bottom: 63px;
     }
     @include breakpoint (xlarge) {
-        padding-top: 234px;
-        margin-bottom: 88px;
+        padding-top: 200px;
+        margin-bottom: 87px;
+    }
+}
+
+.contact {
+    .title-message {
+        margin-bottom: 9px;
+        @include breakpoint (medium) {
+            margin-bottom: 0px;
+        }
     }
 }
 
@@ -201,9 +273,9 @@ Our wider main is set slightly further inside the content.
         max-width: 645px;
     }
     @include breakpoint (xlarge) {
-        min-width: 768px;
-        max-width: 768px;
-        width: 768px;
+        min-width: 798px;
+        // max-width: 768px;
+        // width: 768px;
     }
     @include breakpoint (xxlarge) {
         min-width: 798px;
@@ -246,7 +318,6 @@ Our wider main is set slightly further inside the content.
     @include breakpoint (medium) {
         padding-right: 0.9375rem;
         padding-top: 31px;
-
     }
     @include breakpoint (large) {
         padding-right: 0;
@@ -330,8 +401,8 @@ Our wider main is set slightly further inside the content.
     }
     padding-top: 28px;
     padding-bottom: 65px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
     @include breakpoint (medium) {
         padding-top: 31px;
         padding-right: 0px;
@@ -345,7 +416,6 @@ Our wider main is set slightly further inside the content.
         padding-top: 49px;
         padding-bottom: 75px;
         max-width: 700px;
-        
     }
     h1 {
         margin-bottom: 22px;
@@ -363,7 +433,6 @@ Our wider main is set slightly further inside the content.
     iframe {
         margin-top: 38px;
         margin-bottom: 38px;
-
     }
     .post-body {
         padding-bottom: 18px;
