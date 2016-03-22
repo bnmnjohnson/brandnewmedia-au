@@ -73,6 +73,12 @@ h1,
 //     }
 // }
 
+.message-container {
+    h1 {
+        margin-bottom: 16px;
+    }
+}
+
 h2 {
     font-size: 18px;
     line-height: 28px;
@@ -123,6 +129,10 @@ h6,
             font-size: 116px;
         }
     }
+}
+
+.orange {
+    color: $bnm-orange;
 }
 
 ::-webkit-input-placeholder {

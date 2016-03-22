@@ -12,6 +12,41 @@ function HomeCtrl($rootScope, $scope, $sce, $http, $httpParamSerializer, DarkBac
         "url": "/company"
     }
 
+    $scope.brandNewMedia = {
+        title: 'Our brand story',
+        cta: 'Watch the story',
+        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        link: '/case-story'
+    }
+
+    $scope.lunaPark = {
+        title: 'Love is a rollercoaster',
+        cta: 'Watch the story',
+        img: 'WillingEquatorialAyeaye.gif',
+        link: '/case-story'
+    }
+
+    $scope.bayer = {
+        title: 'Bayer',
+        cta: 'Watch the story',
+        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        link: '/case-story'
+    }
+
+    $scope.bupa = {
+        title: 'Bupa',
+        cta: 'Watch the story',
+        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        link: '/case-story'
+    }
+
+    $scope.surfingAustralia = {
+        title: 'Surfing Australia',
+        cta: 'Watch the story',
+        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        link: '/case-story'
+    }
+
     // pass an empty object to use the defaults.
     MetadataService.setMetadata({});
 

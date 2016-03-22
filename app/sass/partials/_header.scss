@@ -16,6 +16,9 @@
     background: $black;
     z-index: 9999;
     overflow: hidden;
+    @include breakpoint (medium) {
+        height: 83px;
+    }
     @include breakpoint (large) {
         height: 113px;
     }
@@ -34,11 +37,16 @@
 
 .header-main.off--canvas {
     top: -53px;
-    @include breakpoint (xlarge) {
+    @include breakpoint (medium) {
+        top: -83px;
+    }
+    @include breakpoint (large) {
         top: -113px;
     }
     .logo-mobile {
-        margin-top: 37px;
+        @include breakpoint (large) {
+            margin-top: 37px;
+        }
     }
 }
 
@@ -48,6 +56,20 @@
 
 .header-main.absolute {
     position: absolute;
+}
+
+svg#Logo_1 {
+    width: 22px;
+    height: 22px;
+    margin: 0px;
+    @include breakpoint (medium) {
+        width: 29px;
+        height: 29px;
+    }
+    @include breakpoint (large) {
+        width: 37px;
+        height: 37px;
+    }
 }
 
 
@@ -66,11 +88,20 @@
     display: block;
     margin-top: 8px;
     margin-left: 2px;
+    @include breakpoint(medium) {
+        width: 38px;
+        height: 38px;
+        margin-left: 3px;
+        margin-top: 22px;
+    }
     @include breakpoint(large) {
-        width: 2.5em;
-        height: 2.5em;
-        margin-left: 2px;
-        margin-top: 49px;
+        width: 38px;
+        height: 38px;
+        margin-left: 3px;
+        margin-top: 50px;
+    }
+    @include breakpoint (xxlarge) {
+        margin-left: 33px;
     }
 }
 
@@ -81,30 +112,29 @@
  *******************************************************
  */
 
-// #menu-trigger {
-//     display: inline-block;
-//     position: relative;
-//     z-index: 99999;
-//     text-align: right;
-//     float: right;
-//     cursor: pointer;
-// }
-// #menu-trigger:hover {
-//     cursor: pointer;
-// }
 .hamburger {
-    position: absolute;
+    position: relative;
     z-index: 99999;
-    right: 20px;
+    right: 0px;
     top: 14px;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     display: block;
     line-height: 1;
+    float: right;
     -webkit-transition: 0.3s -webkit-transform cubic-bezier(0, 0, .58, 1);
     -moz-transition: 0.3s -moz-transform cubic-bezier(0, 0, .58, 1);
     -o-transition: 0.3s -o-transform cubic-bezier(0, 0, .58, 1);
     transition: 0.3s transform cubic-bezier(0, 0, .58, 1);
+    @include breakpoint (medium) {
+        top: 20px;
+        width: 30px;
+    }
+    @include breakpoint (large) {
+        width: 38px;
+        height: 38px;
+        top: 34px;
+    }
     &:hover {
         cursor: pointer;
     }
@@ -112,13 +142,16 @@
 
 .hamburger > div,
 .hamburger > div:nth-child(2) {
-    right: 0px;
+    left: 11px;
     content: ' ';
-    // height: 33;
-    height: 16px;
-    width: 2px;
-    background-color: #ff5314;
+    height: 15px;
+    width: 1px;
+    background-color: $bnm-orange;
     position: absolute;
+    @include breakpoint (medium) {
+        height: 23px;
+        left: 19px;
+    }
 }
 
 .hamburger > div {
@@ -126,8 +159,13 @@
 }
 
 .hamburger > div:nth-child(2) {
-    // margin-top: 10px;
     margin-top: 6px;
+    @include breakpoint (medium) {
+        margin-top: 8px;
+    }
+    @include breakpoint (large) {
+        margin-top: 10px;
+    }
     transform: rotate(90deg);
 }
 
@@ -157,6 +195,12 @@
 
 .hamburger.active.active-end > div:nth-child(2) {
     margin-top: 6px;
+    @include breakpoint (large) {
+        margin-top: 8px;
+    }
+    @include breakpoint (large) {
+        margin-top: 10px;
+    }
     transform: rotate(90deg);
 }
 

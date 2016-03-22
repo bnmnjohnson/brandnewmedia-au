@@ -8,7 +8,7 @@ function FullWidthVideo() {
                 setTimeout(function() {
                     $('#universal_video_background_default').universal_video_background({
                         width: 1920,
-                        height: 600,
+                        height: 768,
                         autoPlayFirstVideo: false,
                         width100Proc: true,
                         responsive: true,

@@ -7,7 +7,8 @@ import onRun from './on_run';
 import 'foundation-sites';
 import 'angular-route';
 import 'angular-load';
-import 'angular-masonry'
+import 'angular-masonry';
+import 'angular-material-icons'
 import 'angular-sanitize';
 import './templates';
 import './filters';
@@ -19,6 +20,7 @@ import './directives';
 const requires = [
     'ngRoute',
     'angularLoad',
+    'ngMdIcons',
     'wu.masonry',
     'ngSanitize',
     'templates',

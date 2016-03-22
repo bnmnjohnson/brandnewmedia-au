@@ -115,7 +115,7 @@ Our wider main is set slightly further inside the content.
 */
 
 .wider-main,
-.header-main {
+.header-inner {
     width: calc(100% - 40px);
 }
 
@@ -208,22 +208,22 @@ Our wider main is set slightly further inside the content.
  */
 
 .people-main {
-    ul li {
+    ul .person {
         padding-right: 0;
         padding-left: 0;
         padding-bottom: 5px;
         padding-top: 5px;
     }
     @include breakpoint(medium) {
-        ul li:nth-child(2n+1) {
+        ul .person:nth-child(2n+1) {
             padding-right: 5px;
         }
-        ul li:nth-child(2n) {
+        ul .person:nth-child(2n) {
             padding-left: 5px;
         }
     }
     @include breakpoint(large) {
-        ul li {
+        ul .person {
             padding-right: 5px;
             padding-left: 5px;
         }
@@ -238,7 +238,7 @@ Our wider main is set slightly further inside the content.
     padding-top: 62px;
     margin-bottom: 11px;
     @include breakpoint (medium) {
-        padding-top: 114px;
+        padding-top: 122px;
         margin-bottom: 42px;
     }
     @include breakpoint (large) {
@@ -353,6 +353,9 @@ Our wider main is set slightly further inside the content.
         padding-top: 91px;
         padding-bottom: 97px;
     }
+    @include breakpoint (xxlarge) {
+        margin-left: 30px;
+    }
     h1 {
         margin-bottom: 24px;
     }
@@ -371,6 +374,10 @@ Our wider main is set slightly further inside the content.
     @include breakpoint (xlarge) {
         padding-top: 80px;
         padding-bottom: 88px;
+    }
+    @include breakpoint (xxlarge) {
+        margin-left: 30px;
+        padding-left: 0;
     }
 }
 

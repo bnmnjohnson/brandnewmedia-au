@@ -44,6 +44,7 @@ label {
         border-bottom: 1px solid $white;
         padding: 0;
         height: 2.0375rem;
+        box-shadow: none;
         @include breakpoint (large) {
             height: 2.4375rem;
         }

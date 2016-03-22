@@ -1,5 +1,10 @@
-function OnConfig($routeProvider, $locationProvider) {
+function OnConfig($routeProvider, $locationProvider, ngMdIconServiceProvider) {
     'ngInject';
+
+    ngMdIconServiceProvider.addShapes({
+        'close': '<polygon points="16,0.7 15.3,0 8,7.3 0.7,0 0,0.7 7.3,8 0,15.3 0.7,16 8,8.7 15.3,16 16,15.3 8.7,8 "/>',
+        'next' : '<g><g id="g20" transform="translate(30.6068,16.0141)"><g id="path22"><rect x="-29.6" y="-8.3" width="13.3" height="0.9"/></g></g><g id="g24" transform="translate(12.4427,4.9714)"><g id="path26"><polygon points="2.6,3.2 -1.6,-0.8 -2.3,-0.1 1.2,3.2 -2.3,6.6 -1.6,7.2"/></g></g></g>'
+    });
 
     $locationProvider.html5Mode(true);
 
