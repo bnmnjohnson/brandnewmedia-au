@@ -20,7 +20,7 @@
         height: 83px;
     }
     @include breakpoint (large) {
-        height: 113px;
+        height: 97px;
     }
 }
 
@@ -41,11 +41,11 @@
         top: -83px;
     }
     @include breakpoint (large) {
-        top: -113px;
+        top: -97px;
     }
     .logo-mobile {
         @include breakpoint (large) {
-            margin-top: 37px;
+            margin-top: 31px;
         }
     }
 }

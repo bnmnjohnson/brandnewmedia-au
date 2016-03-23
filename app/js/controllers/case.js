@@ -1,22 +1,63 @@
-function CaseCtrl($scope, $rootScope, DarkBackground, $timeout) {
+function CaseCtrl($scope, $rootScope, DarkBackground, MetadataService) {
 
 
     var vm = this;
 
-    var icons = [
-        'office', 'facebook', 'twitter', 'apple', 'whatsapp', 'linkedin', 'windows',
-        'accessibility', 'alarm', 'aspect_ratio', 'autorenew', 'bookmark_outline', 'dashboard', 'dns', 'favorite_outline', 'get_app', 'highlight_remove', 'history', 'list', 'picture_in_picture', 'print', 'settings_ethernet', 'settings_power', 'shopping_cart', 'spellcheck', 'swap_horiz', 'swap_vert', 'thumb_up', 'thumbs_up_down', 'translate', 'trending_up', 'visibility', 'warning', 'mic', 'play_circle_outline', 'repeat', 'skip_next', 'call', 'chat', 'clear_all', 'dialpad', 'dnd_on', 'forum', 'location_on', 'vpn_key', 'filter_list', 'inbox', 'link', 'remove_circle_outline', 'save', 'text_format', 'access_time', 'airplanemode_on', 'bluetooth', 'data_usage', 'gps_fixed', 'now_wallpaper', 'now_widgets', 'storage', 'wifi_tethering', 'attach_file', 'format_line_spacing', 'format_list_numbered', 'format_quote', 'vertical_align_center', 'wrap_text', 'cloud_queue', 'file_download', 'folder_open', 'cast', 'headset', 'keyboard_backspace', 'mouse', 'speaker', 'watch', 'audiotrack', 'edit', 'brush', 'looks', 'crop_free', 'camera', 'filter_vintage', 'hdr_strong', 'photo_camera', 'slideshow', 'timer', 'directions_bike', 'hotel', 'local_library', 'directions_walk', 'local_cafe', 'local_pizza', 'local_florist', 'my_location', 'navigation', 'pin_drop', 'arrow_back', 'menu', 'close', 'more_horiz', 'more_vert', 'refresh', 'phone_paused', 'vibration', 'cake', 'group', 'mood', 'person', 'notifications_none', 'plus_one', 'school', 'share', 'star_outline'
-    ];
+    var title = 'Love is a roller coaster';
+    var description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.';
 
-    var colors = ['lightgreen', 'pink', 'wheat', '#cc99ff', '#abcdef'];
+    MetadataService.setMetadata({
+        title: 'Brand New Media | ' + title,
+        description: description
+    });
 
-    $scope.cnt = Math.floor(Math.random() * icons.length);
-    $scope.icon = icons[$scope.cnt];
-    $scope.fill = colors[0];
-    $scope.size = 48;
+
+    var act = new gigya.socialize.UserAction();
+    act.setTitle(title);
+    act.setDescription(description);
+    act.setLinkBack("http://brandnewmedia.com.au/our-flickbook/lifestyle-focused-digital-summit-proves-successful-acquiring-global-audience");
+    act.addMediaItem({ type: 'image', src: 'http://demo.gigya.com/images/recipe2.png', href: 'http://demo.gigya.com/recipe2.php' });
+    var showShareBarUI_params = {
+        containerID: 'componentDiv',
+        shareButtons: 'Facebook,Twitter,googleplus,Email,Print',
+        iconsOnly: 'true',
+        userAction: act,
+        // shareButtons:
+        // [
+        //     { // General Share Button
+        //         provider:'share',
+        //         tooltip:'General Share Button',
+        //     },
+        //     { // Google+
+        //         provider:'google',
+        //         tooltip:'Recommend this on Google',
+        //         iconImgUp:'www.exampleImages.com/googleShare.ico'
+        //     },
+        //     { // Facebook
+        //         provider:'facebook',
+        //         tooltip:'Recommend this on Facebook',
+        //         iconImgUp:'http://simpleicon.com/wp-content/uploads/facebook.svg'
+        //     },
+        // ],
+        buttonWithCountTemplate: '<div style="padding: 5px; background-color: #eee; border: 2px #ddf solid;" onclick="$onClick"><img src="$iconImg"/></div>',
+        buttonTemplate: '<div style="padding: 5px; background-color: #eee; border: 2px #ddf solid;" onclick="$onClick"><img src="$iconImg"/></div>',
+        noButtonBorders: true
+
+    }
+
+    gigya.socialize.showShareBarUI(showShareBarUI_params);
 
 
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
+
+    $scope.intro = {
+        'title': title,
+        'description': 'Realising they were missing an online presence, Luna Park knew video content was needed to drive brand awareness through digital audiences. They wanted to engage people socially and activate peer-to-peer sharing, demonstrating they offer something for everyone.',
+        'link': 'https://www.youtube.com/watch?v=AB1PpQlRyds&list=PL9RaBFzxpPDBwpkCvMgNsvrNpZRKgM1Ey',
+        'linkTitle': 'Watch online',
+        'client': 'Luna Park Sydney',
+        'services': 'Content Production, Distribution & Amplification'
+    }
 
     $scope.hero = {
         'url': 'http://cdn.brandnewmedia.global/wp-content/uploads/2016/03/10125033/ChannelPLAY2-AU.mp4',
@@ -42,10 +83,12 @@ function CaseCtrl($scope, $rootScope, DarkBackground, $timeout) {
         description: 'Praesent vel felis quis velit condimentum sodales. Proin ultrices justo at tempus fringilla. Proin vestibulum luctus sem eu sagittis. Duis non quam et orci volutpat bibendum sed et metus. Sed aliquet convallis ligula id cursus. Quisque et ornare ex. Nullam vulputate tellus elit. Morbi ornare consequat mi, in consequat dui gravida vitae. Maecenas id erat in mauris mattis vulputate in nec tortor. Pellentesque bibendum nisl ut lacus egestas finibus.'
     }
 
-    $scope.results = {
-        title: 'AB1PpQlRyds',
-        description: 'images/AB1PpQlRyds.jpg'
-    }
+    $scope.results = [
+        { number: '360,000', description: 'video views and still growing' },
+        { number: '50%', description: 'of video views were driven through earned media' },
+        { number: '30%', description: 'higher than average video retention rate' },
+        { number: '900,000', description: 'Facebook reach' },
+    ]
 
 
 
@@ -53,7 +96,7 @@ function CaseCtrl($scope, $rootScope, DarkBackground, $timeout) {
 
 }
 
-CaseCtrl.$inject = ["$scope", "$rootScope", "DarkBackground", "$timeout"];
+CaseCtrl.$inject = ["$scope", "$rootScope", "DarkBackground", "MetadataService"];
 
 export default {
     name: 'CaseCtrl',

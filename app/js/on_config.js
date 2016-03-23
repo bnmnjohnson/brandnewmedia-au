@@ -26,6 +26,30 @@ function OnConfig($routeProvider, $locationProvider, ngMdIconServiceProvider) {
         title: 'Case Story'
     })
 
+    .when('/luna-park', {
+        templateUrl: 'case-story.tpl.html',
+        controller: 'LunaCtrl as vm',
+        title: 'Luna Park'
+    })
+
+    .when('/bayer', {
+        templateUrl: 'case-story.tpl.html',
+        controller: 'CaseCtrl as vm',
+        title: 'Case Story'
+    })
+
+    .when('/bupa', {
+        templateUrl: 'case-story.tpl.html',
+        controller: 'BupaCtrl as vm',
+        title: 'Bupa'
+    })
+
+    .when('/surfing-australia', {
+        templateUrl: 'case-story.tpl.html',
+        controller: 'SurfCtrl as vm',
+        title: 'Surfing Australia'
+    })
+
     .when('/people', {
         templateUrl: 'people.tpl.html',
         controller: 'PeopleCtrl as vm',

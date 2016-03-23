@@ -28,12 +28,14 @@
     <meta property="og:image" content="{{ meta.image }}" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
+    <!-- gigya.js script should only be included once -->
+    <script type="text/javascript" src="http://cdn.gigya.com/js/gigya.js?apiKey=3_3tYh9HYZNTqcyqo-_KlEe21C2QI3xNq_mvdNzeMjVdsDtHzy5VGmx30B5m4PT4R3"></script>
 </head>
 
 <body class="{{bodyclass}}" ng-controller="AppCtrl as vm">
     <div ng-include=" 'header.html' "> </div>
     <main role="main">
-        <div ng-view></div>
+        <div ng-view autoscroll="true"></div>
     </main>
     </div>
     <script>
@@ -43,10 +45,10 @@
     <script language="JavaScript" type="text/javascript" src="js/all.js"></script>
     <!-- Load Fonts -->
     <script type="text/javascript" src="http://fast.fonts.net/jsapi/5fd4b51a-759b-4ed1-a4a1-003bba1f33e2.js"></script>
+    <!-- Load Angular Masonry Dependencies -->
+    <!-- <script src="js/masonry.js"></script> -->
     <!-- Load Angular -->
     <script src="js/main.js"></script>
-    <!-- Load Angular Masonry Dependencies -->
-    <script src="js/masonry.js"></script>
 </body>
 
 </html>

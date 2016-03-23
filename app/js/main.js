@@ -7,9 +7,9 @@ import onRun from './on_run';
 import 'foundation-sites';
 import 'angular-route';
 import 'angular-load';
-import 'angular-masonry';
 import 'angular-material-icons'
 import 'angular-sanitize';
+import 'angular-masonry';
 import './templates';
 import './filters';
 import './controllers';

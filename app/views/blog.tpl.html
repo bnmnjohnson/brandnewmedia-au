@@ -1,4 +1,28 @@
-<top-panel message="labs"> </top-panel>
+<top-panel message="labs" class="contact"> </top-panel>
+<div class="filter-bar">
+    <div class="wider-main">
+        <div class="row no-pad">
+            <ul class="labels">
+                <li class="country">
+                    <a ng-href="/contact/australia" ng-class=" { active : vm.menuItem == 'australia' || vm.menuItem == 'Australia' || vm.menuState == '/contact' }">  Australia </a>
+                </li>
+                <li class="country">
+                    <a ng-href="/contact/singapore" ng-class=" { active : vm.menuItem == 'singapore' || vm.menuItem == 'Singapore' }"> Singapore </a>
+                </li>
+                <li class="country">
+                    <a ng-href="/contact/philippines" ng-class=" { active : vm.menuItem == 'philippines' || vm.menuItem == 'Philippines' }"> Philippines </a>
+                </li>
+                <li class="country">
+                    <a ng-href="/contact/america" ng-class=" { active : vm.menuItem == 'america' || vm.menuItem == 'America' }"> North America </a>
+                </li>
+                <li class="country">
+                    <a ng-href="/contact/germany" ng-class=" { active : vm.menuItem == 'germany' 
+                || vm.menuItem == 'Germany' }"> Germany </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="row no-pad">
     <div class="medium-12 columns">
         <h1><small>{{ vm.subtitle }}</small></h1>
@@ -22,7 +46,7 @@
                     {{ post.date | date:'dd MMM yyyy' }}&nbsp; by&nbsp;
                     <a ng-href="/author/{{post.author.name}}">{{post.author.name}}</a>
                 </div> -->
-                <a class="h1" ng-href="/labs/{{post.ID}}/{{post.slug}}">{{ post.title | decodeHtmlCodes }} </a>
+                <a class="h2" ng-href="/labs/{{post.ID}}/{{post.slug}}">{{ post.title | decodeHtmlCodes }} </a>
                 <div class="post-list-excerpt" ng-bind-html="post.excerpt"></div>
                 <ul class="tags">
                     <li class="tag" ng-repeat="tag in post.terms.post_tag">

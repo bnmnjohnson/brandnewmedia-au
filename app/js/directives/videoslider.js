@@ -7,13 +7,7 @@ function VideoSlider() {
             video: '='
         },
         link: function() {
-      
 
-            /**
-             * Get viewport/window size (width and height).
-             *
-             * @return {Object}
-             */
             function getViewport() {
                 var e = window,
                     a = 'inner';
@@ -33,17 +27,15 @@ function VideoSlider() {
                     isTouch = !!('ontouchstart' in window),
                     clickEvent = isTouch ? 'tap' : 'click';
 
-                (function(){
-                    function calculator(width){
-                        var percent = '94%';
+                (function() {
+                    function calculator(width) {
+                        var percent = '72%';
                         if (width <= 480) {
-                            percent = '94%';
-                        }
-                        else if (width <= 767) {
-                            percent = '94%';
-                        }
-                        else {
-                            percent = '94%';
+                            percent = '72%';
+                        } else if (width <= 767) {
+                            percent = '82%';
+                        } else {
+                            percent = '92%';
                         }
                         return percent;
                     };
@@ -54,15 +46,16 @@ function VideoSlider() {
                         $title = $('#title', $details),
                         $photographer = $('#photographer', $details),
                         $description = $('#description', $details),
-                        lastIndex = -1;
+                        lastIndex = 0;
 
                     $frame.mightySlider({
                         speed: 1000,
-                        // startAt: 1,
+                         startAt: 0,
                         autoScale: 1,
                         easing: 'easeOutExpo',
+                        preloadMode: 'all',
 
-                        
+
                         // Navigation options
                         navigation: {
                             slideSize: calculator(getViewport().width),
@@ -84,27 +77,37 @@ function VideoSlider() {
 
                         // Cycling
                         cycling: {
-                            cycleBy: null
+                            loop: 1
                         }
                     }, {
                         active: function(name, index) {
                             var slideOptions = this.slides[index].options;
 
+                            if (index == 0) {
+                                console.log("add class now");
+                                $('.slide_element').addClass('marginLeft');
+                                $('.mSNext').addClass('buttonMarginRight');
+                            } else {
+                                console.log("remove class");
+                                $('.slide_element').removeClass('marginLeft').addClass('normalMargin');
+                                $('.mSNext').removeClass('buttonMarginRight').addClass('normalRight');
+                            }
+
                             if (lastIndex !== index)
-                                $details.stop().animate({ opacity: 0 }, 500, function(){
+                                $details.stop().animate({ opacity: 0 }, 500, function() {
                                     $title.html(slideOptions.title);
                                     $photographer.html(slideOptions.photographer);
                                     $description.html(slideOptions.description);
                                     $details.animate({ opacity: 1 }, 500);
                                 });
 
-                            lastIndex = index;
+                             lastIndex = index;
                         }
-                    });
+                    }).init();
 
                     var API = $frame.data().mightySlider;
 
-                    $win.resize(function(){
+                    $win.resize(function() {
                         API.set({
                             navigation: {
                                 slideSize: calculator(getViewport().width)

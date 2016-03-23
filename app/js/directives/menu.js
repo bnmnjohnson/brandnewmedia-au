@@ -1,22 +1,34 @@
-function MenuDirective() {
+function MenuDirective($rootScope, $route) {
     return {
         restrict: 'A',
         link: function() {
 
-            $('.hamburger, .navigation li a').on('click', function(e) {
+            var navToggle = function() {
                 $('.navigation').toggleClass('off-canvas--hide off-canvas--show');
-                $('.navigation').attr('aria-hidden', 'false');
                 var el = $('.hamburger');
                 if (el.hasClass('active')) {
                     el.addClass('active-end');
                     el.one('transitionend', function() {
                         el.removeClass('active active-end')
-                        // $('body').removeClass('noScroll');
                     });
                 } else {
                     el.addClass('active');
-                    // $('body').addClass('noScroll');
+
                 }
+            }
+
+            $rootScope.$on('$routeChangeSuccess', (event, currentRoute, toState) => {
+                var isNavOpen = $('.navigation').hasClass('off-canvas--show');
+
+                if (isNavOpen) {
+                    navToggle();
+
+                }
+
+            });
+
+            $('.hamburger, .navigation li a').on('click', function(e) {
+                navToggle();
             });
 
             // scroll is still position
@@ -50,6 +62,8 @@ function MenuDirective() {
         }
     }
 }
+
+MenuDirective.$inject = ["$rootScope", "$route"]
 
 export default {
     name: 'menuDirective',

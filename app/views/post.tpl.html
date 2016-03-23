@@ -13,6 +13,7 @@
             <div class="date">
                 <p>{{ vm.post.date | date:'dd MMM yyyy' }}&nbsp;by&nbsp;{{vm.post.author.name}}</p>
             </div>
+            <div id="componentDiv"></div>
             <div class="post-body" ng-bind-html="vm.post.content"></div>
             <ul class="tags">
                 <li class="tag" ng-repeat="tag in vm.post.terms.post_tag">

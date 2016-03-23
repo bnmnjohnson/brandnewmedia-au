@@ -4,12 +4,12 @@ label {
 }
 
 .newsletter {
-    background: $lighter-black;
+    background: $black;
     padding-top: 37px;
-    padding-bottom: 23px;
+    // padding-bottom: 23px;
     @include breakpoint (medium) {
         padding-top: 52px;
-        padding-bottom: 50px;
+        // padding-bottom: 50px;
     }
     p {
         color: $white;
@@ -41,9 +41,9 @@ label {
         color: $white;
         background-color: $lighter-black;
         border: 0;
-        border-bottom: 1px solid $white;
-        padding: 0;
-        height: 2.0375rem;
+        // border-bottom: 1px solid $white;
+        // padding: 0;
+        height: 2.4375rem;
         box-shadow: none;
         @include breakpoint (large) {
             height: 2.4375rem;

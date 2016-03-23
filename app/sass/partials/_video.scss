@@ -6,10 +6,7 @@ skins available:
 
 /* the border */
 
-* {
-    -webkit-text-size-adjust: none;
-}
-
+$progress-bar-height: 6px;
 .universal_video_backgroundBorder {
     position: relative;
     /*overflow:hidden;*/
@@ -18,15 +15,23 @@ skins available:
 
 /* set opacity */
 
-.play-pause-btn {
-    opacity: 0;
-}
-
 .progress {
     opacity: 0;
     height: 0px;
     bottom: 6px;
     visibility: hidden;
+    width: 100%;
+    height: $progress-bar-height;
+    background-color: $white;
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    -webkit-transition: height 200ms ease;
+    -moz-transition: height 200ms ease;
+    -ms-transition: height 200ms ease;
+    -o-transition: height 200ms ease;
+    transition: height 200ms ease;
+    cursor: pointer;
 }
 
 .video-progress {
@@ -42,7 +47,6 @@ skins available:
 
 /* controls */
 
-$progress-bar-height: 6px;
 .controls-container {
     position: absolute;
     z-index: 889;
@@ -53,45 +57,20 @@ $progress-bar-height: 6px;
     transition: all ease-out 800ms;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    .mSVideo {
+        opacity: 0;
+    }
     &:hover {
         .play-pause-btn {
             opacity: 1;
-            display: block;
-            background-color: $black;
-            width: 60px;
-            height: 40px;
-            margin: 0 auto;
-            text-align: center;
-            font-family: arial;
-            cursor: pointer;
-            color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            z-index: 888;
-            transform: translateX(60px);
-            cursor: pointer;
         }
         .progress {
             opacity: 1;
             visibility: visible;
-            width: 100%;
-            height: $progress-bar-height;
-            background-color: $white;
-            position: absolute;
-            margin: 0;
-            bottom: 0;
-            -webkit-transition: height 200ms ease;
-            -moz-transition: height 200ms ease;
-            -ms-transition: height 200ms ease;
-            -o-transition: height 200ms ease;
-            transition: height 200ms ease;
-            cursor: pointer;
         }
         .video-progress {
             opacity: 1;

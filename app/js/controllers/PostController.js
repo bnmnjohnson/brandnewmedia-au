@@ -3,25 +3,15 @@ function PostController($rootScope, $scope, $routeParams, $timeout, $location, B
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
-    // console.log($routeParams.id);
-    $scope.showNewsletter= false;
+    $scope.showNewsletter = false;
 
     BlogService.post($routeParams.id).then(function(post) {
-        // console.log("getting post");
-        console.log(post)
         vm.post = post;
-        // vm.video = post.video;
-
-        // if (vm.video != null) {
 
         var video = post.video;
 
-        // for (var prop in video) {
-        //     console.log("Object1: " + prop);
-        // }
 
         if (video.hasOwnProperty('featured_video')) {
-            // alert("has own video");
             vm.video = post.video.featured_video[0];
             $scope.hero = {
                 'url': vm.video,
@@ -34,27 +24,47 @@ function PostController($rootScope, $scope, $routeParams, $timeout, $location, B
             }
         }
 
-
-
-
-        // vm.video = (post.video).toString();
-        // vm.videoUrl = vm.video.split(/"/)[3];
-        // console.log(vm.videoUrl);
-
-        // vm.videoTitle = vm.video.split(/"/)[17];
-        // console.log(vm.videoTitle);
-
-        // vm.videoAuthor = vm.video.split(/"/)[21];
-        // console.log(vm.videoAuthor);
-
-        // gets description
-        // vm.thumbnailUrl = vm.video.split(/"/)[27];
-        // console.log(vm.thumbnailUrl);
+        var title = post.title;
+        var description = post.excerpt;
 
         MetadataService.setMetadata({
-            title: post.title,
-            description: post.excerpt
+            title: 'Brand New Media | ' + title,
+            description: description
         });
+
+        var act = new gigya.socialize.UserAction();
+        act.setTitle(title);
+        act.setDescription(description);
+        act.setLinkBack("http://brandnewmedia.com.au/our-flickbook/lifestyle-focused-digital-summit-proves-successful-acquiring-global-audience");
+        act.addMediaItem({ type: 'image', src: 'http://demo.gigya.com/images/recipe2.png', href: 'http://demo.gigya.com/recipe2.php' });
+        var showShareBarUI_params = {
+            containerID: 'componentDiv',
+            shareButtons: 'Facebook,Twitter,googleplus,Email,Print',
+            iconsOnly: 'true',
+            userAction: act,
+            // shareButtons:
+            // [
+            //     { // General Share Button
+            //         provider:'share',
+            //         tooltip:'General Share Button',
+            //     },
+            //     { // Google+
+            //         provider:'google',
+            //         tooltip:'Recommend this on Google',
+            //         iconImgUp:'www.exampleImages.com/googleShare.ico'
+            //     },
+            //     { // Facebook
+            //         provider:'facebook',
+            //         tooltip:'Recommend this on Facebook',
+            //         iconImgUp:'http://simpleicon.com/wp-content/uploads/facebook.svg'
+            //     },
+            // ],
+            buttonWithCountTemplate: '<div style="padding: 5px; background-color: #eee; border: 2px #ddf solid;" onclick="$onClick"><img src="$iconImg"/></div>',
+            buttonTemplate: '<div style="padding: 5px; background-color: #eee; border: 2px #ddf solid;" onclick="$onClick"><img src="$iconImg"/></div>',
+            noButtonBorders: true
+
+        }
+        gigya.socialize.showShareBarUI(showShareBarUI_params);
     });
 }
 

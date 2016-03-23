@@ -28,7 +28,7 @@ p,
     font-size: 15px;
     color: $white;
     letter-spacing: 0.015em;
-    font-family: $avenir-medium;
+    font-family: $avenir-roman;
     margin-bottom: 0;
     @include breakpoint(medium) {
         font-size: 16px;
@@ -64,6 +64,8 @@ h1,
     }
 }
 
+
+
 // .message-container h1 {
 //     @include breakpoint (large) {
 //         // font-size: 56px;
@@ -72,12 +74,13 @@ h1,
 //         line-height: 61px;
 //     }
 // }
-
 .message-container {
     h1 {
         margin-bottom: 16px;
     }
 }
+
+
 
 h2 {
     font-size: 18px;
@@ -108,6 +111,11 @@ h5 {
     }
 }
 
+h4,
+h3 {
+    font-family: $avenir-medium;
+}
+
 h6,
 .title-message a {
     font-size: 10px;
@@ -120,13 +128,16 @@ h6,
 }
 
 .results {
-    h1 {
-        font-size: 70px;
-        // font-family: $avenir-heavy;
+    padding-bottom: 25px;
+    @include breakpoint (xlarge) {
+        padding-bottom: 45px;
     }
-    @include breakpoint(xlarge) {
-        h1 {
-            font-size: 116px;
+    h1 {
+        font-size: 32px;
+        margin-bottom: 6px;
+        @include breakpoint (large) {
+            font-size: 54px;
+            margin-bottom: 8px;
         }
     }
 }
