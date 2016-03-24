@@ -108,6 +108,7 @@ h5 {
     @include breakpoint(large) {
         font-size: 18px;
         line-height: 38px;
+        margin-bottom: 11px;
     }
 }
 

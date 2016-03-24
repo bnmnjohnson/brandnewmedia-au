@@ -2,8 +2,13 @@ function OnConfig($routeProvider, $locationProvider, ngMdIconServiceProvider) {
     'ngInject';
 
     ngMdIconServiceProvider.addShapes({
-        'close': '<polygon points="16,0.7 15.3,0 8,7.3 0.7,0 0,0.7 7.3,8 0,15.3 0.7,16 8,8.7 15.3,16 16,15.3 8.7,8 "/>',
-        'next' : '<g><g id="g20" transform="translate(30.6068,16.0141)"><g id="path22"><rect x="-29.6" y="-8.3" width="13.3" height="0.9"/></g></g><g id="g24" transform="translate(12.4427,4.9714)"><g id="path26"><polygon points="2.6,3.2 -1.6,-0.8 -2.3,-0.1 1.2,3.2 -2.3,6.6 -1.6,7.2"/></g></g></g>'
+        '25-next': '<polygon points="27,4 23,0 23,3 0,3 0,5 23,5 23,8 "/>',
+        'play': '<circle fill="#FFFFFF" cx="28.5" cy="28.5" r="27.5"/><g><polygon fill="#FF5200" points="24.5,37.5 36.5,28.5 24.5,19.5   "/></g>',
+        'pause': '<g><rect width="2" height="9"/><rect x="5.1" width="2" height="9"/></g>',
+        'next': '<g><g><rect y="5.7" width="20" height="2"/></g><g><polygon points="14.7,13.4 13.3,12 18.6,6.7 13.4,1.4 14.8,0 21.4,6.7        "/></g></g>',
+        'close': '<polygon points="10.1,8.7 17.3,1.4 15.9,0 8.7,7.2 1.5,0 0.1,1.4 7.3,8.7 0,16 1.4,17.4 8.7,10.1 16,17.4 17.4,16 "/>',
+        'chevron': '<polygon points="1.4,17.4 0,16 7.3,8.7 0.1,1.4 1.5,0 10.1,8.7   "/>',
+        '55-next': '<polygon points="52,0 52,3 0,3 0,5 52,5 52,8 56,4 "/>'
     });
 
     $locationProvider.html5Mode(true);

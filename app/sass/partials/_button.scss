@@ -15,6 +15,7 @@ button:focus {
     border: 1px solid $white;
     font-size: 14px;
     margin-bottom: 36px;
+    font-family: $avenir-medium;
     @include breakpoint (large) {
         max-width: 100px;
         padding: 0.4em 0em;
@@ -22,16 +23,20 @@ button:focus {
 }
 
 .more-btn {
-    font-size: 33px;
-    font-family: $avenir-black;
-    text-decoration: underline;
+    font-size: 18px;
+    font-family: $avenir-medium;
+    text-decoration: none;
     color: $bnm-orange;
     background: transparent;
     outline: 0;
-    border: none;
+    border: 1px solid $bnm-orange;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    @include breakpoint (large) {
+        max-width: 240px;
+        padding: 0.4em 0em;
+    }
 }
 
 .mobile-close-btn {

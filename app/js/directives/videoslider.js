@@ -93,15 +93,15 @@ function VideoSlider() {
                                 $('.mSNext').removeClass('buttonMarginRight').addClass('normalRight');
                             }
 
-                            if (lastIndex !== index)
-                                $details.stop().animate({ opacity: 0 }, 500, function() {
-                                    $title.html(slideOptions.title);
-                                    $photographer.html(slideOptions.photographer);
-                                    $description.html(slideOptions.description);
-                                    $details.animate({ opacity: 1 }, 500);
-                                });
+                            // if (lastIndex !== index)
+                            //     $details.stop().animate({ opacity: 0 }, 500, function() {
+                            //         $title.html(slideOptions.title);
+                            //         $photographer.html(slideOptions.photographer);
+                            //         $description.html(slideOptions.description);
+                            //         $details.animate({ opacity: 1 }, 500);
+                            //     });
 
-                             lastIndex = index;
+                            //  lastIndex = index;
                         }
                     }).init();
 

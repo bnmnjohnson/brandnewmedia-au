@@ -6,7 +6,7 @@ skins available:
 
 /* the border */
 
-$progress-bar-height: 6px;
+$progress-bar-height: 2px;
 .universal_video_backgroundBorder {
     position: relative;
     /*overflow:hidden;*/
@@ -15,33 +15,59 @@ $progress-bar-height: 6px;
 
 /* set opacity */
 
-.progress {
-    opacity: 0;
-    height: 0px;
-    bottom: 6px;
-    visibility: hidden;
+.progress-container {
     width: 100%;
-    height: $progress-bar-height;
-    background-color: $white;
     position: absolute;
     margin: 0;
-    bottom: 0;
+    bottom: 25px;
+}
+
+.progress {
+    opacity: 1;
+    visibility: hidden;
+    height: $progress-bar-height;
+    background-color: $bnm-orange;
     -webkit-transition: height 200ms ease;
     -moz-transition: height 200ms ease;
     -ms-transition: height 200ms ease;
     -o-transition: height 200ms ease;
     transition: height 200ms ease;
     cursor: pointer;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .video-progress {
-    opacity: 0;
-    height: 0px;
+    opacity: 1;
+    height: $progress-bar-height;
+    width: auto;
+    height: $progress-bar-height;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    background-color: $white;
+    cursor: pointer;
+    -webkit-transition: height 200ms ease;
+    -moz-transition: height 200ms ease;
+    -ms-transition: height 200ms ease;
+    -o-transition: height 200ms ease;
+    transition: height 200ms ease;
 }
 
 .video-progress > div {
-    opacity: 0;
-    height: 0px;
+    opacity: 1;
+    height: $progress-bar-height;
+    position: absolute;
+    right: 0;
+    width: 2px;
+    height: $progress-bar-height;
+    background-color: $bnm-orange;
+    cursor: pointer;
+    -webkit-transition: height 200ms ease;
+    -moz-transition: height 200ms ease;
+    -ms-transition: height 200ms ease;
+    -o-transition: height 200ms ease;
+    transition: height 200ms ease;
 }
 
 
@@ -74,32 +100,9 @@ $progress-bar-height: 6px;
         }
         .video-progress {
             opacity: 1;
-            width: auto;
-            height: $progress-bar-height;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: $bnm-orange;
-            cursor: pointer;
-            -webkit-transition: height 200ms ease;
-            -moz-transition: height 200ms ease;
-            -ms-transition: height 200ms ease;
-            -o-transition: height 200ms ease;
-            transition: height 200ms ease;
         }
         .video-progress > div {
             opacity: 1;
-            position: absolute;
-            right: 0;
-            width: 2px;
-            height: $progress-bar-height;
-            background-color: $bnm-orange;
-            cursor: pointer;
-            -webkit-transition: height 200ms ease;
-            -moz-transition: height 200ms ease;
-            -ms-transition: height 200ms ease;
-            -o-transition: height 200ms ease;
-            transition: height 200ms ease;
         }
     }
 }
