@@ -22,8 +22,9 @@ function MenuDirective($rootScope, $route) {
 
                 if (isNavOpen) {
                     navToggle();
-
                 }
+                var currentLocation = (currentRoute.$$route.originalPath);
+                $rootScope.isActive = currentLocation;
 
             });
 

@@ -5,11 +5,11 @@ function AppCtrl($rootScope, $sce, $scope, $http, $httpParamSerializer, $routePa
 
 
     // $scope.formData = {};
- 
+
 
     $rootScope.bodyclass = DarkBackground.bodyClass.data;
 
-
+    
     //vm.showNewsletter = false;
 
     $(function() {

@@ -67,6 +67,7 @@
     .wbody {
         background-color: $white;
         color: $black;
+        font-family: $avenir-black;
         li,
         a,
         p,
@@ -263,9 +264,8 @@
         @include breakpoint (large) {
             padding: 30px;
         }
-
         z-index: 10;
-        background-color: rgba(22, 22, 22, .7);
+        background-color: rgba(25, 25, 25, .7);
         -webkit-transition: all .2s ease-out;
         -moz-transition: all .2s ease-out;
         -o-transition: all .2s ease-out;
@@ -276,8 +276,7 @@
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
         filter: alpha(opacity=0);
     }
-
-
+    
     .people-person {
         width: 100%;
         position: relative;
@@ -300,7 +299,8 @@
         width: 100%;
         height: 100%;
         padding: 10px;
-        h1, p {
+        h1,
+        p {
             color: $white;
         }
         @include breakpoint (medium) {
@@ -309,9 +309,8 @@
         @include breakpoint (large) {
             padding: 30px;
         }
-       
         z-index: 10;
-        background-color: rgba(22, 22, 22, .7);
+        background-color: rgba(25, 25, 25, .7);
         -webkit-transition: all .2s ease-out;
         -moz-transition: all .2s ease-out;
         -o-transition: all .2s ease-out;
@@ -321,4 +320,12 @@
         opacity: 0;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
         filter: alpha(opacity=0);
+    }
+
+    .gigya-icon {
+        cursor: pointer;
+        img {
+            height: 100%;
+            max-width: none;
+        }
     }

@@ -338,12 +338,13 @@ Our wider main is set slightly further inside the content.
 
 .case {
     padding-top: 28px;
-    padding-bottom: 0px;
+    padding-bottom: 22px;
     padding-left: 0.625rem;
-    max-width: 700px;
+    max-width: 645px;
     @include breakpoint (medium) {
         padding-left: 0.9375rem;
         padding-top: 29px;
+        padding-bottom: 0;
     }
     @include breakpoint (large) {
         padding-left: 0;
@@ -365,12 +366,14 @@ Our wider main is set slightly further inside the content.
 .text-panel {
     padding-top: 28px;
     padding-bottom: 38px;
+    max-width: 645px;
     @include breakpoint (medium) {
         padding-top: 29px;
     }
     @include breakpoint (large) {
         padding-top: 60px;
         padding-bottom: 69px;
+        min-width: 575px;
     }
     @include breakpoint (xlarge) {
         padding-top: 80px;

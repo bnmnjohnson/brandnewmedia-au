@@ -19,7 +19,6 @@
     @include breakpoint (medium) {
         height: 100px;
     }
-
 }
 
 // .header-inner {
@@ -38,6 +37,11 @@
     @include breakpoint (medium) {
         top: -77px;
         height: 77px;
+    }
+    .hamburger {
+        @include breakpoint (medium) {
+            top: 10px;
+        }
     }
     .logo-mobile {
         @include breakpoint (large) {
@@ -123,10 +127,12 @@ svg#Logo_1 {
     -o-transition: 0.3s -o-transform cubic-bezier(0, 0, .58, 1);
     transition: 0.3s transform cubic-bezier(0, 0, .58, 1);
     @include breakpoint (medium) {
-        top: 23px;
-        // width: 30px;
+        top: 32px;
     }
- 
+    @include breakpoint (large) {
+        width: 50px;
+        height: 50px;
+    }
     &:hover {
         cursor: pointer;
     }
@@ -138,11 +144,14 @@ svg#Logo_1 {
     content: ' ';
     height: 20px;
     width: 2px;
-    background-color: $bnm-orange;
+    background-color: $white;
     position: absolute;
     @include breakpoint (medium) {
         // height: 22px;
-        left: 19px;
+        left: 25px;
+    }
+    @include breakpoint (large) {
+        height: 46px;
     }
 }
 
@@ -152,13 +161,13 @@ svg#Logo_1 {
 
 .hamburger > div:nth-child(2) {
     margin-top: 6px;
+    transform: rotate(90deg);
     @include breakpoint (medium) {
         margin-top: 8px;
     }
     @include breakpoint (large) {
-        margin-top: 9px;
+        margin-top: 15px;
     }
-    transform: rotate(90deg);
 }
 
 .hamburger.active {
@@ -187,13 +196,13 @@ svg#Logo_1 {
 
 .hamburger.active.active-end > div:nth-child(2) {
     margin-top: 6px;
+    transform: rotate(90deg);
     @include breakpoint (medium) {
         margin-top: 8px;
     }
     @include breakpoint (large) {
-        margin-top: 9px;
+        margin-top: 15px;
     }
-    transform: rotate(90deg);
 }
 
 
@@ -217,9 +226,9 @@ svg#Logo_1 {
     width: 100%;
     overflow-y: auto;
     z-index: 999;
-    background: $black;
+    background: $lighter-black;
     @include breakpoint (large) {
-        width: 50%;
+        width: 40%;
         display: table;
         height: 100%;
     }
@@ -228,28 +237,28 @@ svg#Logo_1 {
 .main-menu {
     margin-left: 20px;
     margin-right: 20px;
-    padding-top: 49px;
     @include breakpoint (large) {
-        padding-left: 86px;
+         padding-left: 86px;
         height: 100%;
-        position: relative;
+        // position: relative;
         display: table-cell;
-        vertical-align: middle;
+        vertical-align: top;
     }
     li {
-        border-bottom: 1px solid #292929;
+        // border-bottom: 1px solid #292929;
         @include breakpoint (large) {
             border-bottom: none;
         }
         a {
             font-size: 23px;
-            line-height: 57px;
+            line-height: 48px;
             font-family: $avenir-heavy;
+            text-transform: none;
             color: $white;
             letter-spacing: 0px;
-            @include breakpoint (xlarge) {
+            @include breakpoint (medium) {
                 font-size: 46px;
-                line-height: 61px;
+                // line-height: 61px;
             }
         }
     }

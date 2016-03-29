@@ -9,7 +9,7 @@ function PostController($rootScope, $scope, $routeParams, $timeout, $location, B
         vm.post = post;
 
         var video = post.video;
-
+        //vm.video = post.video;
 
         if (video.hasOwnProperty('featured_video')) {
             vm.video = post.video.featured_video[0];
@@ -39,31 +39,42 @@ function PostController($rootScope, $scope, $routeParams, $timeout, $location, B
         act.addMediaItem({ type: 'image', src: 'http://demo.gigya.com/images/recipe2.png', href: 'http://demo.gigya.com/recipe2.php' });
         var showShareBarUI_params = {
             containerID: 'componentDiv',
-            shareButtons: 'Facebook,Twitter,googleplus,Email,Print',
+            shareButtons: 'Facebook,Twitter,Linkedin,googleplus,Email,Print',
             iconsOnly: 'true',
             userAction: act,
-            // shareButtons:
-            // [
-            //     { // General Share Button
-            //         provider:'share',
-            //         tooltip:'General Share Button',
-            //     },
-            //     { // Google+
-            //         provider:'google',
-            //         tooltip:'Recommend this on Google',
-            //         iconImgUp:'www.exampleImages.com/googleShare.ico'
-            //     },
-            //     { // Facebook
-            //         provider:'facebook',
-            //         tooltip:'Recommend this on Facebook',
-            //         iconImgUp:'http://simpleicon.com/wp-content/uploads/facebook.svg'
-            //     },
-            // ],
-            buttonWithCountTemplate: '<div style="padding: 5px; background-color: #eee; border: 2px #ddf solid;" onclick="$onClick"><img src="$iconImg"/></div>',
-            buttonTemplate: '<div style="padding: 5px; background-color: #eee; border: 2px #ddf solid;" onclick="$onClick"><img src="$iconImg"/></div>',
+            shareButtons: [{ // Facebook
+                    provider: 'facebook',
+                    tooltip: 'Recommend this on Facebook',
+                    iconImgUp: 'images/icons/social-icons-black-facebook.png'
+                }, { // Twitter
+                    provider: 'Twitter',
+                    tooltip: 'Tweet this',
+                    iconImgUp: 'images/icons/social-icons-black-twitter.png'
+                }, { // Linkedin
+                    provider: 'Linkedin',
+                    tooltip: 'Twitter',
+                    iconImgUp: 'images/icons/social-icons-black-linkedin.png'
+                }, { // Google+
+                    provider: 'googleplus',
+                    tooltip: 'Share this on Google+',
+                    iconImgUp: 'images/icons/social-icons-black-google.png'
+                }, { // Email
+                    provider: 'Email',
+                    tooltip: 'Email this',
+                    iconImgUp: 'images/icons/social-icons-black-email.png'
+                }, { // Print
+                    provider: 'Print',
+                    tooltip: 'Print this page',
+                    iconImgUp: 'images/icons/social-icons-black-print.png'
+                }
+
+            ],
+            buttonWithCountTemplate: '<div class="gigya-icon" style="padding-right: 20px; padding-top: 10px; height: 26px;" onclick="$onClick"><img src="$iconImg" height="16"/></div>',
+            buttonTemplate: '<div class="gigya-icon" style="padding-right: 20px; padding-top: 10px; height: 26px;" onclick="$onClick"><img src="$iconImg" height="16"/></div>',
             noButtonBorders: true
 
         }
+
         gigya.socialize.showShareBarUI(showShareBarUI_params);
     });
 }

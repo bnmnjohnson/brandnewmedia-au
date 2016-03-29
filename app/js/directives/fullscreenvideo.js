@@ -9,7 +9,7 @@ function FullScreenVideo() {
                     $('#universal_video_background_default').universal_video_background({
                         width: 1920,
                         height: 1200,
-                        autoPlayFirstVideo: true,
+                        autoPlayFirstVideo: false,
                         width100Proc: true,
                         height100Proc: true,
                         responsive: true,
@@ -37,19 +37,77 @@ function FullScreenVideo() {
                         $('.progress .video-progress').css('width', (100 / $('#' + videoId)[0].duration) * $('#' + videoId)[0].currentTime + '%')
                     });
 
-                    $('.play-pause-btn').on('click', function() {
+                    // we have three states
 
-                        if ($(this).attr('data-click') == 1) {
-                            $(this).attr('data-click', 0)
-                            $(this).text('Play')
-                            $('#' + videoId)[0].pause();
-                        } else {
-                            $(this).attr('data-click', 1)
-                            $(this).text('Pause')
+                    // initial: show poster image and play button
+
+
+                    // playing : show progress and hide play button
+
+                    // if 'play' button clicked
+                    $('.play-pause-btn').on('click', function() {
+                        // remove background image
+                        $('.controls-container').css("background-image", "none");
+
+                        // check if paused
+                        if ($('.play-pause-btn').attr('data-click') == 0) {
+                            $('.play-pause-btn').attr('data-click', 1);
+                                // if visible, hide play button
+                            $('.play-pause-btn').hide();
+                            // if hidden, show progress 
+                            $('.progress-container').show();
                             $('#' + videoId)[0].play();
                         }
 
+
                     });
+
+
+                    // paused: show play button and progress
+
+                    // if 'pause' button clicked
+                    $('.pause').on('click', function() {
+                        if ($('.play-pause-btn').attr('data-click') == 1) {
+                            $('.play-pause-btn').attr('data-click', 0);
+                            // if hidden, show play button
+                            $('.play-pause-btn').show();
+
+                            // if showing, hide progress
+                            $('.progress-container').hide();
+
+                            // pause video
+                            $('#' + videoId)[0].pause();
+                        }
+                    });
+
+
+
+                    // $('.play-pause-btn').on('click', function() {
+
+                    //     if ($(this).attr('data-click') == 1) {
+                    //         $(this).attr('data-click', 0)
+                    //         //$(this).text('Play')
+                    //         // show controls,  video is not playing
+                    //         $('#' + videoId)[0].pause();
+                    //     } 
+
+                    // });
+
+                    // $('.pause').on('click', function() {
+
+                    //     if ($('.play-pause-btn').attr('data-click') == 1) {
+                    //         $('.play-pause-btn').attr('data-click', 0)
+                    //         //$(this).text('Play')
+                    //         // show controls and cover image  video is PAUSED and not playing
+                    //         $('#' + videoId)[0].pause();
+                    //     } else {
+                    //         $('.play-pause-btn').attr('data-click', 1)
+                    //         //$(this).text('Pause')
+                    //         // hide controls and any cover image, video is playing
+                    //         $('#' + videoId)[0].play();
+                    //     }
+
+                    // });
 
 
                     $('.progress').on('click', function(e) {

@@ -69,7 +69,6 @@ function BlogService($http, $sce, $parse) {
         result.video = (result.post_meta.vid);
         // result.video = JSON.parse(result.video);
         // console.log("Author: " + result.author);
-        console.log(result.video);
         return result;
     }
 

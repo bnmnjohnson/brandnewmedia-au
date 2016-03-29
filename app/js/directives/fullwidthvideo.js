@@ -38,18 +38,41 @@ function FullWidthVideo() {
                     });
 
                     $('.play-pause-btn').on('click', function() {
+                        // remove background image
+                        $('.controls-container').css("background-image", "none");
 
-                        if ($(this).attr('data-click') == 1) {
-                            $(this).attr('data-click', 0)
-                            $(this).text('Play')
-                            $('#' + videoId)[0].pause();
-                        } else {
-                            $(this).attr('data-click', 1)
-                            $(this).text('Pause')
-                            $('#' + videoId)[0].play();
+                        // check if paused
+                        if ($('.play-pause-btn').attr('data-click') == 0) {
+                            $('.play-pause-btn').attr('data-click', 0)
+                                // if visible, hide play button
+                            $('.play-pause-btn').hide();
+                            // if hidden, show progress 
+                            $('.progress-container').show();
                         }
 
+
+
+
+                        // if paused, play video
+                        $('#' + videoId)[0].play();
                     });
+
+
+                    // paused: show play button and progress
+
+                    // if 'pause' button clicked
+                    $('.pause').on('click', function() {
+
+                        // if hidden, show play button
+                        $('.play-pause-btn').show();
+
+                        // if showing, hide progress
+                        $('.progress-container').hide();
+
+                        // pause video
+                        $('#' + videoId)[0].pause();
+                    });
+
 
 
                     $('.progress').on('click', function(e) {

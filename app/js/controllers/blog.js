@@ -3,7 +3,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
 
     $rootScope.bodyclass = WhiteBackground.bodyClass.data;
 
-
+    $scope.numLimit = 3;
     $scope.labs = {
         title: 'Welcome to our labs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     }
@@ -18,6 +18,8 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
     vm.postsPerPage = 4;
     vm.currentPage = 0;
     vm.posts = [];
+
+    $scope.excerpt = "eg hello l";
 
     // vm.total = BlogService.total();
 
@@ -37,7 +39,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPostsByTag(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.tag).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
-                
+
             });
 
         };
@@ -55,7 +57,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPostsByAuthor(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.author).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
-                
+
             });
 
         };
@@ -74,7 +76,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPostsBySearchTerm(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.searchTerm).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
-                
+
             });
 
         };
@@ -91,7 +93,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
                 vm.newPosts = posts;
                 vm.posts = vm.posts.concat(vm.newPosts);
-                
+
             });
 
         };

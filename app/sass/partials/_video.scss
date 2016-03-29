@@ -22,9 +22,16 @@ $progress-bar-height: 2px;
     bottom: 25px;
 }
 
+
+.pause {
+    position: absolute;
+    bottom: 0px;
+    cursor: pointer;
+}
+
 .progress {
     opacity: 1;
-    visibility: hidden;
+    // visibility: hidden;
     height: $progress-bar-height;
     background-color: $bnm-orange;
     -webkit-transition: height 200ms ease;
@@ -33,8 +40,8 @@ $progress-bar-height: 2px;
     -o-transition: height 200ms ease;
     transition: height 200ms ease;
     cursor: pointer;
-    width: 80%;
-    margin: 0 auto;
+    width: calc(100% - 45px);
+    float: right;
 }
 
 .video-progress {
@@ -42,9 +49,9 @@ $progress-bar-height: 2px;
     height: $progress-bar-height;
     width: auto;
     height: $progress-bar-height;
-    position: absolute;
+    position: relative;
     top: 0;
-    left: 10%;
+    left: 0;
     background-color: $white;
     cursor: pointer;
     -webkit-transition: height 200ms ease;
@@ -88,23 +95,23 @@ $progress-bar-height: 2px;
     -o-background-size: cover;
     background-size: cover;
     .mSVideo {
-        opacity: 0;
+        opacity: 1;
     }
-    &:hover {
-        .play-pause-btn {
-            opacity: 1;
-        }
-        .progress {
-            opacity: 1;
-            visibility: visible;
-        }
-        .video-progress {
-            opacity: 1;
-        }
-        .video-progress > div {
-            opacity: 1;
-        }
-    }
+    // &:hover {
+    //     .play-pause-btn {
+    //         opacity: 1;
+    //     }
+    //     .progress {
+    //         opacity: 1;
+    //         visibility: visible;
+    //     }
+    //     .video-progress {
+    //         opacity: 1;
+    //     }
+    //     .video-progress > div {
+    //         opacity: 1;
+    //     }
+    // }
 }
 
 
@@ -123,7 +130,7 @@ $progress-bar-height: 2px;
     left: 0;
     top: 0;
     overflow: hidden;
-    background: $black;
+    // background: $black;
 }
 
 .universal_video_background.thumbs .texture_over_image {

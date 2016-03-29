@@ -1,12 +1,12 @@
 <!-- Nav -->
 <nav class="navigation off-canvas--hide" aria-hidden="false" role="navigation">
-    <ul class="main-menu">
-        <li><a href="/"> Work </a> </li>
+    <ul class="main-menu title-message">
+        <li><a href="/" ng-class="{ active: isActive == '/'}"> Work </a> </li>
         <!-- <li><a href="/case-story"> Example Case Story </a> </li> -->
-        <li><a href="/company"> Company </a></li>
-        <li><a href="/people"> People </a></li>
-        <li><a href="/labs"> Labs </a></li>
-        <li><a href="/contact"> Contact </a></li>
+        <li><a href="/company" ng-class="{ active: isActive == '/company'}"> Company </a></li>
+        <li><a href="/people" ng-class="{ active: isActive == '/people'}"> People </a></li>
+        <li><a href="/labs" ng-class="{ active: isActive == '/labs'}"> Labs </a></li>
+        <li><a href="/contact" ng-class="{ active: isActive == '/contact'}"> Contact </a></li>
         <!-- <li><a href="#" ng-click='searchButton()'> Search </a></li> -->
     </ul>
 </nav>
@@ -18,10 +18,22 @@
                 <div></div>
                 <div></div>
             </a>
-            <a href="/" class="logo-mobile">
+            <a href="/" class="logo-mobile show-for-medium-up">
                 <div ng-include=" 'logo.html' "> </div>
+            </a>
+            <a href="/" class="logo-mobile hide-for-medium-up">
+                BNM
             </a>
         </div>
     </div>
     <!-- Menu Trigger -->
 </header>
+<style>
+.main-menu li a {
+    color: #727272;
+}
+
+.main-menu li a.active {
+    color: #ffffff;
+}
+</style>

@@ -2,18 +2,22 @@
 <div ng-if="vm.video != null">
     <div ng-include=" 'directives/fullwidthvideo.html' "> </div>
 </div>
-<div class="post-hero" ng-hide="vm.video != null">
+<!-- <div class="post-hero">
     <div class="hero-image" background-image="{{hero.thumbnail}}"></div>
-</div>
+</div> -->
 <div class="wider-main">
     <div class="row no-pad">
         <div class="small-12 medium-12 large-12 xlarge-8 columns no-pad post-entry">
             <!-- <div class="small-12 medium-10 medium-push-1 large-9 large-push-1 xlarge-8 xlarge-push-1 columns no-pad"> -->
             <h1>{{ vm.post.title }}</h1>
-            <div class="date">
-                <p>{{ vm.post.date | date:'dd MMM yyyy' }}&nbsp;by&nbsp;{{vm.post.author.name}}</p>
+            <div class="date row no-pad">
+                <div class="small-12 medium-6 columns">
+                    <p>{{ vm.post.date | date:'dd MMM yyyy' }}&nbsp;by&nbsp;{{vm.post.author.name}}</p>
+                </div>
+                <div class="small-12 medium-6 columns">
+                    <div id="componentDiv" class="right" style="float: right;"></div>
+                </div>
             </div>
-            <div id="componentDiv"></div>
             <div class="post-body" ng-bind-html="vm.post.content"></div>
             <ul class="tags">
                 <li class="tag" ng-repeat="tag in vm.post.terms.post_tag">

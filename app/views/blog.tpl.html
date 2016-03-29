@@ -36,8 +36,8 @@
     </form>
 </div> -->
 <div class="labs-main">
-    <ul masonry preserve-order class="row small-up-1 large-up-2 no-pad">
-        <li class="masonry-brick column no-pad post" ng-repeat="post in vm.posts track by $index">
+    <ul class="row small-up-1 large-up-2 no-pad">
+        <li class="column no-pad post" ng-repeat="post in vm.posts track by $index">
             <a ng-href="/labs/{{post.ID}}/{{post.slug}}" class="post-list-title">
                 <img ng-src="{{post.featured_image.source}}">
             </a>
@@ -47,7 +47,7 @@
                     <a ng-href="/author/{{post.author.name}}">{{post.author.name}}</a>
                 </div> -->
                 <a class="h2" ng-href="/labs/{{post.ID}}/{{post.slug}}">{{ post.title | decodeHtmlCodes }} </a>
-                <div class="post-list-excerpt" ng-bind-html="post.excerpt"></div>
+                <div class="post-list-excerpt" ng-bind-html="post.excerpt | limitTo:4 "></div>
                 <ul class="tags">
                     <li class="tag" ng-repeat="tag in post.terms.post_tag">
                         <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>

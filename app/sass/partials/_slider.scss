@@ -86,7 +86,6 @@
   #example .mSButtons.mSNext {
       background: no-repeat center url('/images/55-next.svg');
       background-size: 56px 8px;
-  
   }
   
   .horizontal .mSPrev {
@@ -127,19 +126,26 @@
   .mSVideo,
   .mSFlash,
   .mSIframe {
-      width: 57px;
-      height: 57px;
-      background: no-repeat center url('/images/play.svg');
-      background-size: 57px 57px;
+      width: 80px;
+      height: 80px;
+      background: no-repeat center url('/images/play-outline.svg');
+      background-size: 80px 80px;
       cursor: pointer;
       border-radius: 0;
       display: block;
       position: absolute;
       top: 50%;
       left: 50%;
+      z-index: 999;
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
+ 
+      @include breakpoint(large) {
+          width: 160px;
+          height: 160px;
+          background-size: 160px 160px;
+      }
   }
   
   .mSIframe {

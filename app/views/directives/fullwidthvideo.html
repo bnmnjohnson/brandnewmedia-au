@@ -1,10 +1,19 @@
 <div full-width-video id="universal_video_background_default" style="display:none;">
     <div class="controls-container" ng-style="{'background-image': 'url({{hero.thumbnail}})'}">
-        <a class="mSIcon mSVideo play-pause-btn" data-click="0"></a>
-        <div class="progress-container">
-            <div class="progress">
-                <div class="video-progress">
-                    <div></div>
+        <div ng-if="hero.url">
+            <a class="mSIcon mSVideo play-pause-btn" data-click="0"></a>
+        </div>
+        <div class="progress-container" style="display: none;">
+            <div class="wider-main">
+                <div class="row no-pad">
+                    <div class="pause">
+                        <ng-md-icon icon="pause"></ng-md-icon>
+                    </div>
+                    <div class="progress">
+                        <div class="video-progress">
+                            <div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -13,3 +22,4 @@
         <li data-bottom-thumb="{{hero.thumbnail}}" data-selfhostedMP4="{{hero.url}}"></li>
     </ul>
 </div>
+<!-- ng-show="hero.url != null" -->
