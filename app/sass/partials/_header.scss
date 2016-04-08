@@ -170,6 +170,13 @@ svg#Logo_1 {
     }
 }
 
+.wbody {
+    .hamburger > div,
+    .hamburger > div:nth-child(2) {
+        background-color: $bnm-orange;
+    }
+}
+
 .hamburger.active {
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -226,11 +233,12 @@ svg#Logo_1 {
     width: 100%;
     overflow-y: auto;
     z-index: 999;
-    background: $lighter-black;
+    background: $black;
     @include breakpoint (large) {
-        width: 40%;
+        width: 50%;
         display: table;
         height: 100%;
+        border-left: 1px solid $divider-grey;
     }
 }
 
@@ -238,11 +246,14 @@ svg#Logo_1 {
     margin-left: 20px;
     margin-right: 20px;
     @include breakpoint (large) {
-         padding-left: 86px;
+        padding-left: 86px;
         height: 100%;
         // position: relative;
         display: table-cell;
         vertical-align: top;
+    }
+    @include breakpoint (large) {
+        // padding-left: 86px;
     }
     li {
         // border-bottom: 1px solid #292929;
@@ -261,6 +272,10 @@ svg#Logo_1 {
                 // line-height: 61px;
             }
         }
+        .active {
+            color: $bnm-orange;
+        }
+        
     }
 }
 

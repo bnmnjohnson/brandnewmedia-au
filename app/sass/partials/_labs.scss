@@ -2,24 +2,11 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 22px;
-    .h2 {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 23px;
-        line-height: 32px;
-        font-family: $avenir-heavy;
-        letter-spacing: 0;
-        @include breakpoint (xlarge) {
-            font-size: 29px;
-            line-height: 41px;
-            margin-bottom: 10px;
-        }
-    }
     p {
         margin: 0;
-        margin-bottom: 12px;
-        font-size: 16px;
-        line-height: 30px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        line-height: 29px;
         color: $paragraph;
         letter-spacing: 0;
     }
@@ -27,6 +14,10 @@
         padding-left: 20px;
         padding-top: 22px;
         padding-right: 20px;
+    }
+    @include breakpoint (large) {
+        font-size: 16px;
+        line-height: 31px;
     }
     @include breakpoint (xlarge) {
         padding-left: 20px;
@@ -38,6 +29,24 @@
         padding-top: 30px;
         padding-right: 50px;
     }
+}
+
+.h2 {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 23px;
+    line-height: 32px;
+    font-family: $avenir-heavy;
+    letter-spacing: -0.009em;
+    @include breakpoint (xlarge) {
+        font-size: 29px;
+        line-height: 43px;
+        margin-bottom: 11px;
+    }
+}
+
+button.h2.more-btn {
+    margin-bottom: 58px;
 }
 
 // .post-entry {
@@ -98,14 +107,12 @@ li.tag {
         color: #999;
         line-height: 27px;
         letter-spacing: 0.13em;
-
     }
 }
 
 .post {
     margin-bottom: 34px;
-    @include breakpoint (medium) {}
-    @include breakpoint (xlarge) {
+    @include breakpoint (medium) {
         margin-bottom: 58px;
     }
     @include breakpoint (xxlarge) {

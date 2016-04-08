@@ -19,12 +19,14 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
     vm.currentPage = 0;
     vm.posts = [];
 
+
+
     $scope.excerpt = "eg hello l";
 
     // vm.total = BlogService.total();
 
-    console.log($routeParams.tag);
-    console.log($routeParams.author);
+    // console.log($routeParams.tag);
+    // console.log($routeParams.author);
 
 
     if (typeof $routeParams.tag !== 'undefined') {
@@ -35,6 +37,7 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
         });
 
         vm.loadMore = function() {
+
             vm.currentPage++;
             BlogService.allPostsByTag(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.tag).then(function(posts) {
                 vm.newPosts = posts;
@@ -81,17 +84,21 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
 
         };
 
-        vm.subtitle = 'showing results for "' + $routeParams.searchTerm + '"';
+        vm.subtitle = 'Showing results for "' + $routeParams.searchTerm + '"';
 
     } else {
         BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
             vm.posts = posts;
+
         });
 
         vm.loadMore = function() {
+
+
             vm.currentPage++;
             BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
                 vm.newPosts = posts;
+
                 vm.posts = vm.posts.concat(vm.newPosts);
 
             });
@@ -111,6 +118,17 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
     vm.search = function(term) {
         $location.path('/search/' + vm.searchTerm);
     };
+
+    vm.isPrepended = function() {
+        console.log("oh yeah im prepended");
+        setTimeout(openPopup, 1000);
+
+        function openPopup() {
+            $(".masonry-brick").addClass("masonry-visible");
+            // vm.loadingMore = false;
+        }
+
+    }
 
 
 }

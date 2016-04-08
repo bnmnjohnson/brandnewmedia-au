@@ -1,3 +1,25 @@
+[type='text']:focus,
+[type='password']:focus,
+[type='date']:focus,
+[type='datetime']:focus,
+[type='datetime-local']:focus,
+[type='month']:focus,
+[type='week']:focus,
+[type='email']:focus,
+[type='number']:focus,
+[type='search']:focus,
+[type='tel']:focus,
+[type='time']:focus,
+[type='url']:focus,
+[type='color']:focus,
+textarea:focus {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    transition: none;
+}
+
 label {
     color: $white;
     display: none;
@@ -6,9 +28,13 @@ label {
 .newsletter {
     background: $black;
     padding-top: 37px;
+    padding-bottom: 47px;
+
     // padding-bottom: 23px;
     @include breakpoint (medium) {
         padding-top: 52px;
+        padding-bottom: 62px;
+        border-bottom: 1px solid $divider-grey;
         // padding-bottom: 50px;
     }
     p {

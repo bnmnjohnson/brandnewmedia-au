@@ -1,17 +1,31 @@
 function OnRun($rootScope, $route, AppSettings) {
-  'ngInject';
+    'ngInject';
 
-  // change page title based on route
-  $rootScope.$on('$routeChangeSuccess', (event, currentRoute, toState) => {
-    $rootScope.pageTitle = '';
+$rootScope.loadingView = false;
 
-    if ( $route.current.title ) {
-      $rootScope.pageTitle += $route.current.title;
-      $rootScope.pageTitle += ' \u007C ';
-    }
+    $rootScope.$on('$routeChangeStart', function() {
+        console.log("changing");
+        $rootScope.loadingView = true;
+    });
 
-    $rootScope.pageTitle += AppSettings.appTitle;
-  });
+    $rootScope.$on('$routeChangeSuccess', function() {
+        console.log("changing");
+        $rootScope.loadingView = false;
+    });
+
+
+    // change page title based on route
+    $rootScope.$on('$routeChangeSuccess', (event, currentRoute, toState) => {
+
+        $rootScope.pageTitle = '';
+
+        if ($route.current.title) {
+            $rootScope.pageTitle += $route.current.title;
+            $rootScope.pageTitle += ' \u007C ';
+        }
+
+        $rootScope.pageTitle += AppSettings.appTitle;
+    });
 
 }
 

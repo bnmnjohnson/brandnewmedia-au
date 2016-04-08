@@ -38,7 +38,7 @@ $xlarge-gap: 116px;
 .filter-bar {
     display: block;
     width: 100%;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid $divider-light-grey;
     height: 70px;
     margin-bottom: 35px;
     overflow-x: auto;
@@ -61,7 +61,36 @@ $xlarge-gap: 116px;
     }
 }
 
-.labels {
+.labs-search {
+    border: none;
+    box-shadow: none;
+    color: $black;
+    // font-size: 15px;
+    margin: 0;
+    padding: 27px 0px;
+    @include breakpoint (medium) {
+        padding: 39px 0;
+    }
+    @include breakpoint (large) {
+        // for heigh 102px
+        padding: 51px 0px;
+        // font-size: 16px;
+    }
+    @include breakpoint(xlarge) {
+        // font-size: 18px;
+    }
+}
+
+.search-subtitle {
+    padding: 0;
+    margin: 0;
+    @include breakpoint (large) {
+        line-height: 102px;
+    }
+}
+
+.labels,
+.lab-controls {
     padding-bottom: 0;
     // padding-left: 20px;
     line-height: 70px;
@@ -93,7 +122,16 @@ $xlarge-gap: 116px;
     }
 }
 
-.contact-list {
+.lab-controls {
+    padding: 0px 20px;
+    @include breakpoint (large) {
+        padding: 0px;
+    }
+
+}
+
+.contact-list,
+.lab-controls {
     @include breakpoint (xxlarge) {
         padding-left: 30px;
     }

@@ -83,6 +83,7 @@
         .header-main {
             background: $white;
         }
+       
     }
     
     .hp-gifs {
@@ -110,7 +111,7 @@
         padding-top: 19px;
         padding-bottom: 20px;
         @include breakpoint (medium) {
-            padding-top: 52px;
+            padding-top: 47px;
             padding-bottom: 28px;
         }
         @include breakpoint (xlarge) {
@@ -185,7 +186,7 @@
     }
     
     .country a {
-        color: #d9d9d9;
+        color: $deselected-grey;
     }
     
     a.active {
@@ -263,6 +264,9 @@
         }
         @include breakpoint (large) {
             padding: 30px;
+        }
+        @include breakpoint (xxlarge) {
+            padding: 45px 60px;
         }
         z-index: 10;
         background-color: rgba(25, 25, 25, .7);

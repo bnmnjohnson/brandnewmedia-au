@@ -25,6 +25,7 @@ function MenuDirective($rootScope, $route) {
                 }
                 var currentLocation = (currentRoute.$$route.originalPath);
                 $rootScope.isActive = currentLocation;
+                console.log(currentLocation);
 
             });
 

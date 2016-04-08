@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 /*jshint browser: true */
 
 /**
@@ -9,10 +9,10 @@
  * @param propName {String} The name of the property.
  * @return {String} The current value of the element's style and given property. 
  */
-module.exports = function(el, propName) {
-  return el.currentStyle
-    ? el.currentStyle[propName]
-    : window.getComputedStyle
-      ? document.defaultView.getComputedStyle(el, null).getPropertyValue(propName)
-      : null;
-};
+// module.exports = function(el, propName) {
+//   return el.currentStyle
+//     ? el.currentStyle[propName]
+//     : window.getComputedStyle
+//       ? document.defaultView.getComputedStyle(el, null).getPropertyValue(propName)
+//       : null;
+// };

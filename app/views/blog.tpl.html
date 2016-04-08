@@ -2,42 +2,28 @@
 <div class="filter-bar">
     <div class="wider-main">
         <div class="row no-pad">
-            <ul class="labels">
-                <li class="country">
-                    <a ng-href="/contact/australia" ng-class=" { active : vm.menuItem == 'australia' || vm.menuItem == 'Australia' || vm.menuState == '/contact' }">  Australia </a>
-                </li>
-                <li class="country">
-                    <a ng-href="/contact/singapore" ng-class=" { active : vm.menuItem == 'singapore' || vm.menuItem == 'Singapore' }"> Singapore </a>
-                </li>
-                <li class="country">
-                    <a ng-href="/contact/philippines" ng-class=" { active : vm.menuItem == 'philippines' || vm.menuItem == 'Philippines' }"> Philippines </a>
-                </li>
-                <li class="country">
-                    <a ng-href="/contact/america" ng-class=" { active : vm.menuItem == 'america' || vm.menuItem == 'America' }"> North America </a>
-                </li>
-                <li class="country">
-                    <a ng-href="/contact/germany" ng-class=" { active : vm.menuItem == 'germany' 
-                || vm.menuItem == 'Germany' }"> Germany </a>
-                </li>
+            <ul class="lab-controls">
+                <form ng-submit="vm.search(term)" name="searchForm" ng-hide="vm.subtitle">
+                    <input type="search" ng-model="vm.searchTerm" ng-blur="searchInputBlur()" class="labs-search" placeholder="Search our labs...">
+                    <!-- <button type="submit" ng-submit="vm.search()"> Submit </button> -->
+                </form>
+                 <p class="search-subtitle">{{ vm.subtitle }}</p>
             </ul>
         </div>
     </div>
 </div>
 <div class="row no-pad">
     <div class="medium-12 columns">
-        <h1><small>{{ vm.subtitle }}</small></h1>
+       
     </div>
 </div>
-<!-- Search form -->
-<!-- <div>
-    <form ng-submit="vm.search(term)" name="searchForm">
-        <input type="text" ng-model="vm.searchTerm" ng-blur="searchInputBlur()">
-        <button type="submit" ng-submit="vm.search()"> Submit </button>
-    </form>
-</div> -->
+
+<div id="loading-bg" class="loading-bg" ng-show="vm.loadingPosts">
+    <div class="loading-spinner"></div>
+</div>
 <div class="labs-main">
-    <ul class="row small-up-1 large-up-2 no-pad">
-        <li class="column no-pad post" ng-repeat="post in vm.posts track by $index">
+    <ul id="container" masonry="{ transitionDuration: '0' }" preserve-order class="row small-up-1 large-up-2 no-pad">
+        <li class="masonry-brick column no-pad post" ng-repeat="post in vm.posts track by $index" prepend="vm.isPrepended()">
             <a ng-href="/labs/{{post.ID}}/{{post.slug}}" class="post-list-title">
                 <img ng-src="{{post.featured_image.source}}">
             </a>
@@ -47,7 +33,7 @@
                     <a ng-href="/author/{{post.author.name}}">{{post.author.name}}</a>
                 </div> -->
                 <a class="h2" ng-href="/labs/{{post.ID}}/{{post.slug}}">{{ post.title | decodeHtmlCodes }} </a>
-                <div class="post-list-excerpt" ng-bind-html="post.excerpt | limitTo:4 "></div>
+                <div class="post-list-excerpt" ng-bind-html="post.excerpt"></div>
                 <ul class="tags">
                     <li class="tag" ng-repeat="tag in post.terms.post_tag">
                         <a ng-href="/tag/{{tag.slug}}">#{{ tag.name }} </a>
@@ -55,9 +41,38 @@
                 </ul>
             </div>
         </li>
+        <div id="loading-more" class="loading-more" ng-show="vm.loadingMore">
+            <div class="loading-spinner"></div>
+        </div>
     </ul>
 </div>
 <div class="row">
-    <button class="more-btn button" href="#" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">More from the labs</button>
+    <button class="h2 more-btn" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">More from the labs</button>
 </div>
 <div ng-include=" 'footer.html' "> </div>
+<style>
+</style>
+<script>
+// $(function() {
+
+//     $('.more-btn').click(function() {
+//         console.log("imclicked");
+//          $("#loading-bg").fadeIn("fast");
+//         var $container = $('#container');
+//         $container.imagesLoaded(function() {
+//             console.log("blog posts loaded");
+//             $("#loading-bg").delay(1000).fadeOut("slow");
+//         });
+//     });
+
+// });
+
+$(function() {
+    $(window).load(function() {
+
+        $(".masonry-brick").addClass("masonry-visible");
+        // $("#loading-bg").delay(1000).fadeOut("slow");
+
+    });
+});
+</script>

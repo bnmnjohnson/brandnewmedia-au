@@ -1,4 +1,4 @@
-function HomeCtrl($rootScope, $scope, $sce, $http, $httpParamSerializer, DarkBackground, MetadataService, NewsletterService, TransformRequestAsFormPost) {
+function HomeCtrl($rootScope, $scope, DarkBackground, MetadataService, NewsletterService) {
 
     var vm = this;
 
@@ -8,42 +8,46 @@ function HomeCtrl($rootScope, $scope, $sce, $http, $httpParamSerializer, DarkBac
 
     $scope.home = {
         "title": "We're Brand New Media. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.",
-        "link": "Watch our story",
-        "url": "/company"
+        "link": "View Our Work"
     }
 
     $scope.brandNewMedia = {
         title: 'Our brand story',
         cta: 'Watch the story',
-        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        smallImg: 'ratio01.png',
+        largeImg: 'ratio02.png',
         link: '/case-story'
     }
 
     $scope.lunaPark = {
         title: 'Love is a rollercoaster',
-        cta: 'Watch the story',
-        img: 'WillingEquatorialAyeaye.gif',
+        cta: 'Luna Park Sydney',
+        smallImg: 'ratio01.png',
+        largeImg: 'ratio02.png',
         link: '/case-story'
     }
 
     $scope.bayer = {
-        title: 'Bayer',
-        cta: 'Watch the story',
-        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        title: 'Farm Animals',
+        cta: 'Bayer',
+        smallImg: 'ratio01.png',
+        largeImg: 'ratio02.png',
         link: '/case-story'
     }
 
     $scope.bupa = {
-        title: 'Bupa',
-        cta: 'Watch the story',
-        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        title: 'Something about bupa',
+        cta: 'Bupa',
+        smallImg: 'ratio01.png',
+        largeImg: 'ratio02.png',
         link: '/case-story'
     }
 
     $scope.surfingAustralia = {
-        title: 'Surfing Australia',
-        cta: 'Watch the story',
-        img: 'AcidicChillyCrownofthornsstarfish.gif',
+        title: 'Our peak surfing destination for video content',
+        cta: 'Surfing Australia',
+        smallImg: 'ratio01.png',
+        largeImg: 'ratio02.png',
         link: '/case-story'
     }
 
@@ -54,18 +58,17 @@ function HomeCtrl($rootScope, $scope, $sce, $http, $httpParamSerializer, DarkBac
     NewsletterService.watch(); // register enquire breakpoint
     NewsletterService.ismatch(function() {
         $scope.showNewsletter = true;
-        console.log('MAX 720 TRUE');
+        // console.log('MAX 720 TRUE');
     });
     NewsletterService.notmatch(function() {
         $scope.showNewsletter = false;
-        console.log('MAX 720 FALSE');
+        // console.log('MAX 720 FALSE');
     });
-
 
 
 }
 
-HomeCtrl.$inject = ["$rootScope", "$scope", "$sce", "$http", "$httpParamSerializer", "DarkBackground", "MetadataService", "NewsletterService", "TransformRequestAsFormPost"];
+HomeCtrl.$inject = ["$rootScope", "$scope", "DarkBackground", "MetadataService", "NewsletterService"];
 
 export default {
     name: 'HomeCtrl',
