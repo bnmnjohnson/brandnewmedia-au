@@ -1,54 +1,56 @@
-<div class="wider-main">
-    <div class="row no-pad newsletter" ng-show="showNewsletter">
-        <div class="show-for-medium medium-3 columns no-pad">
-            <p class="pull-p-right"> Newsletter</p>
-        </div>
-        <div class="small-12 medium-9 large-8 columns no-pad">
-            <div class="small-12 columns no-pad">
-                <div class="small-12 columns no-pad">
-                    <div class="small-10 large-12 columns no-pad">
-                        <div class="form-group">
-                            <p id="signup-message"> Subscribe to our newsletter to receive good wholesome stuff, once a month or thereabouts. </p>
-                            <p id="submitted-message" style="display: none;">You have submitted successfully.</p>
-                            <p id="error-message" style="display: none;">There was an error submitting your form.</p>
-                        </div>
-                    </div>
-                    <div class="small-2 hide-for-large columns no-pad">
-                        <button class="mobile-close-btn" ng-click="showNewsletter =! showNewsletter">
-                            <p>
-                                <ng-md-icon icon="close"></ng-md-icon>
-                            </p>
-                        </button>
-                    </div>
-                </div>
-                <form class="small-12 columns no-pad" autocomplete="off" action="http://brandnewmedia1.createsend.com/t/j/s/nuyuri/" method="post" id="subForm">
-                    <div class="form-group">
-                        <div class="fieldName">
-                            <input id="fieldName" name="cm-name" type="text" placeholder="Name" />
-                        </div>
-                        <div class="fieldEmail">
-                            <input id="fieldEmail" name="cm-nuyuri-nuyuri" type="email" required placeholder="Email Address" />
-                        </div>
-                        <div>
-                            <button type="submit" class="newsl-btn" ng-click="processForm()">Subscribe</button>
-                        </div>
-                    </div>
-                </form>
+<div class="newsletter-container">
+    <div class="wider-main">
+        <div class="row no-pad newsletter" ng-show="showNewsletter">
+            <div class="show-for-medium medium-3 columns no-pad">
+                <p class="pull-p-right"> Newsletter</p>
             </div>
-        </div>
-        <div class="show-for-large large-1 columns no-pad">
-            <button class="close-btn" ng-click="showNewsletter = !showNewsletter">
-                <p>
-                    <ng-md-icon icon="close"></ng-md-icon>
-                </p>
-            </button>
+            <div class="small-12 medium-9 large-8 columns no-pad">
+                <div class="small-12 columns no-pad">
+                    <div class="small-12 columns no-pad">
+                        <div class="small-10 large-12 columns no-pad">
+                            <div class="form-group">
+                                <p id="signup-message"> Subscribe to our newsletter to receive good wholesome stuff, once a month or thereabouts. </p>
+                                <p id="submitted-message" style="display: none;">You have submitted successfully.</p>
+                                <p id="error-message" style="display: none;">There was an error submitting your form.</p>
+                            </div>
+                        </div>
+                        <div class="small-2 hide-for-large columns no-pad">
+                            <button class="mobile-close-btn" ng-click="showNewsletter =! showNewsletter">
+                                <p>
+                                    <ng-md-icon icon="close"></ng-md-icon>
+                                </p>
+                            </button>
+                        </div>
+                    </div>
+                    <form class="small-12 columns no-pad" autocomplete="off" action="http://brandnewmedia1.createsend.com/t/j/s/nuyuri/" method="post" id="subForm">
+                        <div class="form-group">
+                            <div class="fieldName">
+                                <input id="fieldName" name="cm-name" type="text" placeholder="Name" />
+                            </div>
+                            <div class="fieldEmail">
+                                <input id="fieldEmail" name="cm-nuyuri-nuyuri" type="email" required placeholder="Email Address" />
+                            </div>
+                            <div>
+                                <button type="submit" class="newsl-btn" ng-click="processForm()">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="show-for-large large-1 columns no-pad">
+                <button class="close-btn" ng-click="showNewsletter = !showNewsletter">
+                    <p>
+                        <ng-md-icon icon="close"></ng-md-icon>
+                    </p>
+                </button>
+            </div>
         </div>
     </div>
 </div>
 <footer class="footer">
     <div class="wider-main">
         <!-- Footer -->
-        <div class="row contact-footer">
+        <div class="row no-pad contact-footer">
             <div class="medium-3 columns no-pad-left">
                 <ul>
                     <li class="hide-for-medium hide-for-large">
@@ -86,7 +88,7 @@
         </div>
         <div class="row no-pad show-for-medium show-for-large">
             <!-- <div class="small-details"> -->
-            <small> © 2016 Brand New Media. All rights reserved. Privacy Policy. Terms and Conditions. </small>
+            <small class="pull-p-right"> © 2016 Brand New Media. All rights reserved. Privacy Policy. Terms and Conditions. </small>
             <!-- </div> -->
         </div>
     </div>

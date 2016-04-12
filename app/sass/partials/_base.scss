@@ -80,10 +80,12 @@
                 color: $paragraph;
             }
         }
-        .header-main {
-            background: $white;
+        .svg-menu-toggle .bar,
+        .svg-menu-toggle .mobile-bar,
+        .svg-mobile-menu-toggle .bar,
+        .svg-mobile-menu-toggle .mobile-bar {
+            fill: $bnm-orange;
         }
-       
     }
     
     .hp-gifs {
@@ -265,15 +267,12 @@
         @include breakpoint (large) {
             padding: 30px;
         }
-        @include breakpoint (xxlarge) {
-            padding: 45px 60px;
-        }
         z-index: 10;
         background-color: rgba(25, 25, 25, .7);
-        -webkit-transition: all .2s ease-out;
-        -moz-transition: all .2s ease-out;
-        -o-transition: all .2s ease-out;
-        transition: all .2s ease-out;
+        -webkit-transition: all .4s linear;
+        -moz-transition: all .4s linear;
+        -o-transition: all .4s linear;
+        transition: all .4s linear;
         -moz-opacity: 0;
         -khtml-opacity: 0;
         opacity: 0;
@@ -315,21 +314,26 @@
         }
         z-index: 10;
         background-color: rgba(25, 25, 25, .7);
-        -webkit-transition: all .2s ease-out;
-        -moz-transition: all .2s ease-out;
-        -o-transition: all .2s ease-out;
-        transition: all .2s ease-out;
+        -webkit-transition: all .4s linear;
+        -moz-transition: all .4s linear;
+        -o-transition: all .4s linear;
+        transition: all .4s linear;
         -moz-opacity: 0;
         -khtml-opacity: 0;
         opacity: 0;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
         filter: alpha(opacity=0);
     }
-
+    
     .gigya-icon {
         cursor: pointer;
         img {
             height: 100%;
             max-width: none;
         }
+    }
+
+    .newsletter-container {
+        width: 100%;
+        background: $black;
     }

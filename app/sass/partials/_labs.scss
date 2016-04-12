@@ -45,7 +45,16 @@
     }
 }
 
-button.h2.more-btn {
+.h1 {
+    display: block;
+    margin-bottom: 9px;
+    letter-spacing: -0.009em;
+    @include breakpoint (xlarge) {
+        margin-bottom: 11px;
+    }
+}
+button.h2.more-btn,
+button.h1.more-btn {
     margin-bottom: 58px;
 }
 
@@ -119,3 +128,22 @@ li.tag {
         margin-bottom: 116px;
     }
 }
+
+.disabled {
+    color: $deselected-grey;
+}
+
+
+.masonry-brick {
+    display: initial;
+    opacity: 0;
+    // transition:opacity 8s linear;
+}
+
+.masonry-visible {
+    display: block;
+    opacity: 1;
+    transition:opacity 0.4s linear;
+}
+
+

@@ -1,31 +1,54 @@
 <!-- Nav -->
-<nav class="navigation off-canvas--hide" aria-hidden="false" role="navigation">
+<!-- <nav class="navigation off-canvashide" aria-hidden="false" role="navigation">
     <ul class="main-menu title-message">
         <li><a href="/" ng-class="{ active: isActive == '/'}"> Work </a> </li>
-        <!-- <li><a href="/case-story"> Example Case Story </a> </li> -->
         <li><a href="/company" ng-class="{ active: isActive == '/company'}"> Company </a></li>
         <li><a href="/people" ng-class="{ active: isActive == '/people'}"> People </a></li>
         <li><a href="/labs" ng-class="{ active: isActive == '/labs' }"> Labs </a></li>
         <li><a href="/contact" ng-class="{ active: isActive == '/contact'}"> Contact </a></li>
-        <!-- <li><a href="#" ng-click='searchButton()'> Search </a></li> -->
+    </ul>
+</nav> -->
+<!-- Pushy Menu -->
+<nav class="pushy pushy-right" pushy-menu>
+    <ul class="main-menu title-message">
+        <li class="pushy-link"><a href="/" ng-class="{ active: isActive == '/'}"> Work </a> </li>
+        <li class="pushy-link"><a href="/company" ng-class="{ active: isActive == '/company'}"> Company </a></li>
+        <li class="pushy-link"><a href="/people" ng-class="{ active: isActive == '/people'}"> People </a></li>
+        <li class="pushy-link"><a href="/labs" ng-class="{ active: isActive == '/labs' }"> Labs </a></li>
+        <li class="pushy-link"><a href="/contact" ng-class="{ active: isActive == '/contact'}"> Contact </a></li>
     </ul>
 </nav>
 <!-- Header -->
 <header class="header-main transparent">
     <div class="header-inner">
         <div class="row no-pad">
-            <a id="menu-trigger" class="hamburger" menu-directive>
-                <div></div>
-                <div></div>
-            </a>
-            <a href="/" class="logo-mobile show-for-medium-up">
+            <!-- CSS3 menu button -->
+            <div class="hamburger show-for-small-only">
+                <svg id="mobile" width="26" height="34" viewBox="0 0 26 34" preserveAspectRatio="xMinYMin meet" style="padding-top: 10px;">
+                    <title>Mobile Menu</title>
+                    <g class="svg-mobile-menu-toggle">
+                        <rect class="mobile-bar" fill="#FFFFFF" width="26" height="2" />
+                        <rect class="mobile-bar" y="11" fill="#FFFFFF" width="26" height="2" />
+                        <!-- needs to be here as a 'hit area' -->
+                        <rect id="mobile-trigger" width="30" height="40" fill="none">
+                        </rect>
+                    </g>
+                </svg>
+            </div>
+            <div class="hamburger hide-for-small-only">
+                <svg id="desktop" width="47" height="34" viewBox="0 0 47 34" preserveAspectRatio="xMinYMin meet" style="padding-top: 10px;">
+                    <title>Mobile Menu</title>
+                    <g class="svg-menu-toggle" id="test">
+                        <rect class="bar" fill="#FFFFFF" width="47" height="2" />
+                        <rect class="bar" y="16" fill="#FFFFFF" width="47" height="2" />
+                        <!-- needs to be here as a 'hit area' -->
+                        <rect id="desktop-trigger" width="150" height="150" fill="none"></rect>
+                    </g>
+                </svg>
+            </div>
+            <a href="/" class="logo-mobile">
                 <div ng-include=" 'logo.html' "> </div>
-            </a>
-            <a href="/" class="logo-mobile hide-for-medium-up">
-                BNM
             </a>
         </div>
     </div>
-    <!-- Menu Trigger -->
 </header>
-

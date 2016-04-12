@@ -1,5 +1,182 @@
 /*
  *******************************************************
+ * Pushy
+ *******************************************************
+ */
+
+$small_menu_width: 100%;
+$menu_width: 500px;
+$large_menu_width: 100%;
+/* Menu Appearance */
+
+.pushy {
+    position: fixed;
+    width: $small_menu_width;
+    @include breakpoint (large) {
+        width: $menu_width;
+    }
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    background: $black;
+    overflow: auto;
+    // visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+    /* enables momentum scrolling in iOS overflow elements */
+    &.pushy-left {
+        left: 0;
+    }
+    &.pushy-right {
+        //right: -$small_menu_width;
+        @include breakpoint (large) {
+            //right: -$menu_width;
+        }
+    }
+}
+
+
+/* Menu Movement */
+
+.pushy-left {
+    -webkit-transform: translate3d( unquote('-' + $small_menu_width), 0, 0);
+    -ms-transform: translate3d( unquote('-' + $small_menu_width), 0, 0);
+    transform: translate3d( unquote('-' + $small_menu_width), 0, 0);
+    @include breakpoint (large) {
+        -webkit-transform: translate3d( unquote('-' + $menu_width), 0, 0);
+        -ms-transform: translate3d( unquote('-' + $menu_width), 0, 0);
+        transform: translate3d( unquote('-' + $menu_width), 0, 0);
+    }
+}
+
+.pushy-open-left {
+    #container,
+    .push {
+        -webkit-transform: translate3d( $small_menu_width, 0, 0);
+        -ms-transform: translate3d( $small_menu_width, 0, 0);
+        transform: translate3d( $small_menu_width, 0, 0);
+        @include breakpoint (large) {
+            -webkit-transform: translate3d( $menu_width, 0, 0);
+            -ms-transform: translate3d( $menu_width, 0, 0);
+            transform: translate3d( $menu_width, 0, 0);
+        }
+    }
+}
+
+.pushy-right {
+    -webkit-transform: translate3d( $small_menu_width, 0, 0);
+    -ms-transform: translate3d( $small_menu_width, 0, 0);
+    transform: translate3d( $small_menu_width, 0, 0);
+    @include breakpoint (large) {
+        -webkit-transform: translate3d( $menu_width, 0, 0);
+        -ms-transform: translate3d( $menu_width, 0, 0);
+        transform: translate3d( $menu_width, 0, 0);
+    }
+}
+
+.pushy-open-right {
+
+}
+
+.pushy-open-left,
+.pushy-open-right {
+    .pushy {
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        &.pushy-right {
+            right: 0;
+        }
+    }
+}
+
+
+/* Menu Transitions */
+
+#container,
+.pushy,
+.push {
+    transition: transform .6s cubic-bezier(.16, .68, .43, .99);
+}
+
+
+/* Site Overlay */
+
+.site-overlay {
+    display: none;
+}
+
+.pushy-open-left,
+.pushy-open-right {
+    .site-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9998;
+        background-color: rgba(25, 25, 25, 0.5);
+        -webkit-animation: fade 500ms;
+        animation: fade 500ms;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// Menu
+.main-menu {
+    margin-left: 20px;
+    margin-right: 20px;
+    @include breakpoint (large) {
+        padding-left: 86px;
+        height: 100%;
+        display: table-cell;
+        vertical-align: top;
+    }
+    li {
+        @include breakpoint (large) {
+            border-bottom: none;
+        }
+        a {
+            font-size: 23px;
+            line-height: 48px;
+            font-family: $avenir-heavy;
+            text-transform: none;
+            color: $white;
+            letter-spacing: 0px;
+            @include breakpoint (medium) {
+                font-size: 46px;
+            }
+        }
+        .active {
+            color: $bnm-orange;
+        }
+    }
+}
+
+
+/* Menu Button */
+
+
+/*
+ *******************************************************
  * Header
  *******************************************************
  */
@@ -13,7 +190,7 @@
     top: 0;
     box-sizing: border-box;
     transition: top 0.6s;
-    background: $black;
+    background: rgba(25, 25, 25, 0.3);
     z-index: 9999;
     overflow: hidden;
     @include breakpoint (medium) {
@@ -21,13 +198,6 @@
     }
 }
 
-// .header-inner {
-//     width: calc(100% - 30px);
-//     max-width: 100%;
-//     margin-left: 20px;
-//     margin-right: 10px;
-//     position: relative;
-// }
 .off-canvas {
     background: transparent;
 }
@@ -39,13 +209,14 @@
         height: 77px;
     }
     .hamburger {
+        margin-top: 10px;
         @include breakpoint (medium) {
-            top: 10px;
+            margin-top: 20px;
         }
     }
     .logo-mobile {
         @include breakpoint (large) {
-            margin-top: 23px;
+            margin-top: 21px;
         }
     }
 }
@@ -56,20 +227,6 @@
 
 .header-main.absolute {
     position: absolute;
-}
-
-svg#Logo_1 {
-    width: 22px;
-    height: 22px;
-    margin: 0px;
-    @include breakpoint (medium) {
-        width: 29px;
-        height: 29px;
-    }
-    @include breakpoint (large) {
-        width: 37px;
-        height: 37px;
-    }
 }
 
 
@@ -105,6 +262,20 @@ svg#Logo_1 {
     }
 }
 
+svg#Logo_1 {
+    width: 22px;
+    height: 22px;
+    margin: 0px;
+    @include breakpoint (medium) {
+        width: 29px;
+        height: 29px;
+    }
+    @include breakpoint (large) {
+        width: 37px;
+        height: 37px;
+    }
+}
+
 
 /*
  *******************************************************
@@ -116,9 +287,13 @@ svg#Logo_1 {
     position: relative;
     z-index: 99999;
     right: 0px;
-    top: 14px;
-    width: 20px;
-    height: 20px;
+    margin-top: 12px;
+    @include breakpoint (medium) {
+        margin-top: 20px;
+    }
+    @include breakpoint (large) {
+        margin-top: 44px;
+    }
     display: block;
     line-height: 1;
     float: right;
@@ -126,187 +301,64 @@ svg#Logo_1 {
     -moz-transition: 0.3s -moz-transform cubic-bezier(0, 0, .58, 1);
     -o-transition: 0.3s -o-transform cubic-bezier(0, 0, .58, 1);
     transition: 0.3s transform cubic-bezier(0, 0, .58, 1);
-    @include breakpoint (medium) {
-        top: 32px;
-    }
-    @include breakpoint (large) {
-        width: 50px;
-        height: 50px;
-    }
     &:hover {
         cursor: pointer;
     }
-}
-
-.hamburger > div,
-.hamburger > div:nth-child(2) {
-    left: 11px;
-    content: ' ';
-    height: 20px;
-    width: 2px;
-    background-color: $white;
-    position: absolute;
-    @include breakpoint (medium) {
-        // height: 22px;
-        left: 25px;
-    }
-    @include breakpoint (large) {
-        height: 46px;
+    *, *:before, *:after {
+       box-sizing: initial;
     }
 }
 
-.hamburger > div {
-    transform: rotate(-90deg);
-}
-
-.hamburger > div:nth-child(2) {
-    margin-top: 6px;
-    transform: rotate(90deg);
-    @include breakpoint (medium) {
-        margin-top: 8px;
+.svg-menu-toggle,
+.svg-mobile-menu-toggle {
+    fill: #fff;
+    pointer-events: all; //needs to be there so the hover works
+    cursor: pointer;
+    .bar,
+    .mobile-bar {
+        -webkit-transform: rotate(0) translateY(0) translateX(0);
+        transform: rotate(0) translateY(0) translateX(0);
+        opacity: 1;
+        -webkit-transform-origin: 20px 10px;
+        transform-origin: 20px 10px;
+        -webkit-transition: -webkit-transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+        transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
     }
-    @include breakpoint (large) {
-        margin-top: 15px;
+    .bar:nth-of-type(1),
+    .mobile-bar:nth-of-type(1) {
+        -webkit-transform-origin: 20px 10px;
+        transform-origin: 20px 10px;
     }
-}
-
-.wbody {
-    .hamburger > div,
-    .hamburger > div:nth-child(2) {
-        background-color: $bnm-orange;
-    }
-}
-
-.hamburger.active {
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active > div {
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    transform: rotate(-45deg);
-}
-
-.hamburger.active > div:nth-child(2) {
-    margin-top: 0px;
-    transform: rotate(45deg);
-}
-
-.hamburger.active.active-end > div {
-    transform: rotate(-90deg);
-}
-
-.hamburger.active.active-end > div:nth-child(2) {
-    margin-top: 6px;
-    transform: rotate(90deg);
-    @include breakpoint (medium) {
-        margin-top: 8px;
-    }
-    @include breakpoint (large) {
-        margin-top: 15px;
+    .bar:nth-of-type(3),
+    .mobile-bar:nth-of-type(3) {
+        -webkit-transform-origin: 20px 20px;
+        transform-origin: 20px 20px;
     }
 }
 
+.svg-menu-toggle.active {
+    .bar:nth-of-type(1) {
+        -webkit-transform: rotate(45deg) translateY(8px) translateX(-4px);
+        transform: rotate(45deg) translateY(8px) translateX(-4px);
+    }
+    .bar:nth-of-type(2) {
+        -webkit-transform: rotate(-45deg) translateY(-8px) translateX(-3px);
+        transform: rotate(-45deg) translateY(-8px) translateX(-3px);
+    }
+}
 
-/*
- *******************************************************
- * Mobile Navigation
- *******************************************************
- */
+.svg-mobile-menu-toggle.active {
+    .mobile-bar:nth-of-type(1) {
+        -webkit-transform: rotate(45deg) translateY(13px) translateX(1px);
+        transform: rotate(45deg) translateY(13px) translateX(1px);
+    }
+    .mobile-bar:nth-of-type(2) {
+        -webkit-transform: rotate(-45deg) translateY(-8px) translateX(3px);
+        transform: rotate(-45deg) translateY(-8px) translateX(3px);
+    }
+}
 
-.navigation {
+.inline-svg {
     display: block;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    /* Off Canvas Menu Slide in Speed */
-    -webkit-transition: 0.3s -webkit-transform cubic-bezier(0, 0, .58, 1);
-    -moz-transition: 0.3s -moz-transform cubic-bezier(0, 0, .58, 1);
-    -o-transition: 0.3s -o-transform cubic-bezier(0, 0, .58, 1);
-    transition: 0.3s transform cubic-bezier(0, 0, .58, 1);
-    width: 100%;
-    overflow-y: auto;
-    z-index: 999;
-    background: $black;
-    @include breakpoint (large) {
-        width: 50%;
-        display: table;
-        height: 100%;
-        border-left: 1px solid $divider-grey;
-    }
-}
-
-.main-menu {
-    margin-left: 20px;
-    margin-right: 20px;
-    @include breakpoint (large) {
-        padding-left: 86px;
-        height: 100%;
-        // position: relative;
-        display: table-cell;
-        vertical-align: top;
-    }
-    @include breakpoint (large) {
-        // padding-left: 86px;
-    }
-    li {
-        // border-bottom: 1px solid #292929;
-        @include breakpoint (large) {
-            border-bottom: none;
-        }
-        a {
-            font-size: 23px;
-            line-height: 48px;
-            font-family: $avenir-heavy;
-            text-transform: none;
-            color: $white;
-            letter-spacing: 0px;
-            @include breakpoint (medium) {
-                font-size: 46px;
-                // line-height: 61px;
-            }
-        }
-        .active {
-            color: $bnm-orange;
-        }
-        
-    }
-}
-
-
-/* Hide : Off Canvas Menu */
-
-.off-canvas--hide {
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    -o-transform: translateX(100%);
-    transform: translateX(100%);
-}
-
-
-/* Show : Off Canvas Menu Class */
-
-.off-canvas--show {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
-}
-
-.navigation__link {
-    display: block;
-    text-align: center;
-    padding-left: 1.25rem;
-    /* 20/16 = 1.25rem */
-    padding: 0.625rem 1.25rem;
-    /* 10/16 = 0.625rem */
-    /* 20/16 = 1.25rem */
+    margin: 0 auto;
 }

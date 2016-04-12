@@ -7,8 +7,8 @@ function FullWidthVideo() {
             scope.$watch(attrs.fullWidthVideo, function(value) {
                 setTimeout(function() {
                     $('#universal_video_background_default').universal_video_background({
-                        width: 1920,
-                        height: 768,
+                        width: 1250,
+                        height: 620,
                         autoPlayFirstVideo: false,
                         width100Proc: true,
                         responsive: true,

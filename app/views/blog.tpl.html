@@ -18,9 +18,7 @@
     </div>
 </div>
 
-<div id="loading-bg" class="loading-bg" ng-show="vm.loadingPosts">
-    <div class="loading-spinner"></div>
-</div>
+<p> {{vm.total}}</p>
 <div class="labs-main">
     <ul id="container" masonry="{ transitionDuration: '0' }" preserve-order class="row small-up-1 large-up-2 no-pad">
         <li class="masonry-brick column no-pad post" ng-repeat="post in vm.posts track by $index" prepend="vm.isPrepended()">
@@ -32,7 +30,7 @@
                     {{ post.date | date:'dd MMM yyyy' }}&nbsp; by&nbsp;
                     <a ng-href="/author/{{post.author.name}}">{{post.author.name}}</a>
                 </div> -->
-                <a class="h2" ng-href="/labs/{{post.ID}}/{{post.slug}}">{{ post.title | decodeHtmlCodes }} </a>
+                <a class="h1" ng-href="/labs/{{post.ID}}/{{post.slug}}">{{ post.title | decodeHtmlCodes }} </a>
                 <div class="post-list-excerpt" ng-bind-html="post.excerpt"></div>
                 <ul class="tags">
                     <li class="tag" ng-repeat="tag in post.terms.post_tag">
@@ -41,13 +39,11 @@
                 </ul>
             </div>
         </li>
-        <div id="loading-more" class="loading-more" ng-show="vm.loadingMore">
-            <div class="loading-spinner"></div>
-        </div>
     </ul>
 </div>
 <div class="row">
-    <button class="h2 more-btn" ng-class="vm.nextPageDisabledClass()" ng-click="vm.loadMore()">More from the labs</button>
+    <button class="disableable h1 more-btn" disable="disableIt" ng-click="vm.loadMore()"><span ng-show="vm.loading">Loading...</span><span ng-hide="vm.loading"><span ng-show="disableIt">No more</span><span ng-show="!disableIt">More</span> from the labs</span></button>
+</div>
 </div>
 <div ng-include=" 'footer.html' "> </div>
 <style>

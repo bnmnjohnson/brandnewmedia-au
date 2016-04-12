@@ -36,9 +36,10 @@
 
 <body class="{{bodyclass}}" ng-controller="AppCtrl as vm">
     <div ng-include=" 'header.html' "> </div>
-    <span ng-show="loadingView"> <p style="color:orange; font-size: 52px;">loading the view...</p> </span>
+    <div class="site-overlay"></div>
+
     <main role="main">
-        <div ng-if='!loadingView' ng-view autoscroll="true"></div>
+        <div ng-view autoscroll="true"></div>
     </main>
     </div>
     <script>

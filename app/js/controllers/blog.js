@@ -13,34 +13,41 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum tortor augue.'
     });
 
-    // Concat load more posts http://jsfiddle.net/api/post/library/pure/
     var vm = this;
     vm.postsPerPage = 4;
     vm.currentPage = 0;
     vm.posts = [];
-
-
-
-    $scope.excerpt = "eg hello l";
-
-    // vm.total = BlogService.total();
-
-    // console.log($routeParams.tag);
-    // console.log($routeParams.author);
-
+    $scope.disableIt = false;
+    vm.loading = true;
 
     if (typeof $routeParams.tag !== 'undefined') {
         // If we are searching all posts by by tag
 
         BlogService.allPostsByTag(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.tag).then(function(posts) {
             vm.posts = posts;
+
+            var numberOfNewPosts = posts.length;
+
+            if (numberOfNewPosts < vm.postsPerPage) {
+                $scope.disableIt = true;
+            } else {
+                $scope.disableIt = false;
+            }
         });
+
 
         vm.loadMore = function() {
 
             vm.currentPage++;
             BlogService.allPostsByTag(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.tag).then(function(posts) {
-                vm.newPosts = posts;
+                var numberOfNewPosts = vm.newPosts.length;
+
+                if (numberOfNewPosts < vm.postsPerPage) {
+                    $scope.disableIt = true;
+                } else {
+                    $scope.disableIt = false;
+                }
+
                 vm.posts = vm.posts.concat(vm.newPosts);
 
             });
@@ -53,12 +60,21 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
         // If we are searching all tags by author
         BlogService.allPostsByAuthor(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.author).then(function(posts) {
             vm.posts = posts;
+
+
         });
 
         vm.loadMore = function() {
             vm.currentPage++;
             BlogService.allPostsByAuthor(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.author).then(function(posts) {
-                vm.newPosts = posts;
+                var numberOfNewPosts = vm.newPosts.length;
+
+                if (numberOfNewPosts < vm.postsPerPage) {
+                    $scope.disableIt = true;
+                } else {
+                    $scope.disableIt = false;
+                }
+
                 vm.posts = vm.posts.concat(vm.newPosts);
 
             });
@@ -70,7 +86,16 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
     } else if (typeof $routeParams.searchTerm !== 'undefined') {
         // If we are searching
         BlogService.allPostsBySearchTerm(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.searchTerm).then(function(posts) {
+
             vm.posts = posts;
+
+            var numberOfNewPosts = posts.length;
+
+            if (numberOfNewPosts < vm.postsPerPage) {
+                $scope.disableIt = true;
+            } else {
+                $scope.disableIt = false;
+            }
 
         });
 
@@ -78,6 +103,15 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
             vm.currentPage++;
             BlogService.allPostsBySearchTerm(vm.currentPage * vm.postsPerPage, vm.postsPerPage, $routeParams.searchTerm).then(function(posts) {
                 vm.newPosts = posts;
+
+                var numberOfNewPosts = posts.length;
+
+                if (numberOfNewPosts < vm.postsPerPage) {
+                    $scope.disableIt = true;
+                } else {
+                    $scope.disableIt = false;
+                }
+
                 vm.posts = vm.posts.concat(vm.newPosts);
 
             });
@@ -94,10 +128,21 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
 
         vm.loadMore = function() {
 
+            vm.loading = true;
 
             vm.currentPage++;
+
             BlogService.allPosts(vm.currentPage * vm.postsPerPage, vm.postsPerPage).then(function(posts) {
+
                 vm.newPosts = posts;
+
+                var numberOfNewPosts = vm.newPosts.length;
+
+                if (numberOfNewPosts < vm.postsPerPage) {
+                    $scope.disableIt = true;
+                } else {
+                    $scope.disableIt = false;
+                }
 
                 vm.posts = vm.posts.concat(vm.newPosts);
 
@@ -106,26 +151,19 @@ function BlogController($scope, $location, $routeParams, $rootScope, WhiteBackgr
         };
     }
 
-    vm.nextPageDisabledClass = function() {
-        return vm.currentPage >= vm.pageCount() - 1 ? "disabled" : "";
-    };
-
-    vm.pageCount = function() {
-        return Math.ceil(vm.total / vm.postsPerPage);
-        console.log(vm.total);
-    };
 
     vm.search = function(term) {
         $location.path('/search/' + vm.searchTerm);
     };
 
     vm.isPrepended = function() {
-        console.log("oh yeah im prepended");
-        setTimeout(openPopup, 1000);
 
-        function openPopup() {
+        setTimeout(makeVisible, 1000);
+        vm.loading = false;
+
+        function makeVisible() {
             $(".masonry-brick").addClass("masonry-visible");
-            // vm.loadingMore = false;
+
         }
 
     }
